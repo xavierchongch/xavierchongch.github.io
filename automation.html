@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Xavier — Tax Automation</title>
-<meta name="description" content="Senior Tax Analyst, CPA. Canadian tax, global provision and automation." />
+<title>Xavier — Automation & Data</title>
+<meta name="description" content="Python, SAP GUI Scripting and Power Query tools for tax workflows — T2 Extract and Reg 105 Automation." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -571,94 +571,134 @@
 <body>
 <nav id="nav"><div class="container">
   <div class="logo"><a href="index.html" style="text-decoration:none;color:inherit;">Xavier&nbsp;&middot;&nbsp;<em>Tax Automation</em></a></div>
-  <div class="nav-links"><a href="index.html"  class="active">Home</a><a href="provision.html">Provision</a><a href="tax.html">Tax</a><a href="automation.html">Automation</a></div>
+  <div class="nav-links"><a href="index.html">Home</a><a href="provision.html">Provision</a><a href="tax.html">Tax</a><a href="automation.html"  class="active">Automation</a></div>
 </div></nav>
 
-<!-- HERO -->
 <header class="hero">
   <div class="container">
     <div>
-      <div class="hero-meta">Portfolio · 2026</div>
-      <h1>Tax provision, compliance and the discipline of <em>clean data</em>.</h1>
-      <p>I work in Canadian tax and global tax provision at a public company — full ASC 740, FIN 48, FIN 18, valuation allowance and cross-border compliance. I also have prior experience with US federal and state tax. The thread that runs through everything I do: standardizing processes, enforcing consistency and making the underlying data trustworthy enough to build on.</p>
+      <div class="hero-meta">Automation &amp; Data</div>
+      <h1>Most problems start with <em>inconsistent inputs</em>.</h1>
+      <p>When a process breaks down it's rarely a tax problem — it's a data problem. These tools fix things upstream: standardize the input, automate the routine and make sure the output is something you can actually rely on.</p>
     </div>
     <div class="hero-visual">
-      <img src="hero_visual.png" alt="Messy data standardized into clean structured output" />
+      <img src="hero_visual.png" alt="Data standardization workflow" />
     </div>
   </div>
   <div class="hero-scroll">scroll<span></span></div>
 </header>
 
-<!-- EXPERTISE STRIP -->
-<section class="expertise" style="padding: 3.5rem 0;">
+<section>
   <div class="container">
-    <div class="expertise-grid">
-      <div class="expertise-item reveal">
-        <h4>Provision</h4>
-        <p>ASC 740, FIN 48, FIN 18, VA, deferred tax roll</p>
+    <div class="section-label reveal">Tools I've built</div>
+    <h2 class="section-title reveal">Built to solve a real problem. Kept because they <em>actually work</em>.</h2>
+
+    <div class="projects reveal">
+
+      <div class="project">
+        <div class="project-num">01 / 03</div>
+        <div>
+          <div class="project-header">
+            <h3>T2 Extract</h3>
+            <span class="project-arrow">→</span>
+          </div>
+          <p class="project-tagline">Bulk T2 data extraction into OneSource Tax Provision — RTP in hours, not days.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span><span class="tag">OneSource</span><span class="tag">T2</span><span class="tag">GIFI</span><span class="tag">Sch 1</span><span class="tag">Sch 4</span><span class="tag">Sch 8</span><span class="tag">EIFEL</span><span class="tag">RTP</span>
+          </div>
+          <div class="project-detail">
+            <div class="project-detail-inner">
+              <p>Python tool that reads T2 corporate returns across 70+ entities in bulk and feeds the data directly into OneSource Tax Provision workpapers. RTP that used to take days gets done accurately in hours.</p>
+              <ul class="project-bullets">
+                <li><span class="bullet-label">Sch 1</span><span>Each line maps to an OTP adjustment code — RTP is automated, not manual. Inconsistent descriptions across entities get flagged so nothing slips through.</span></li>
+                <li><span class="bullet-label">Sch 4</span><span>Loss continuity pulled from the return is compared against the provision balance to identify where an RTP entry is needed.</span></li>
+                <li><span class="bullet-label">Sch 8 &amp; 13</span><span>CCA claims and reserve balances are validated against supporting workpapers and traced through to Schedule 1 to confirm the flow is clean.</span></li>
+                <li><span class="bullet-label">Sch 130</span><span>EIFEL data is extracted and reviewed to confirm the best interest deductibility position is captured and the return is free of errors under ITA s.18.2 / s.18.21.</span></li>
+                <li><span class="bullet-label">Tax due</span><span>Extracts tax payable and payment history across all entities — used to calculate instalments, run cash tax analyses, determine final payment amounts and reconcile against the tax payable rollforward on the provision side.</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="expertise-item reveal">
-        <h4>SEC Reporting</h4>
-        <p>10-K &amp; 10-Q tax footnotes, statutory financials</p>
+
+      <div class="project">
+        <div class="project-num">02 / 03</div>
+        <div>
+          <div class="project-header">
+            <h3>Reg 105 Automation</h3>
+            <span class="project-arrow">→</span>
+          </div>
+          <p class="project-tagline">End-to-end Reg 105 withholding compliance — SAP pull to CRA reconciliation in one run.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span><span class="tag">SAP GUI Scripting</span><span class="tag">Power Query</span><span class="tag">Reg 105</span><span class="tag">Part XIII</span><span class="tag">Reconciliation</span>
+          </div>
+          <div class="project-detail">
+            <div class="project-detail-inner">
+              <p>End-to-end Regulation 105 withholding tax compliance tool built in Python with SAP GUI Scripting and Power Query. Replaces a largely manual multi-step process with a single run that handles everything from data pull to reconciliation.</p>
+              <ul class="project-bullets">
+                <li><span class="bullet-label">Rollover</span><span>Prior period workbook is automatically rolled forward — structure, formulas and reference data carry over with no manual setup.</span></li>
+                <li><span class="bullet-label">SAP pull</span><span>GL detail is extracted directly from SAP via GUI Scripting. Invoices are downloaded in the same run — no switching between screens or manual exports.</span></li>
+                <li><span class="bullet-label">WHT check</span><span>Invoice line items are read and the system-calculated withholding is compared against the actual amount withheld. Variances are flagged for review.</span></li>
+                <li><span class="bullet-label">Vendor rec</span><span>Vendor-level reconciliation is produced automatically — ties withholding amounts back to each vendor across the period.</span></li>
+                <li><span class="bullet-label">CRA rec</span><span>CRA reconciliation is generated to confirm total remittances agree with what was reported, closing the loop before filing.</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="expertise-item reveal">
-        <h4>Canadian Tax</h4>
-        <p>T2, T5013, T106, NR4, T5 and T4ANR</p>
+
+      <div class="project">
+        <div class="project-num">03 / 03</div>
+        <div>
+          <div class="project-header">
+            <h3>Instalment Calculator</h3>
+            <span class="project-arrow">→</span>
+          </div>
+          <p class="project-tagline">70+ entity instalment workbook — minimum method, cash flow optimized, all outputs in one place.</p>
+          <div class="project-tags">
+            <span class="tag">Excel</span><span class="tag">ITA s.157</span><span class="tag">Instalments</span><span class="tag">Cash tax</span><span class="tag">Provincial allocation</span>
+          </div>
+          <div class="project-detail">
+            <div class="project-detail-inner">
+              <p>Excel workbook covering 70+ entities across multiple brands. Fed by tax return data, prior and current period provision and provincial allocation — it calculates instalments in both USD and CAD and picks the minimum method under ITA s.157(1) to optimize cash flow.</p>
+              <ul class="project-bullets">
+                <li><span class="bullet-label">Method</span><span>Compares three instalment bases (prior-prior year, prior year and current year estimate) and automatically selects the minimum for each entity to optimize cash outflow. Hybrid 2+10 method is also supported.</span></li>
+                <li><span class="bullet-label">Exemption</span><span>Entities below the $3,000 CAD threshold are automatically flagged as exempt. Entities are grouped into "Require Instalment" and "Exempt" for cleaner review.</span></li>
+                <li><span class="bullet-label">Payments</span><span>YTD payments and prior year overpayments are tracked per entity. Completed months use actual paid amounts; future months are formula-driven.</span></li>
+                <li><span class="bullet-label">Deferral</span><span>Deferral summary shows how much tax is deferred to the next year, broken out by entity and by brand with a percentage deferred column for management review.</span></li>
+                <li><span class="bullet-label">Outputs</span><span>Brand-level instalment summary (USD and CAD), monthly dashboard, payment request with federal/Quebec/Alberta provincial splits and a deferral analysis — all in one workbook.</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="expertise-item reveal">
-        <h4>US Tax</h4>
-        <p>Form 1120, 1120-F, 1065 — federal and state</p>
-      </div>
-      <div class="expertise-item reveal">
-        <h4>Global Reporting</h4>
-        <p>Country-by-Country Reporting (CbCR)</p>
-      </div>
-      <div class="expertise-item reveal">
-        <h4>Standardization</h4>
-        <p>Process design, data hygiene, naming &amp; metadata governance</p>
-      </div>
-      <div class="expertise-item reveal">
-        <h4>Platforms</h4>
-        <p>OneSource Tax Provision, PwC Tax Datahub, SAP, OneStream, Blackline, Power Automate</p>
-      </div>
-      <div class="expertise-item reveal">
-        <h4>Automation</h4>
-        <p>Python, Power Query, SAP GUI Scripting</p>
-      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
+<!-- STACK -->
+<section style="background: var(--card);">
   <div class="container">
-    <div class="section-label reveal">About</div>
-    <div class="about-text reveal" style="max-width: 900px;">
-      <p>I'm a Senior Tax Analyst, CPA (Washington) and CPA In-Depth candidate with a bias for <em>clean data</em>.</p>
-
-      <p>I don't just do the work — I think about how the work gets done. Every process I touch, I ask whether the time is going to the right place. If I'm spending hours preparing data that should take minutes, something upstream needs to change. The goal is always the same: spend less time on preparation and more time on the tax issues that actually require judgment.</p>
-
-      <img src="about_visual.png" alt="Standardize, Trust, Scale — philosophy and tool previews" style="width: 100%; max-width: 100%; border-radius: 12px; margin: 2rem 0 2.5rem; box-shadow: 0 4px 32px rgba(0,0,0,0.06); border: 1px solid var(--rule);" />
-
-      <p><strong>On the provision side</strong>, I work the full ASC 740 cycle on a global basis — current and deferred tax, FIN 48 uncertain tax positions, FIN 18 interim reporting, valuation allowance assessments, return-to-provision true-ups, the deferred tax roll and the tax payable rollforward across a portfolio of legal entities. I also prepare and post tax journal entries, run ETR analyses to explain quarter-over-quarter movements and support audit inquiries. The output feeds into <em>10-K and 10-Q tax footnotes</em>, statutory financials and the broader external reporting cycle.</p>
-
-      <p><strong>On compliance</strong>, my Canadian work covers T2, T5013, T106, NR4, T5 and T4ANR — for public corporations, Canadian and foreign partnerships and non-resident withholding situations. I also have prior experience with US federal and state tax (Form 1120, 1120-F and 1065), plus Country-by-Country Reporting (CbCR) on the global side.</p>
-
-      <p><strong>On the tooling side</strong>, I work day-to-day in <em>OneSource Tax Provision</em>, <em>PwC Tax Datahub</em>, <em>SAP</em>, <em>OneStream</em> and <em>Blackline</em>. I also build my own utilities in Python, Power Query and Power Automate — usually to enforce a naming convention, normalize a data source or make sure two workpapers agree before they hit review.</p>
-
-      <p>The throughline: <em>standardize the process</em>, then trust the data, then let the work scale. A clean foundation makes everything downstream — provision, footnotes, audits, transitions — meaningfully easier.</p>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="contact">
-  <div class="container">
-    <h2 class="reveal">Let's <em>connect</em>.</h2>
-    <div class="contact-links reveal">
-      <a class="contact-link" href="mailto:xexocch@gmail.com"><span>email</span>xexocch@gmail.com</a>
-      <a class="contact-link" href="https://www.linkedin.com/in/xavierchong/" target="_blank"><span>linkedin</span>/in/xavierchong</a>
-      <a class="contact-link" href="https://xavierchongch.github.io/" target="_blank"><span>github</span>xavierchongch.github.io</a>
+    <div class="section-label reveal">Stack</div>
+    <h2 class="section-title reveal">Tools I use to <em>build</em> with.</h2>
+    <div class="expertise-grid reveal">
+      <div class="expertise-item">
+        <h4>Python</h4>
+        <p>Primary language for data extraction, transformation and GUI tooling. Libraries: pandas, openpyxl, tkinter, requests.</p>
+      </div>
+      <div class="expertise-item">
+        <h4>SAP GUI Scripting</h4>
+        <p>Direct ERP interaction — GL extracts, report downloads and navigation automation without needing API access.</p>
+      </div>
+      <div class="expertise-item">
+        <h4>Power Query</h4>
+        <p>Data transformation and consolidation inside Excel and Power BI. M language for custom steps.</p>
+      </div>
+      <div class="expertise-item">
+        <h4>Power Automate</h4>
+        <p>Workflow automation for document routing, SharePoint metadata and scheduled data refreshes.</p>
+      </div>
     </div>
   </div>
 </section>

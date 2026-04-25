@@ -3,13 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Xavier — Tax Automation</title>
-<meta name="description" content="Senior Tax Analyst, CPA. Canadian tax, global provision and automation." />
-
+<title>Xavier — Tax Compliance &amp; Reporting</title>
+<meta name="description" content="Canadian and US tax compliance, statutory financials, CRA and IRS audit support." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
 <style>
   :root {
     --bg: #fafaf7;
@@ -567,121 +565,252 @@
     .contact-link span { display: none; }
   }
 </style>
+
+
+<style>
+  /* ─── MOSAIC GRID ─── */
+  .mosaic {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .tile {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .tile:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 20px rgba(194,65,12,0.06);
+  }
+  .tile--wide { grid-column: 1 / -1; }
+  .tile--accent {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--card);
+  }
+  .tile--accent h3, .tile--accent .tile-tagline, .tile--accent .tag { color: var(--card); }
+  .tile--accent .tag { border-color: rgba(255,255,255,0.3); }
+  .tile--accent .bullet-label { color: var(--accent-soft); }
+  .tile--accent .project-bullets span { color: rgba(255,255,255,0.9); }
+  .tile--accent .tile-detail-inner { border-top-color: rgba(255,255,255,0.2); }
+
+  .tile-icon {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .tile-icon::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+  .tile--accent .tile-icon { color: var(--accent-soft); }
+  .tile--accent .tile-icon::before { background: var(--accent-soft); }
+
+  .tile h3 {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 0.35rem;
+    transition: color 0.3s ease;
+  }
+  .tile:hover h3 { color: var(--accent); }
+  .tile--accent:hover h3 { color: var(--card); }
+
+  .tile-tagline {
+    font-family: var(--serif);
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--ink-muted);
+    margin-bottom: 0.75rem;
+  }
+
+  .tile-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+  .tile-tags .tag { font-size: 0.62rem; padding: 0.15rem 0.45rem; }
+  .tile:hover .tag { border-color: var(--accent); color: var(--accent); }
+
+  .tile-detail {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.35s ease 0.1s;
+  }
+  .tile:hover .tile-detail { max-height: 500px; opacity: 1; }
+  .tile-detail-inner {
+    padding-top: 1.25rem;
+    margin-top: 1rem;
+    border-top: 1px solid var(--rule);
+  }
+  .tile-detail-inner .project-bullets { margin-top: 0; }
+
+  @media (max-width: 768px) { .mosaic { grid-template-columns: 1fr; } }
+</style>
 </head>
 <body>
 <nav id="nav"><div class="container">
   <div class="logo"><a href="index.html" style="text-decoration:none;color:inherit;">Xavier&nbsp;&middot;&nbsp;<em>Tax Automation</em></a></div>
-  <div class="nav-links"><a href="index.html"  class="active">Home</a><a href="provision.html">Provision</a><a href="tax.html">Tax</a><a href="automation.html">Automation</a></div>
+  <div class="nav-links"><a href="index.html">Home</a><a href="provision.html">Provision</a><a href="tax.html"  class="active">Tax</a><a href="automation.html">Automation</a></div>
 </div></nav>
 
-<!-- HERO -->
 <header class="hero">
   <div class="container">
     <div>
-      <div class="hero-meta">Portfolio · 2026</div>
-      <h1>Tax provision, compliance and the discipline of <em>clean data</em>.</h1>
-      <p>I work in Canadian tax and global tax provision at a public company — full ASC 740, FIN 48, FIN 18, valuation allowance and cross-border compliance. I also have prior experience with US federal and state tax. The thread that runs through everything I do: standardizing processes, enforcing consistency and making the underlying data trustworthy enough to build on.</p>
-    </div>
-    <div class="hero-visual">
-      <img src="hero_visual.png" alt="Messy data standardized into clean structured output" />
+      <div class="hero-meta">Tax Compliance &amp; Reporting</div>
+      <h1>Compliance, statutory and <em>audit support</em>.</h1>
+      <p>Canadian and US tax return preparation, statutory financial statements, CbCR and audit defence across CRA and IRS — covering the full scope of filing and regulatory obligations.</p>
     </div>
   </div>
   <div class="hero-scroll">scroll<span></span></div>
 </header>
 
-<!-- EXPERTISE STRIP -->
-<section class="expertise" style="padding: 3.5rem 0;">
+<section>
   <div class="container">
-    <div class="expertise-grid">
-      <div class="expertise-item reveal">
-        <h4>Provision</h4>
-        <p>ASC 740, FIN 48, FIN 18, VA, deferred tax roll</p>
-      </div>
-      <div class="expertise-item reveal">
-        <h4>SEC Reporting</h4>
-        <p>10-K &amp; 10-Q tax footnotes, statutory financials</p>
-      </div>
-      <div class="expertise-item reveal">
-        <h4>Canadian Tax</h4>
-        <p>T2, T5013, T106, NR4, T5 and T4ANR</p>
-      </div>
-      <div class="expertise-item reveal">
-        <h4>US Tax</h4>
-        <p>Form 1120, 1120-F, 1065 — federal and state</p>
-      </div>
-      <div class="expertise-item reveal">
-        <h4>Global Reporting</h4>
-        <p>Country-by-Country Reporting (CbCR)</p>
-      </div>
-      <div class="expertise-item reveal">
-        <h4>Standardization</h4>
-        <p>Process design, data hygiene, naming &amp; metadata governance</p>
-      </div>
-      <div class="expertise-item reveal">
-        <h4>Platforms</h4>
-        <p>OneSource Tax Provision, PwC Tax Datahub, SAP, OneStream, Blackline, Power Automate</p>
-      </div>
-      <div class="expertise-item reveal">
-        <h4>Automation</h4>
-        <p>Python, Power Query, SAP GUI Scripting</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <div class="section-label reveal">Compliance &amp; Reporting</div>
+    <div class="mosaic">
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <div class="section-label reveal">About</div>
-    <div class="about-text reveal" style="max-width: 900px;">
-      <p>I'm a Senior Tax Analyst, CPA (Washington) and CPA In-Depth candidate with a bias for <em>clean data</em>.</p>
 
-      <p>I don't just do the work — I think about how the work gets done. Every process I touch, I ask whether the time is going to the right place. If I'm spending hours preparing data that should take minutes, something upstream needs to change. The goal is always the same: spend less time on preparation and more time on the tax issues that actually require judgment.</p>
+      <div class="tile reveal">
+        <div class="tile-icon">Canadian</div>
+        <h3>Canadian Tax Returns</h3>
+        <p class="tile-tagline">T2, T106 and CbCR — public corporations across federal and provincial jurisdictions.</p>
+        <div class="tile-tags"><span class="tag">T2</span><span class="tag">T106</span><span class="tag">NR4</span><span class="tag">T4ANR</span><span class="tag">T5</span><span class="tag">Provincial allocation</span></div>
+        <div class="tile-detail"><div class="tile-detail-inner">
+          <ul class="project-bullets">
+            <li><span class="bullet-label">T2</span><span>Review Canadian corporate income tax returns for public corporations — Schedule 1 adjustments, loss carry-forwards and instalment reconciliation.</span></li>
+            <li><span class="bullet-label">Provincial</span><span>Prepare and review provincial allocation schedules — compute allocation percentages for each province and ensure consistent treatment across entities.</span></li>
+            <li><span class="bullet-label">T106</span><span>Prepare and review T106 related-party transaction summaries — ensuring all intercompany transactions are captured and properly disclosed.</span></li>
+            <li><span class="bullet-label">NR4 / T4ANR</span><span>Handle withholding slip reporting for non-resident payees — NR4 for Part XIII withholding and T4ANR for employment income paid to non-residents.</span></li>
+          </ul>
+        </div></div>
+      </div>
 
-      <img src="about_visual.png" alt="Standardize, Trust, Scale — philosophy and tool previews" style="width: 100%; max-width: 100%; border-radius: 12px; margin: 2rem 0 2.5rem; box-shadow: 0 4px 32px rgba(0,0,0,0.06); border: 1px solid var(--rule);" />
 
-      <p><strong>On the provision side</strong>, I work the full ASC 740 cycle on a global basis — current and deferred tax, FIN 48 uncertain tax positions, FIN 18 interim reporting, valuation allowance assessments, return-to-provision true-ups, the deferred tax roll and the tax payable rollforward across a portfolio of legal entities. I also prepare and post tax journal entries, run ETR analyses to explain quarter-over-quarter movements and support audit inquiries. The output feeds into <em>10-K and 10-Q tax footnotes</em>, statutory financials and the broader external reporting cycle.</p>
+      <div class="tile reveal">
+        <div class="tile-icon">Canadian</div>
+        <h3>Non-Resident Withholding</h3>
+        <p class="tile-tagline">Reg 105 and Part XIII — withholding obligations identified, calculated and reconciled.</p>
+        <div class="tile-tags"><span class="tag">Reg 105</span><span class="tag">Part XIII</span><span class="tag">NR4</span><span class="tag">WHT</span></div>
+        <div class="tile-detail"><div class="tile-detail-inner">
+          <ul class="project-bullets">
+            <li><span class="bullet-label">Reg 105</span><span>Manage withholding tax obligations on payments to non-residents for services rendered in Canada — calculation, remittance and CRA reconciliation. The process is fully automated (see Automation page).</span></li>
+            <li><span class="bullet-label">Part XIII</span><span>Apply Part XIII withholding to dividends, interest and royalties paid to non-residents — treaty rate analysis and NR4 slip preparation.</span></li>
+            <li><span class="bullet-label">Reconcile</span><span>Reconcile total withholding remitted to CRA against the NR4 summary and GL payable balance each year.</span></li>
+          </ul>
+        </div></div>
+      </div>
 
-      <p><strong>On compliance</strong>, my Canadian work covers T2, T5013, T106, NR4, T5 and T4ANR — for public corporations, Canadian and foreign partnerships and non-resident withholding situations. I also have prior experience with US federal and state tax (Form 1120, 1120-F and 1065), plus Country-by-Country Reporting (CbCR) on the global side.</p>
 
-      <p><strong>On the tooling side</strong>, I work day-to-day in <em>OneSource Tax Provision</em>, <em>PwC Tax Datahub</em>, <em>SAP</em>, <em>OneStream</em> and <em>Blackline</em>. I also build my own utilities in Python, Power Query and Power Automate — usually to enforce a naming convention, normalize a data source or make sure two workpapers agree before they hit review.</p>
+      <div class="tile reveal">
+        <div class="tile-icon">US</div>
+        <h3>US Tax Returns</h3>
+        <p class="tile-tagline">Prior experience with Form 1120, 1120-F and 1065 — federal and state compliance, estimates and extensions.</p>
+        <div class="tile-tags"><span class="tag">Form 1120</span><span class="tag">Form 1120-F</span><span class="tag">Form 1065</span><span class="tag">State returns</span><span class="tag">Estimates</span><span class="tag">Extensions</span></div>
+        <div class="tile-detail"><div class="tile-detail-inner">
+          <ul class="project-bullets">
+            <li><span class="bullet-label">1120</span><span>Prepared US federal corporate income tax returns for domestic corporations — Schedule M-1/M-3 reconciliations, credits and estimated payments.</span></li>
+            <li><span class="bullet-label">1120-F</span><span>Prepared Form 1120-F for foreign corporations with US-source income — treaty positions, effectively connected income analysis and protective return filings.</span></li>
+            <li><span class="bullet-label">Estimates</span><span>Calculated and filed quarterly estimated tax payments (Form 1120-W) and prepared extension requests (Form 7004) to secure additional filing time.</span></li>
+            <li><span class="bullet-label">Apportion</span><span>Computed state apportionment factors (sales, payroll, property) and applied them to allocate taxable income across filing states.</span></li>
+            <li><span class="bullet-label">State</span><span>Assisted with state and local tax compliance — nexus analysis, combined/consolidated return positions and multi-state filing obligations.</span></li>
+          </ul>
+        </div></div>
+      </div>
 
-      <p>The throughline: <em>standardize the process</em>, then trust the data, then let the work scale. A clean foundation makes everything downstream — provision, footnotes, audits, transitions — meaningfully easier.</p>
-    </div>
-  </div>
-</section>
 
-<!-- CONTACT -->
-<section id="contact" class="contact">
-  <div class="container">
-    <h2 class="reveal">Let's <em>connect</em>.</h2>
-    <div class="contact-links reveal">
-      <a class="contact-link" href="mailto:xexocch@gmail.com"><span>email</span>xexocch@gmail.com</a>
-      <a class="contact-link" href="https://www.linkedin.com/in/xavierchong/" target="_blank"><span>linkedin</span>/in/xavierchong</a>
-      <a class="contact-link" href="https://xavierchongch.github.io/" target="_blank"><span>github</span>xavierchongch.github.io</a>
+      <div class="tile reveal">
+        <div class="tile-icon">Global</div>
+        <h3>Country-by-Country Reporting</h3>
+        <p class="tile-tagline">CbCR preparation and filing under the OECD framework.</p>
+        <div class="tile-tags"><span class="tag">CbCR</span><span class="tag">OECD</span><span class="tag">Cross-border</span></div>
+        <div class="tile-detail"><div class="tile-detail-inner">
+          <ul class="project-bullets">
+            <li><span class="bullet-label">CbCR</span><span>Prepare the master CbCR file — aggregate revenue, profit before tax, income tax accrued and paid, employees and assets by jurisdiction across the group.</span></li>
+            <li><span class="bullet-label">Filing</span><span>Ensure the CbCR is filed with the CRA by the required deadline and that the data is consistent with local entity reporting.</span></li>
+          </ul>
+        </div></div>
+      </div>
+
+
+      <div class="tile tile--wide reveal">
+        <div class="tile-icon">Statutory</div>
+        <h3>Statutory Financials</h3>
+        <p class="tile-tagline">Legal entity financial statements — tax notes, disclosures and local GAAP compliance.</p>
+        <div class="tile-tags"><span class="tag">Statutory financials</span><span class="tag">Legal entity reporting</span><span class="tag">IFRS</span><span class="tag">ASPE</span></div>
+        <div class="tile-detail"><div class="tile-detail-inner">
+          <ul class="project-bullets">
+            <li><span class="bullet-label">Prepare</span><span>Prepare statutory financial statements for legal entities — income statement, balance sheet and notes — in accordance with applicable local GAAP (IFRS or ASPE depending on jurisdiction).</span></li>
+            <li><span class="bullet-label">Tax notes</span><span>Draft the income tax note for the statutory accounts — current and deferred tax disclosures, uncertain positions and reconciliation of the effective tax rate.</span></li>
+            <li><span class="bullet-label">Coordinate</span><span>Coordinate with external auditors and local advisors to support the sign-off of statutory accounts within required filing deadlines.</span></li>
+          </ul>
+        </div></div>
+      </div>
+
+
+      <div class="tile tile--accent reveal">
+        <div class="tile-icon">CRA Audit</div>
+        <h3>CRA Audit &amp; Notices</h3>
+        <p class="tile-tagline">Federal and provincial audit queries — positions documented and defended.</p>
+        <div class="tile-tags"><span class="tag">CRA audit</span><span class="tag">Federal</span><span class="tag">Provincial notices</span><span class="tag">Documentation</span></div>
+        <div class="tile-detail"><div class="tile-detail-inner">
+          <ul class="project-bullets">
+            <li><span class="bullet-label">Federal</span><span>Respond to CRA audit queries on corporate income tax returns — gather supporting workpapers, explain adjustments and track the status of open audit years.</span></li>
+            <li><span class="bullet-label">Provincial</span><span>Respond to notices and reassessments from provincial tax authorities — review proposed adjustments, prepare supporting documentation and file objections where appropriate.</span></li>
+            <li><span class="bullet-label">Track</span><span>Maintain a log of all open audit years, outstanding queries and response deadlines across the entity portfolio.</span></li>
+          </ul>
+        </div></div>
+      </div>
+
+
+      <div class="tile tile--accent reveal">
+        <div class="tile-icon">IRS Audit</div>
+        <h3>IRS Audit &amp; Notices</h3>
+        <p class="tile-tagline">US federal and state examination support — responses prepared and coordinated.</p>
+        <div class="tile-tags"><span class="tag">IRS audit</span><span class="tag">Federal</span><span class="tag">State notices</span><span class="tag">Documentation</span></div>
+        <div class="tile-detail"><div class="tile-detail-inner">
+          <ul class="project-bullets">
+            <li><span class="bullet-label">Federal</span><span>Support IRS examination processes on US federal returns — document positions, prepare responses and coordinate with external advisors where needed.</span></li>
+            <li><span class="bullet-label">State</span><span>Respond to state tax authority notices and inquiries — review proposed adjustments, prepare supporting schedules and file responses within required deadlines.</span></li>
+            <li><span class="bullet-label">Coordinate</span><span>Work with external advisors and internal stakeholders to align on the response strategy for material audit issues.</span></li>
+          </ul>
+        </div></div>
+      </div>
+
     </div>
   </div>
 </section>
 
 <footer>
   <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; width: 100%;">
-    <div>© 2026 Xavier · built by hand</div>
-    <div>hosted on github pages · no cookies, no tracking</div>
+    <div>&copy; 2026 Xavier &middot; built by hand</div>
+    <div>hosted on github pages &middot; no cookies, no tracking</div>
   </div>
 </footer>
+
 <script>
   const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 20);
-  });
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 20); });
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 </body>
