@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Xavier — Tax Automation</title>
-<meta name="description" content="Senior Tax Analyst, CPA. Canadian tax, global provision and automation." />
+<title>Xavier Chong Tax Portfolio</title>
+<meta name="description" content="Xavier Chong Tax Portfolio — Canadian tax, global provision and automation." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -117,9 +117,10 @@
     position: relative;
   }
   .hero .container {
+    max-width: 1220px;
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 3rem;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 2.25rem;
     align-items: center;
   }
   .hero-visual {
@@ -128,7 +129,7 @@
   }
   .hero-visual img {
     width: 100%;
-    max-width: 480px;
+    max-width: 620px;
     margin-left: auto;
     display: block;
   }
@@ -580,14 +581,15 @@
   @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   @keyframes scrollBounce { 0%, 100% { transform: scaleY(1); transform-origin: top; } 50% { transform: scaleY(0.4); transform-origin: top; } }
-
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
   /* ─── RESPONSIVE ─── */
   @media (max-width: 768px) {
     .container { padding: 0 1.25rem; }
-    .nav-links { gap: 1.25rem; }
+    nav .container { align-items: flex-start; gap: 0.85rem; }
+    .logo { width: 100%; font-size: 1rem; }
+    .nav-links { width: 100%; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap; }
     .nav-links a { font-size: 0.8rem; }
     section { padding: 4.5rem 0; }
     .project { padding: 1.5rem 1rem 1.5rem 0; }
@@ -601,7 +603,7 @@
 </head>
 <body>
 <nav id="nav"><div class="container">
-  <div class="logo"><a href="index.html" style="text-decoration:none;color:inherit;">Xavier&nbsp;&middot;&nbsp;<em>Tax Automation</em></a></div>
+  <div class="logo"><a href="index.html" style="text-decoration:none;color:inherit;">Xavier Chong&nbsp;&middot;&nbsp;<em>Tax Portfolio</em></a></div>
   <div class="nav-links"><a href="index.html"  class="active">Home</a><a href="provision.html">Provision</a><a href="tax.html">Tax</a><a href="automation.html">Automation</a></div>
 </div></nav>
 
@@ -667,7 +669,7 @@
 
 <footer>
   <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; width: 100%;">
-    <div>© 2026 Xavier · built by hand</div>
+    <div>© 2026 Xavier Chong Tax Portfolio · built by hand</div>
     <div>hosted on github pages · no cookies, no tracking</div>
   </div>
 </footer>

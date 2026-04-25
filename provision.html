@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Xavier — Global Tax Provision</title>
+<title>Global Tax Provision | Xavier Chong Tax Portfolio</title>
 <meta name="description" content="Full-cycle ASC 740 provision — current tax, deferred tax, FIN 48, FIN 18, ETR and OTP implementation." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -393,9 +393,9 @@
   }
   .project-bullets li {
     display: grid;
-    grid-template-columns: 62px 1fr;
-    gap: 1rem;
-    align-items: baseline;
+    grid-template-columns: minmax(92px, 0.28fr) 1fr;
+    gap: 0.85rem;
+    align-items: start;
     font-size: 0.9rem;
     color: var(--ink-soft);
     line-height: 1.55;
@@ -404,7 +404,7 @@
     font-family: var(--mono);
     font-size: 0.67rem;
     color: var(--accent);
-    white-space: nowrap;
+    line-height: 1.35;
     padding-top: 0.12rem;
     letter-spacing: 0.03em;
   }
@@ -554,7 +554,9 @@
   /* ─── RESPONSIVE ─── */
   @media (max-width: 768px) {
     .container { padding: 0 1.25rem; }
-    .nav-links { gap: 1.25rem; }
+    nav .container { align-items: flex-start; gap: 0.85rem; }
+    .logo { width: 100%; font-size: 1rem; }
+    .nav-links { width: 100%; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap; }
     .nav-links a { font-size: 0.8rem; }
     section { padding: 4.5rem 0; }
     .project { padding: 1.5rem 1rem 1.5rem 0; }
@@ -678,15 +680,25 @@
   }
   .cycle-card--full .cycle-num { color: var(--accent); }
 
+  .implementation-section {
+    padding-top: 0;
+  }
+  .implementation-grid {
+    margin-top: 3rem;
+  }
+
   @media (max-width: 768px) {
     .cycle-grid { grid-template-columns: 1fr; }
     .cycle-grid::before { left: 1.5rem; }
+  }
+  @media (max-width: 520px) {
+    .project-bullets li { grid-template-columns: 1fr; gap: 0.15rem; }
   }
 </style>
 </head>
 <body>
 <nav id="nav"><div class="container">
-  <div class="logo"><a href="index.html" style="text-decoration:none;color:inherit;">Xavier&nbsp;&middot;&nbsp;<em>Tax Automation</em></a></div>
+  <div class="logo"><a href="index.html" style="text-decoration:none;color:inherit;">Xavier Chong&nbsp;&middot;&nbsp;<em>Tax Portfolio</em></a></div>
   <div class="nav-links"><a href="index.html">Home</a><a href="provision.html"  class="active">Provision</a><a href="tax.html">Tax</a><a href="automation.html">Automation</a></div>
 </div></nav>
 
@@ -695,7 +707,7 @@
     <div>
       <div class="hero-meta">Global Tax Provision</div>
       <h1>Full-cycle ASC 740 — from quarterly provision to <em>year-end close</em>.</h1>
-      <p>Every step of the provision cycle across a global entity portfolio. Current and deferred tax, FIN 48, FIN 18, valuation allowance, ETR and the OTP implementation that brought it all together.</p>
+      <p>Every step of the provision cycle across a global entity portfolio. Current and deferred tax, FIN 48, FIN 18, valuation allowance, ETR and journal entries, with platform implementation highlighted separately below.</p>
     </div>
   </div>
   <div class="hero-scroll">scroll<span></span></div>
@@ -839,28 +851,74 @@
         </div></div>
       </div>
 
-      <div class="cycle-card cycle-card--full reveal">
-        <div class="cycle-num">10</div>
-        <h3>OneSource Tax Provision Implementation</h3>
-        <p class="cycle-tagline">Led the migration from PwC Tax Datahub to OneSource Tax Provision.</p>
-        <div class="cycle-tags"><span class="tag">OneSource Tax Provision</span><span class="tag">PwC Tax Datahub</span><span class="tag">Implementation</span><span class="tag">System migration</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="implementation-section">
+  <div class="container">
+    <div class="section-label reveal">System Implementation</div>
+    <h2 class="section-title reveal">OneSource Tax Provision Implementation</h2>
+
+    <div class="cycle-grid implementation-grid">
+      <div class="cycle-card reveal">
+        <div class="cycle-num">01</div>
+        <h3>Scoping &amp; Design</h3>
+        <p class="cycle-tagline">Defined the migration path from PwC Tax Datahub to OTP.</p>
+        <div class="cycle-tags"><span class="tag">Scoping</span><span class="tag">Process design</span><span class="tag">Requirements</span></div>
         <div class="cycle-detail"><div class="cycle-detail-inner">
           <ul class="project-bullets">
-            <li><span class="bullet-label">Lead</span><span>Led the end-to-end implementation of OneSource Tax Provision as the replacement for PwC Tax Datahub — scoping, configuration, data migration and go-live.</span></li>
-            <li><span class="bullet-label">Configure</span><span>Set up entity structure, chart of accounts mapping, adjustment codes and report templates in OTP to match existing provision methodology.</span></li>
-            <li><span class="bullet-label">Migrate</span><span>Migrate historical provision data and workpapers from PwC Tax Datahub into OTP — validating opening balances and ensuring continuity of reporting.</span></li>
-            <li><span class="bullet-label">Train</span><span>Trained the team on the new platform and documented workflows to support ongoing use after go-live.</span></li>
+            <li><span class="bullet-label">Map</span><span>Documented existing provision workflows, reports and data dependencies before migration.</span></li>
+            <li><span class="bullet-label">Design</span><span>Translated legacy Tax Datahub processes into a target-state OneSource Tax Provision model.</span></li>
           </ul>
         </div></div>
       </div>
 
+      <div class="cycle-card reveal">
+        <div class="cycle-num">02</div>
+        <h3>Configuration</h3>
+        <p class="cycle-tagline">Set up the OTP structure to match provision methodology.</p>
+        <div class="cycle-tags"><span class="tag">Entity setup</span><span class="tag">COA mapping</span><span class="tag">Adjustment codes</span></div>
+        <div class="cycle-detail"><div class="cycle-detail-inner">
+          <ul class="project-bullets">
+            <li><span class="bullet-label">Configure</span><span>Set up entity structure, chart of accounts mapping, adjustment codes and report templates.</span></li>
+            <li><span class="bullet-label">Validate</span><span>Confirmed system outputs tied back to existing provision workpapers and reporting expectations.</span></li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="cycle-card reveal">
+        <div class="cycle-num">03</div>
+        <h3>Data Migration</h3>
+        <p class="cycle-tagline">Moved historical provision data into the new platform.</p>
+        <div class="cycle-tags"><span class="tag">Historical data</span><span class="tag">Opening balances</span><span class="tag">Continuity</span></div>
+        <div class="cycle-detail"><div class="cycle-detail-inner">
+          <ul class="project-bullets">
+            <li><span class="bullet-label">Migrate</span><span>Migrated historical provision data and workpapers from PwC Tax Datahub into OTP.</span></li>
+            <li><span class="bullet-label">Reconcile</span><span>Validated opening balances and ensured continuity across current tax, deferred tax and reporting views.</span></li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="cycle-card reveal">
+        <div class="cycle-num">04</div>
+        <h3>Training &amp; Go-Live</h3>
+        <p class="cycle-tagline">Rolled out the new provision platform to the team.</p>
+        <div class="cycle-tags"><span class="tag">Training</span><span class="tag">Documentation</span><span class="tag">Go-live</span></div>
+        <div class="cycle-detail"><div class="cycle-detail-inner">
+          <ul class="project-bullets">
+            <li><span class="bullet-label">Train</span><span>Trained the team on the new platform and documented workflows for ongoing use.</span></li>
+            <li><span class="bullet-label">Launch</span><span>Supported go-live and post-implementation cleanup so the close process could continue smoothly.</span></li>
+          </ul>
+        </div></div>
+      </div>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; width: 100%;">
-    <div>&copy; 2026 Xavier &middot; built by hand</div>
+    <div>&copy; 2026 Xavier Chong Tax Portfolio &middot; built by hand</div>
     <div>hosted on github pages &middot; no cookies, no tracking</div>
   </div>
 </footer>
