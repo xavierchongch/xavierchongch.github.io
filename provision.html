@@ -115,9 +115,10 @@
     position: relative;
   }
   .hero .container {
+    max-width: 1220px;
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 3rem;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 2.25rem;
     align-items: center;
   }
   .hero-visual {
@@ -126,7 +127,7 @@
   }
   .hero-visual img {
     width: 100%;
-    max-width: 480px;
+    max-width: 620px;
     margin-left: auto;
     display: block;
   }
@@ -680,6 +681,12 @@
   }
   .cycle-card--full .cycle-num { color: var(--accent); }
 
+  .implementation-section {
+    padding-top: 0;
+  }
+  .implementation-grid {
+    margin-top: 3rem;
+  }
   @media (max-width: 768px) {
     .cycle-grid { grid-template-columns: 1fr; }
     .cycle-grid::before { left: 1.5rem; }
@@ -700,7 +707,10 @@
     <div>
       <div class="hero-meta">Global Tax Provision</div>
       <h1>Full-cycle ASC 740 — from quarterly provision to <em>year-end close</em>.</h1>
-      <p>Every step of the provision cycle across a global entity portfolio. Current and deferred tax, FIN 48, FIN 18, valuation allowance, ETR and the OTP implementation that brought it all together.</p>
+      <p>Every step of the provision cycle across a global entity portfolio. Current and deferred tax, FIN 48, FIN 18, valuation allowance, ETR and journal entries, with platform implementation highlighted separately below.</p>
+    </div>
+    <div class="hero-visual">
+      <img src="provision_visual.svg" alt="Abstract provision workflow visual" />
     </div>
   </div>
   <div class="hero-scroll">scroll<span></span></div>
@@ -844,21 +854,99 @@
         </div></div>
       </div>
 
-      <div class="cycle-card cycle-card--full reveal">
-        <div class="cycle-num">10</div>
-        <h3>OneSource Tax Provision Implementation</h3>
-        <p class="cycle-tagline">Led the migration from PwC Tax Datahub to OneSource Tax Provision.</p>
-        <div class="cycle-tags"><span class="tag">OneSource Tax Provision</span><span class="tag">PwC Tax Datahub</span><span class="tag">Implementation</span><span class="tag">System migration</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="implementation-section">
+  <div class="container">
+    <div class="section-label reveal">System Implementation</div>
+    <h2 class="section-title reveal">OneSource Tax Provision Implementation</h2>
+
+    <div class="cycle-grid implementation-grid">
+      <div class="cycle-card reveal">
+        <div class="cycle-num">01</div>
+        <h3>Lead &amp; Stakeholder Support</h3>
+        <p class="cycle-tagline">Led the OTP implementation across tax teams and brands.</p>
+        <div class="cycle-tags"><span class="tag">Lead</span><span class="tag">US</span><span class="tag">Canada</span><span class="tag">International</span><span class="tag">Brands</span></div>
         <div class="cycle-detail"><div class="cycle-detail-inner">
           <ul class="project-bullets">
-            <li><span class="bullet-label">Lead</span><span>Led the end-to-end implementation of OneSource Tax Provision as the replacement for PwC Tax Datahub — scoping, configuration, data migration and go-live.</span></li>
-            <li><span class="bullet-label">Configure</span><span>Set up entity structure, chart of accounts mapping, adjustment codes and report templates in OTP to match existing provision methodology.</span></li>
-            <li><span class="bullet-label">Migrate</span><span>Migrate historical provision data and workpapers from PwC Tax Datahub into OTP — validating opening balances and ensuring continuity of reporting.</span></li>
-            <li><span class="bullet-label">Train</span><span>Trained the team on the new platform and documented workflows to support ongoing use after go-live.</span></li>
+            <li><span class="bullet-label">Lead</span><span>Acted as the lead for the implementation workstream and coordinated support across US, Canada and International tax teams.</span></li>
+            <li><span class="bullet-label">Brands</span><span>Supported all brands through setup questions, testing issues and close-readiness follow-ups.</span></li>
+            <li><span class="bullet-label">Coach</span><span>Trained team members and taught my superior the OTP workflow so support knowledge was not concentrated in one person.</span></li>
           </ul>
         </div></div>
       </div>
 
+      <div class="cycle-card reveal">
+        <div class="cycle-num">02</div>
+        <h3>Replication &amp; Configuration</h3>
+        <p class="cycle-tagline">Replicated legacy provision logic inside OTP.</p>
+        <div class="cycle-tags"><span class="tag">Replication</span><span class="tag">Entity setup</span><span class="tag">COA mapping</span><span class="tag">Adjustment codes</span></div>
+        <div class="cycle-detail"><div class="cycle-detail-inner">
+          <ul class="project-bullets">
+            <li><span class="bullet-label">Replicate</span><span>Replicated Tax Datahub calculations, reports and workpaper logic in OneSource Tax Provision.</span></li>
+            <li><span class="bullet-label">Configure</span><span>Set up entity structure, chart of accounts mapping, adjustment codes and report templates.</span></li>
+            <li><span class="bullet-label">Control</span><span>Maintained consistency between legacy process outputs and the new OTP configuration.</span></li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="cycle-card reveal">
+        <div class="cycle-num">03</div>
+        <h3>Parallel Testing</h3>
+        <p class="cycle-tagline">Ran side-by-side testing before go-live.</p>
+        <div class="cycle-tags"><span class="tag">Parallel test</span><span class="tag">Historical data</span><span class="tag">Opening balances</span><span class="tag">Variance review</span></div>
+        <div class="cycle-detail"><div class="cycle-detail-inner">
+          <ul class="project-bullets">
+            <li><span class="bullet-label">Test</span><span>Performed parallel testing between Tax Datahub and OTP outputs across current tax, deferred tax and reporting views.</span></li>
+            <li><span class="bullet-label">Review</span><span>Investigated variances, corrected mappings and validated opening balances before the platform transition.</span></li>
+            <li><span class="bullet-label">Evidence</span><span>Kept testing support and reconciliation evidence available for review and sign-off.</span></li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="cycle-card reveal">
+        <div class="cycle-num">04</div>
+        <h3>SOX &amp; Auditor Walkthroughs</h3>
+        <p class="cycle-tagline">Supported control review and external auditor walkthroughs.</p>
+        <div class="cycle-tags"><span class="tag">SOX controls</span><span class="tag">Internal audit</span><span class="tag">External auditors</span><span class="tag">Walkthrough</span></div>
+        <div class="cycle-detail"><div class="cycle-detail-inner">
+          <ul class="project-bullets">
+            <li><span class="bullet-label">SOX</span><span>Participated in internal audit procedures for SOX control purposes related to the OTP implementation.</span></li>
+            <li><span class="bullet-label">Walkthrough</span><span>Walked external auditors through the implementation process, system changes, testing approach and control evidence.</span></li>
+            <li><span class="bullet-label">Support</span><span>Answered audit follow-ups and helped connect implementation evidence back to control objectives.</span></li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="cycle-card reveal">
+        <div class="cycle-num">05</div>
+        <h3>Training &amp; Knowledge Transfer</h3>
+        <p class="cycle-tagline">Built shared knowledge for the new platform.</p>
+        <div class="cycle-tags"><span class="tag">Training</span><span class="tag">Documentation</span><span class="tag">Knowledge transfer</span></div>
+        <div class="cycle-detail"><div class="cycle-detail-inner">
+          <ul class="project-bullets">
+            <li><span class="bullet-label">Train</span><span>Delivered training and documentation for ongoing team use after go-live.</span></li>
+            <li><span class="bullet-label">Coach</span><span>Taught my superior the OTP workflow, including setup logic, common issues and review touchpoints.</span></li>
+            <li><span class="bullet-label">Document</span><span>Documented repeatable steps so the implementation knowledge could support future close cycles.</span></li>
+          </ul>
+        </div></div>
+      </div>
+
+      <div class="cycle-card reveal">
+        <div class="cycle-num">06</div>
+        <h3>Go-Live &amp; Ongoing Support</h3>
+        <p class="cycle-tagline">Supported live close cycles across teams and brands.</p>
+        <div class="cycle-tags"><span class="tag">Go-live</span><span class="tag">Close support</span><span class="tag">All brands</span><span class="tag">US / Canada / International</span></div>
+        <div class="cycle-detail"><div class="cycle-detail-inner">
+          <ul class="project-bullets">
+            <li><span class="bullet-label">Launch</span><span>Supported go-live and post-implementation cleanup so the close process could continue smoothly.</span></li>
+            <li><span class="bullet-label">Teams</span><span>Provided ongoing support to US, Canada and International users as issues surfaced during live close cycles.</span></li>
+            <li><span class="bullet-label">Brands</span><span>Supported all brands through setup questions, data issues and reporting follow-ups.</span></li>
+          </ul>
+        </div></div>
+      </div>
     </div>
   </div>
 </section>
