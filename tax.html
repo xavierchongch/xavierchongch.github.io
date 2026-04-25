@@ -115,9 +115,10 @@
     position: relative;
   }
   .hero .container {
+    max-width: 1220px;
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 3rem;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 2.25rem;
     align-items: center;
   }
   .hero-visual {
@@ -126,7 +127,7 @@
   }
   .hero-visual img {
     width: 100%;
-    max-width: 480px;
+    max-width: 620px;
     margin-left: auto;
     display: block;
   }
@@ -635,15 +636,6 @@
   .tile-tags .tag { font-size: 0.62rem; padding: 0.15rem 0.45rem; }
   .tile:hover .tag { border-color: var(--accent); color: var(--accent); }
 
-  .page-visual {
-    width: min(100%, 760px);
-    margin: 0 auto 4rem;
-    display: block;
-    border: 1px solid var(--rule);
-    border-radius: 16px;
-    box-shadow: 0 18px 60px rgba(26,26,26,0.06);
-  }
-
   .tile-detail {
     max-height: 0;
     overflow: hidden;
@@ -674,6 +666,9 @@
       <h1>Compliance, statutory and <em>audit support</em>.</h1>
       <p>Canadian and US tax return preparation, statutory financial statements, CbCR and audit defence across CRA and IRS — covering the full scope of filing and regulatory obligations.</p>
     </div>
+    <div class="hero-visual">
+      <img src="tax_visual.svg" alt="Abstract tax compliance workflow visual" />
+    </div>
   </div>
   <div class="hero-scroll">scroll<span></span></div>
 </header>
@@ -681,7 +676,6 @@
 <section>
   <div class="container">
     <div class="section-label reveal">Compliance &amp; Reporting</div>
-    <img src="tax_visual.svg" alt="Abstract tax compliance workflow visual" class="page-visual reveal" />
     <div class="mosaic">
 
 

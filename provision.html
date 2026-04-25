@@ -115,9 +115,10 @@
     position: relative;
   }
   .hero .container {
+    max-width: 1220px;
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 3rem;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 2.25rem;
     align-items: center;
   }
   .hero-visual {
@@ -126,7 +127,7 @@
   }
   .hero-visual img {
     width: 100%;
-    max-width: 480px;
+    max-width: 620px;
     margin-left: auto;
     display: block;
   }
@@ -686,15 +687,6 @@
   .implementation-grid {
     margin-top: 3rem;
   }
-  .page-visual {
-    width: min(100%, 760px);
-    margin: 0 auto 4rem;
-    display: block;
-    border: 1px solid var(--rule);
-    border-radius: 16px;
-    box-shadow: 0 18px 60px rgba(26,26,26,0.06);
-  }
-
   @media (max-width: 768px) {
     .cycle-grid { grid-template-columns: 1fr; }
     .cycle-grid::before { left: 1.5rem; }
@@ -717,6 +709,9 @@
       <h1>Full-cycle ASC 740 — from quarterly provision to <em>year-end close</em>.</h1>
       <p>Every step of the provision cycle across a global entity portfolio. Current and deferred tax, FIN 48, FIN 18, valuation allowance, ETR and journal entries, with platform implementation highlighted separately below.</p>
     </div>
+    <div class="hero-visual">
+      <img src="provision_visual.svg" alt="Abstract provision workflow visual" />
+    </div>
   </div>
   <div class="hero-scroll">scroll<span></span></div>
 </header>
@@ -724,7 +719,6 @@
 <section>
   <div class="container">
     <div class="section-label reveal">The Provision Cycle</div>
-    <img src="provision_visual.svg" alt="Abstract provision workflow visual" class="page-visual reveal" />
 
     <div class="cycle-grid">
 
