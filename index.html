@@ -532,6 +532,37 @@
   .contact-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
   .contact-link span { font-family: var(--mono); font-size: 0.75rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.15em; }
 
+  /* ─── PAGE LINK CARDS ─── */
+  .page-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1rem; }
+  .page-card {
+    text-decoration: none;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    display: block;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-card::after {
+    content: '→';
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    color: var(--ink-muted);
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  .page-card:hover { border-color: var(--accent); box-shadow: 0 4px 20px rgba(194,65,12,0.06); transform: translateY(-3px); }
+  .page-card:hover::after { transform: translateX(4px); color: var(--accent); }
+  .page-card-num { font-family: var(--mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 0.75rem; }
+  .page-card-title { font-family: var(--serif); font-size: 1.3rem; color: var(--ink); margin-bottom: 0.5rem; }
+  .page-card:hover .page-card-title { color: var(--accent); }
+  .page-card-desc { font-size: 0.85rem; color: var(--ink-muted); line-height: 1.5; }
+  @media (max-width: 768px) { .page-cards { grid-template-columns: 1fr; } }
+
   /* ─── FOOTER ─── */
   footer {
     padding: 2.5rem 0;
@@ -589,64 +620,35 @@
   <div class="hero-scroll">scroll<span></span></div>
 </header>
 
-<!-- EXPERTISE STRIP -->
-<section class="expertise" style="padding: 3.5rem 0;">
-  <div class="container">
-    <div class="expertise-grid">
-      <div class="expertise-item reveal">
-        <h4>Provision</h4>
-        <p>ASC 740, FIN 48, FIN 18, VA, deferred tax roll</p>
-      </div>
-      <div class="expertise-item reveal">
-        <h4>SEC Reporting</h4>
-        <p>10-K &amp; 10-Q tax footnotes, statutory financials</p>
-      </div>
-      <div class="expertise-item reveal">
-        <h4>Canadian Tax</h4>
-        <p>T2, T5013, T106, NR4, T5 and T4ANR</p>
-      </div>
-      <div class="expertise-item reveal">
-        <h4>US Tax</h4>
-        <p>Form 1120, 1120-F, 1065 — federal and state</p>
-      </div>
-      <div class="expertise-item reveal">
-        <h4>Global Reporting</h4>
-        <p>Country-by-Country Reporting (CbCR)</p>
-      </div>
-      <div class="expertise-item reveal">
-        <h4>Standardization</h4>
-        <p>Process design, data hygiene, naming &amp; metadata governance</p>
-      </div>
-      <div class="expertise-item reveal">
-        <h4>Platforms</h4>
-        <p>OneSource Tax Provision, PwC Tax Datahub, SAP, OneStream, Blackline, Power Automate</p>
-      </div>
-      <div class="expertise-item reveal">
-        <h4>Automation</h4>
-        <p>Python, Power Query, SAP GUI Scripting</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ABOUT -->
 <section id="about">
   <div class="container">
     <div class="section-label reveal">About</div>
-    <div class="about-text reveal" style="max-width: 900px;">
+    <div class="about-text reveal" style="max-width: 680px;">
       <p>I'm a Senior Tax Analyst, CPA (Washington) and CPA In-Depth candidate with a bias for <em>clean data</em>.</p>
 
-      <p>I don't just do the work — I think about how the work gets done. Every process I touch, I ask whether the time is going to the right place. If I'm spending hours preparing data that should take minutes, something upstream needs to change. The goal is always the same: spend less time on preparation and more time on the tax issues that actually require judgment.</p>
+      <p>I don't just do the work — I think about how the work gets done. If I'm spending hours preparing data that should take minutes, something upstream needs to change. The goal is always the same: spend less time on preparation and more time on the tax issues that actually require judgment.</p>
+    </div>
 
-      <img src="about_visual.png" alt="Standardize, Trust, Scale — philosophy and tool previews" style="width: 100%; max-width: 100%; border-radius: 12px; margin: 2rem 0 2.5rem; box-shadow: 0 4px 32px rgba(0,0,0,0.06); border: 1px solid var(--rule);" />
+    <img src="about_visual.png" alt="Standardize, Trust, Scale — philosophy and tool previews" class="reveal" style="width: 100%; max-width: 1100px; border-radius: 12px; margin: 3rem 0; box-shadow: 0 4px 32px rgba(0,0,0,0.06); border: 1px solid var(--rule); display: block;" />
 
-      <p><strong>On the provision side</strong>, I work the full ASC 740 cycle on a global basis — current and deferred tax, FIN 48 uncertain tax positions, FIN 18 interim reporting, valuation allowance assessments, return-to-provision true-ups, the deferred tax roll and the tax payable rollforward across a portfolio of legal entities. I also prepare and post tax journal entries, run ETR analyses to explain quarter-over-quarter movements and support audit inquiries. The output feeds into <em>10-K and 10-Q tax footnotes</em>, statutory financials and the broader external reporting cycle.</p>
-
-      <p><strong>On compliance</strong>, my Canadian work covers T2, T5013, T106, NR4, T5 and T4ANR — for public corporations, Canadian and foreign partnerships and non-resident withholding situations. I also have prior experience with US federal and state tax (Form 1120, 1120-F and 1065), plus Country-by-Country Reporting (CbCR) on the global side.</p>
-
-      <p><strong>On the tooling side</strong>, I work day-to-day in <em>OneSource Tax Provision</em>, <em>PwC Tax Datahub</em>, <em>SAP</em>, <em>OneStream</em> and <em>Blackline</em>. I also build my own utilities in Python, Power Query and Power Automate — usually to enforce a naming convention, normalize a data source or make sure two workpapers agree before they hit review.</p>
-
-      <p>The throughline: <em>standardize the process</em>, then trust the data, then let the work scale. A clean foundation makes everything downstream — provision, footnotes, audits, transitions — meaningfully easier.</p>
+    <!-- PAGE LINKS -->
+    <div class="page-cards reveal">
+      <a href="provision.html" class="page-card">
+        <div class="page-card-num">01</div>
+        <div class="page-card-title">Global Provision</div>
+        <div class="page-card-desc">ASC 740, FIN 48, FIN 18, VA, ETR, RTP, journal entries and OTP implementation.</div>
+      </a>
+      <a href="tax.html" class="page-card">
+        <div class="page-card-num">02</div>
+        <div class="page-card-title">Tax & Compliance</div>
+        <div class="page-card-desc">Canadian and US returns, statutory financials, CbCR, CRA and IRS audit support.</div>
+      </a>
+      <a href="automation.html" class="page-card">
+        <div class="page-card-num">03</div>
+        <div class="page-card-title">Automation & Data</div>
+        <div class="page-card-desc">T2 Extract, Reg 105 Automation, Instalment Calculator — Python, SAP GUI Scripting and Power Query.</div>
+      </a>
     </div>
   </div>
 </section>
