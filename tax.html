@@ -591,17 +591,6 @@
     box-shadow: 0 4px 20px rgba(194,65,12,0.06);
   }
   .tile--wide { grid-column: 1 / -1; }
-  .tile--accent {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: var(--card);
-  }
-  .tile--accent h3, .tile--accent .tile-tagline, .tile--accent .tag { color: var(--card); }
-  .tile--accent .tag { border-color: rgba(255,255,255,0.3); }
-  .tile--accent .bullet-label { color: var(--accent-soft); }
-  .tile--accent .project-bullets span { color: rgba(255,255,255,0.9); }
-  .tile--accent .tile-detail-inner { border-top-color: rgba(255,255,255,0.2); }
-
   .tile-icon {
     font-family: var(--mono);
     font-size: 0.65rem;
@@ -621,9 +610,6 @@
     background: var(--accent);
     flex-shrink: 0;
   }
-  .tile--accent .tile-icon { color: var(--accent-soft); }
-  .tile--accent .tile-icon::before { background: var(--accent-soft); }
-
   .tile h3 {
     font-family: var(--serif);
     font-size: 1.4rem;
@@ -632,7 +618,6 @@
     transition: color 0.3s ease;
   }
   .tile:hover h3 { color: var(--accent); }
-  .tile--accent:hover h3 { color: var(--card); }
 
   .tile-tagline {
     font-family: var(--serif);
@@ -649,6 +634,15 @@
   }
   .tile-tags .tag { font-size: 0.62rem; padding: 0.15rem 0.45rem; }
   .tile:hover .tag { border-color: var(--accent); color: var(--accent); }
+
+  .page-visual {
+    width: min(100%, 760px);
+    margin: 0 auto 4rem;
+    display: block;
+    border: 1px solid var(--rule);
+    border-radius: 16px;
+    box-shadow: 0 18px 60px rgba(26,26,26,0.06);
+  }
 
   .tile-detail {
     max-height: 0;
@@ -687,6 +681,7 @@
 <section>
   <div class="container">
     <div class="section-label reveal">Compliance &amp; Reporting</div>
+    <img src="tax_visual.svg" alt="Abstract tax compliance workflow visual" class="page-visual reveal" />
     <div class="mosaic">
 
 
@@ -767,11 +762,11 @@
       </div>
 
 
-      <div class="tile tile--accent reveal">
+      <div class="tile reveal">
         <div class="tile-icon">CRA Audit</div>
-        <h3>CRA Audit &amp; Notices</h3>
+        <h3>CRA Audit</h3>
         <p class="tile-tagline">Federal and provincial audit queries — positions documented and defended.</p>
-        <div class="tile-tags"><span class="tag">CRA audit</span><span class="tag">Federal</span><span class="tag">Provincial notices</span><span class="tag">Documentation</span></div>
+        <div class="tile-tags"><span class="tag">CRA audit</span><span class="tag">Federal</span><span class="tag">Provincial</span><span class="tag">Documentation</span></div>
         <div class="tile-detail"><div class="tile-detail-inner">
           <ul class="project-bullets">
             <li><span class="bullet-label">Federal</span><span>Respond to CRA audit queries on corporate income tax returns — gather supporting workpapers, explain adjustments and track the status of open audit years.</span></li>
@@ -782,11 +777,11 @@
       </div>
 
 
-      <div class="tile tile--accent reveal">
+      <div class="tile reveal">
         <div class="tile-icon">IRS Audit</div>
-        <h3>IRS Audit &amp; Notices</h3>
+        <h3>IRS Audit</h3>
         <p class="tile-tagline">US federal and state examination support — responses prepared and coordinated.</p>
-        <div class="tile-tags"><span class="tag">IRS audit</span><span class="tag">Federal</span><span class="tag">State notices</span><span class="tag">Documentation</span></div>
+        <div class="tile-tags"><span class="tag">IRS audit</span><span class="tag">Federal</span><span class="tag">State</span><span class="tag">Documentation</span></div>
         <div class="tile-detail"><div class="tile-detail-inner">
           <ul class="project-bullets">
             <li><span class="bullet-label">Federal</span><span>Support IRS examination processes on US federal returns — document positions, prepare responses and coordinate with external advisors where needed.</span></li>
