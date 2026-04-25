@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Xavier — Tax Automation</title>
-<meta name="description" content="A portfolio of tax automation projects — Python, Power Query, and tooling for compliance & provision work." />
+<meta name="description" content="A portfolio of tax automation projects — Python, Power Query and tooling for compliance & provision work." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -188,9 +188,15 @@
   }
   .expertise-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.75rem;
   }
+  .expertise-item {
+    padding-left: 1rem;
+    border-left: 2px solid var(--rule);
+    transition: border-color 0.3s ease;
+  }
+  .expertise-item:hover { border-left-color: var(--accent); }
   .expertise-item h4 {
     font-family: var(--mono);
     font-size: 0.7rem;
@@ -258,7 +264,7 @@
     transition: padding 0.4s ease, background 0.3s ease;
     position: relative;
   }
-  .project:hover { padding-left: 1.5rem; padding-right: 1.5rem; background: var(--card); }
+  .project:hover { padding-left: 1.5rem; padding-right: 1.5rem; background: var(--card); box-shadow: 0 1px 8px rgba(0,0,0,0.04); }
   .project-num {
     font-family: var(--mono);
     font-size: 0.8rem;
@@ -304,6 +310,46 @@
     transition: transform 0.3s ease, color 0.3s ease;
   }
   .project:hover .project-arrow { transform: translateX(8px); color: var(--accent); }
+
+  .project--expanded {
+    grid-template-columns: 80px 1fr 140px;
+    grid-template-rows: auto auto;
+  }
+  .project--expanded .project-content {
+    grid-column: 2 / 3;
+  }
+  .project--expanded .project-tags {
+    grid-column: 2 / 3;
+    padding-top: 1.25rem;
+  }
+  .project--expanded .project-arrow {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+  }
+  .project-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin-top: 1rem;
+  }
+  .project-bullets li {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 1rem;
+    align-items: baseline;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+  .project-bullets .bullet-label {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--accent);
+    white-space: nowrap;
+    padding-top: 0.15rem;
+    letter-spacing: 0.03em;
+  }
 
   /* ─── DEMO PLACEHOLDERS ─── */
   .demos {
@@ -386,18 +432,21 @@
     color: var(--ink);
     line-height: 1.4;
     margin-bottom: 2rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--accent);
+    display: inline-block;
   }
   .about-text p:first-child em { font-style: italic; color: var(--accent); }
 
   /* ─── CONTACT ─── */
-  .contact { padding: 8rem 0; text-align: center; border-top: 1px solid var(--rule); }
+  .contact { padding: 6rem 0; text-align: center; border-top: 1px solid var(--rule); }
   .contact h2 {
     font-family: var(--serif);
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 300;
     letter-spacing: -0.02em;
     line-height: 1.1;
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
     max-width: 18ch;
     margin-left: auto;
     margin-right: auto;
@@ -406,21 +455,21 @@
   .contact-links {
     display: inline-flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.75rem;
   }
   .contact-link {
     font-family: var(--serif);
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: var(--ink);
     text-decoration: none;
-    padding: 0.4rem 0;
-    border-bottom: 1px solid transparent;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--rule);
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 2rem;
-    min-width: 320px;
+    gap: 3rem;
+    min-width: 360px;
   }
   .contact-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
   .contact-link span { font-family: var(--mono); font-size: 0.75rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.15em; }
@@ -465,7 +514,7 @@
 
 <nav id="nav">
   <div class="container">
-    <div class="logo">Xavier&nbsp;·&nbsp;<em>tax automation</em></div>
+    <div class="logo">Xavier&nbsp;·&nbsp;<em>Tax Automation</em></div>
     <div class="nav-links">
       <a href="#work">Work</a>
       <a href="#about">About</a>
@@ -478,8 +527,8 @@
 <header class="hero">
   <div class="container">
     <div class="hero-meta">Portfolio · 2026</div>
-    <h1>Tax provision, compliance, and the discipline of <em>clean data</em>.</h1>
-    <p>I work in Canadian and US tax at a public company — full ASC 740 provision, FIN 48, FIN 18, valuation allowance, and cross-border compliance. The thread that runs through everything I do: standardizing processes, enforcing consistency, and making the underlying data trustworthy enough to build on.</p>
+    <h1>Tax provision, compliance and the discipline of <em>clean data</em>.</h1>
+    <p>I work in Canadian tax and global tax provision at a public company — full ASC 740, FIN 48, FIN 18, valuation allowance and cross-border compliance. I also have prior experience with US federal and state tax. The thread that runs through everything I do: standardizing processes, enforcing consistency and making the underlying data trustworthy enough to build on.</p>
   </div>
   <div class="hero-scroll">scroll<span></span></div>
 </header>
@@ -497,12 +546,16 @@
         <p>10-K &amp; 10-Q tax footnotes, statutory financials</p>
       </div>
       <div class="expertise-item reveal">
-        <h4>CDN &amp; US Tax</h4>
-        <p>T2, T5013, T106, NR4, T5, T4ANR + US federal &amp; state</p>
+        <h4>Canadian Tax</h4>
+        <p>T2, T5013, T106, NR4, T5 and T4ANR</p>
+      </div>
+      <div class="expertise-item reveal">
+        <h4>US Tax</h4>
+        <p>Form 1120, 1120-F, 1065 — federal and state</p>
       </div>
       <div class="expertise-item reveal">
         <h4>Global Reporting</h4>
-        <p>Country-by-Country (CbCR), transfer pricing</p>
+        <p>Country-by-Country Reporting (CbCR)</p>
       </div>
       <div class="expertise-item reveal">
         <h4>Standardization</h4>
@@ -510,7 +563,11 @@
       </div>
       <div class="expertise-item reveal">
         <h4>Platforms</h4>
-        <p>OneSource Tax Provision, PwC Tax DataHub, Python, Power Query</p>
+        <p>OneSource Tax Provision, PwC Tax Datahub, SAP, OneStream, Blackline, Power Automate</p>
+      </div>
+      <div class="expertise-item reveal">
+        <h4>Automation</h4>
+        <p>Python, Power Query, SAP GUI Scripting</p>
       </div>
     </div>
   </div>
@@ -524,43 +581,105 @@
 
     <div class="projects reveal">
 
-      <div class="project">
-        <div class="project-num">01 / 04</div>
+      <div class="project project--expanded">
+        <div class="project-num">01 / 03</div>
         <div class="project-content">
-          <h3>NOA Tagger</h3>
-          <p>Python GUI that parses Canadian tax notice filenames and auto-applies SharePoint metadata across thousands of documents. Built with tkinter; integrates with the SharePoint REST API.</p>
+          <h3>T2 Extract</h3>
+          <p>Python tool that reads T2 corporate returns across 70+ entities in bulk and feeds the data directly into OneSource Tax Provision workpapers. RTP that used to take days gets done accurately in hours.</p>
+          <ul class="project-bullets">
+            <li>
+              <span class="bullet-label">Sch 1</span>
+              <span>Each line maps to an OTP adjustment code — RTP is automated, not manual. Inconsistent descriptions across entities get flagged so nothing slips through.</span>
+            </li>
+            <li>
+              <span class="bullet-label">Sch 4</span>
+              <span>Loss continuity pulled from the return is compared against the provision balance to identify where an RTP entry is needed.</span>
+            </li>
+            <li>
+              <span class="bullet-label">Sch 8 &amp; 13</span>
+              <span>CCA claims and reserve balances are validated against supporting workpapers and traced through to Schedule 1 to confirm the flow is clean.</span>
+            </li>
+            <li>
+              <span class="bullet-label">Sch 130</span>
+              <span>EIFEL data is extracted and reviewed to confirm the best interest deductibility position is captured and the return is free of errors under ITA s.18.2 / s.18.21.</span>
+            </li>
+            <li>
+              <span class="bullet-label">Tax due</span>
+              <span>Extracts tax payable and payment history across all entities — used to calculate instalments, run cash tax analyses, determine final payment amounts and reconcile against the tax payable rollforward on the provision side.</span>
+            </li>
+          </ul>
         </div>
-        <div class="project-tags"><span class="tag">Python</span><span class="tag">tkinter</span><span class="tag">SharePoint</span></div>
+        <div class="project-tags">
+          <span class="tag">Python</span><span class="tag">OneSource</span><span class="tag">T2</span><span class="tag">GIFI</span><span class="tag">Sch 1</span><span class="tag">Sch 4</span><span class="tag">Sch 8</span><span class="tag">EIFEL</span><span class="tag">RTP</span>
+        </div>
         <div class="project-arrow">→</div>
       </div>
 
-      <div class="project">
-        <div class="project-num">02 / 04</div>
+      <div class="project project--expanded">
+        <div class="project-num">02 / 03</div>
         <div class="project-content">
-          <h3>Provision Waterfall</h3>
-          <p>Power Query model that consolidates ASC 740 provision schedules across 21 legal entities — book-to-tax, P-codes, T-codes, and deferred roll all in one refreshable workbook.</p>
+          <h3>Reg 105 Automation</h3>
+          <p>End-to-end Regulation 105 withholding tax compliance tool built in Python with SAP GUI Scripting and Power Query. Replaces a largely manual multi-step process with a single run that handles everything from data pull to reconciliation.</p>
+          <ul class="project-bullets">
+            <li>
+              <span class="bullet-label">Rollover</span>
+              <span>Prior period workbook is automatically rolled forward — structure, formulas and reference data carry over with no manual setup.</span>
+            </li>
+            <li>
+              <span class="bullet-label">SAP pull</span>
+              <span>GL detail is extracted directly from SAP via GUI Scripting. Invoices are downloaded in the same run — no switching between screens or manual exports.</span>
+            </li>
+            <li>
+              <span class="bullet-label">WHT check</span>
+              <span>Invoice line items are read and the system-calculated withholding is compared against the actual amount withheld. Variances are flagged for review.</span>
+            </li>
+            <li>
+              <span class="bullet-label">Vendor rec</span>
+              <span>Vendor-level reconciliation is produced automatically — ties withholding amounts back to each vendor across the period.</span>
+            </li>
+            <li>
+              <span class="bullet-label">CRA rec</span>
+              <span>CRA reconciliation is generated to confirm total remittances agree with what was reported, closing the loop before filing.</span>
+            </li>
+          </ul>
         </div>
-        <div class="project-tags"><span class="tag">Power Query</span><span class="tag">Excel</span><span class="tag">ASC 740</span></div>
+        <div class="project-tags">
+          <span class="tag">Python</span><span class="tag">SAP GUI Scripting</span><span class="tag">Power Query</span><span class="tag">Reg 105</span><span class="tag">Part XIII</span><span class="tag">Reconciliation</span>
+        </div>
         <div class="project-arrow">→</div>
       </div>
 
-      <div class="project">
-        <div class="project-num">03 / 04</div>
+      <div class="project project--expanded">
+        <div class="project-num">03 / 03</div>
         <div class="project-content">
-          <h3>EIFEL Calculator</h3>
-          <p>Python tool that automates Schedule 13 EIFEL calculations under ITA s.18.2 / s.18.21 — handles ATI, IFE, excluded interest, and group ratio elections.</p>
+          <h3>Instalment Calculator</h3>
+          <p>Excel workbook covering 70+ entities across multiple brands. Fed by tax return data, prior and current period provision and provincial allocation — it calculates instalments in both USD and CAD and picks the minimum method under ITA s.157(1) to optimize cash flow.</p>
+          <ul class="project-bullets">
+            <li>
+              <span class="bullet-label">Method</span>
+              <span>Compares three instalment bases (prior-prior year, prior year and current year estimate) and automatically selects the minimum for each entity to optimize cash outflow. Hybrid 2+10 method is also supported.</span>
+            </li>
+            <li>
+              <span class="bullet-label">Exemption</span>
+              <span>Entities below the $3,000 CAD threshold are automatically flagged as exempt. Entities are grouped into "Require Instalment" and "Exempt" for cleaner review.</span>
+            </li>
+            <li>
+              <span class="bullet-label">Payments</span>
+              <span>YTD payments and prior year overpayments are tracked per entity. Completed months use actual paid amounts; future months are formula-driven.</span>
+            </li>
+            <li>
+              <span class="bullet-label">Deferral</span>
+              <span>Deferral summary shows how much tax is deferred to the next year, broken out by entity and by brand with a percentage deferred column for management review.</span>
+            </li>
+            <li>
+              <span class="bullet-label">Outputs</span>
+              <span>Brand-level instalment summary (USD and CAD), monthly dashboard, payment request with federal/Quebec/Alberta provincial splits and a deferral analysis — all in one workbook.</span>
+            </li>
+          </ul>
         </div>
-        <div class="project-tags"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">ITA</span></div>
-        <div class="project-arrow">→</div>
-      </div>
-
-      <div class="project">
-        <div class="project-num">04 / 04</div>
-        <div class="project-content">
-          <h3>T106 Bulk Builder</h3>
-          <p>Generates T106 transfer pricing summary forms from a master intercompany ledger. Replaces what used to be a two-week manual exercise across dozens of entities.</p>
+        <div class="project-tags">
+          <span class="tag">Excel</span><span class="tag">ITA s.157</span><span class="tag">Instalments</span><span class="tag">Cash tax</span><span class="tag">Provincial allocation</span>
         </div>
-        <div class="project-tags"><span class="tag">Python</span><span class="tag">openpyxl</span><span class="tag">CRA</span></div>
         <div class="project-arrow">→</div>
       </div>
 
@@ -568,67 +687,23 @@
   </div>
 </section>
 
-<!-- DEMOS -->
-<section id="demos" style="padding-top: 0;">
-  <div class="container">
-    <div class="section-label reveal">In motion</div>
-    <h2 class="section-title reveal">Short clips of the tools running.</h2>
-
-    <div class="demos reveal">
-      <div class="demo-card">
-        <div class="demo-icon">▶</div>
-        <div>
-          <div class="demo-label">Demo · 00:42</div>
-          <div class="demo-title">NOA tagger walk-through</div>
-        </div>
-      </div>
-      <div class="demo-card">
-        <div class="demo-icon">▶</div>
-        <div>
-          <div class="demo-label">Demo · 01:15</div>
-          <div class="demo-title">Provision refresh</div>
-        </div>
-      </div>
-      <div class="demo-card">
-        <div class="demo-icon">▶</div>
-        <div>
-          <div class="demo-label">Demo · 00:58</div>
-          <div class="demo-title">EIFEL calc end-to-end</div>
-        </div>
-      </div>
-    </div>
-    <p style="margin-top: 1.5rem; font-family: var(--mono); font-size: 0.75rem; color: var(--ink-muted);">// drop your .gif or .mp4 files into a <strong>/demos</strong> folder and replace the cards above with &lt;video&gt; or &lt;img&gt; tags</p>
-  </div>
-</section>
 
 <!-- ABOUT -->
 <section id="about">
   <div class="container">
     <div class="section-label reveal">About</div>
-    <div class="about-grid">
-      <div class="about-meta reveal">
-        <div><span>Role</span><span>Tax Analyst</span></div>
-        <div><span>Industry</span><span>Public co.</span></div>
-        <div><span>Provision</span><span>ASC 740</span></div>
-        <div><span>Specialties</span><span>FIN 48 · FIN 18</span></div>
-        <div><span>Reporting</span><span>10-K · 10-Q · Stat</span></div>
-        <div><span>Global</span><span>CbCR · TP</span></div>
-        <div><span>Jurisdictions</span><span>CDN · US</span></div>
-        <div><span>Platforms</span><span>OTP · DataHub</span></div>
-        <div><span>Stack</span><span>Python · PQ</span></div>
-        <div><span>Based</span><span>Canada</span></div>
-      </div>
-      <div class="about-text reveal">
-        <p>I'm a tax analyst with a bias for <em>clean data</em>. Most of the problems I've solved at work didn't start as automation problems — they started as consistency problems. Once the inputs are standardized, the automation is almost trivial.</p>
+    <div class="about-text reveal" style="max-width: 680px;">
+      <p>I'm a Senior Tax Analyst, CPA (Washington) and CPA In-Depth candidate with a bias for <em>clean data</em>.</p>
 
-        <p><strong>On the provision side</strong>, I work the full ASC 740 cycle — current and deferred tax, FIN 48 uncertain tax positions, FIN 18 interim reporting, valuation allowance assessments, return-to-provision true-ups, and the deferred tax roll across a portfolio of legal entities. The output feeds into <em>10-K and 10-Q tax footnotes</em>, statutory financials, and the broader external reporting cycle.</p>
+      <p>I don't just do the work — I think about how the work gets done. Every process I touch, I ask whether the time is going to the right place. If I'm spending hours preparing data that should take minutes, something upstream needs to change. The goal is always the same: spend less time on preparation and more time on the tax issues that actually require judgment.</p>
 
-        <p><strong>On compliance</strong>, my Canadian work covers T2, T5013, T106, NR4, T5, and T4ANR — for public corporations, Canadian and foreign partnerships, and non-resident withholding situations. I also have US tax exposure on the federal and state side, plus Country-by-Country Reporting (CbCR) and transfer pricing on the global side, which keeps the cross-border picture coherent end-to-end.</p>
+      <p><strong>On the provision side</strong>, I work the full ASC 740 cycle on a global basis — current and deferred tax, FIN 48 uncertain tax positions, FIN 18 interim reporting, valuation allowance assessments, return-to-provision true-ups, the deferred tax roll and the tax payable rollforward across a portfolio of legal entities. I also prepare and post tax journal entries, run ETR analyses to explain quarter-over-quarter movements and support audit inquiries. The output feeds into <em>10-K and 10-Q tax footnotes</em>, statutory financials and the broader external reporting cycle.</p>
 
-        <p><strong>On the tooling side</strong>, I work day-to-day in <em>OneSource Tax Provision</em> and <em>PwC Tax DataHub</em>, and I build my own utilities around them in Python and Power Query — usually to enforce a naming convention, normalize a data source, or make sure two workpapers agree before they hit review.</p>
+      <p><strong>On compliance</strong>, my Canadian work covers T2, T5013, T106, NR4, T5 and T4ANR — for public corporations, Canadian and foreign partnerships and non-resident withholding situations. I also have prior experience with US federal and state tax (Form 1120, 1120-F and 1065), plus Country-by-Country Reporting (CbCR) on the global side.</p>
 
-        <p>The throughline: <em>standardize the process</em>, then trust the data, then let the work scale. A clean foundation makes everything downstream — provision, footnotes, audits, transitions — meaningfully easier.</p>
-      </div>
+      <p><strong>On the tooling side</strong>, I work day-to-day in <em>OneSource Tax Provision</em>, <em>PwC Tax Datahub</em>, <em>SAP</em>, <em>OneStream</em> and <em>Blackline</em>. I also build my own utilities in Python, Power Query and Power Automate — usually to enforce a naming convention, normalize a data source or make sure two workpapers agree before they hit review.</p>
+
+      <p>The throughline: <em>standardize the process</em>, then trust the data, then let the work scale. A clean foundation makes everything downstream — provision, footnotes, audits, transitions — meaningfully easier.</p>
     </div>
   </div>
 </section>
@@ -636,12 +711,11 @@
 <!-- CONTACT -->
 <section id="contact" class="contact">
   <div class="container">
-    <h2 class="reveal">Open to <em>conversations</em>.</h2>
-    <p class="reveal" style="font-size: 1.05rem; color: var(--ink-soft); max-width: 48ch; margin: -1.5rem auto 2.5rem; line-height: 1.6;">If you're a recruiter, hiring manager, or fellow tax professional and something here resonates — the easiest way to reach me is below.</p>
+    <h2 class="reveal">Let's <em>connect</em>.</h2>
     <div class="contact-links reveal">
-      <a class="contact-link" href="mailto:your.email@example.com"><span>email</span>your.email@example.com</a>
-      <a class="contact-link" href="https://linkedin.com/in/yourprofile" target="_blank"><span>linkedin</span>/in/yourprofile</a>
-      <a class="contact-link" href="https://github.com/yourusername" target="_blank"><span>github</span>@yourusername</a>
+      <a class="contact-link" href="mailto:xexocch@gmail.com"><span>email</span>xexocch@gmail.com</a>
+      <a class="contact-link" href="https://www.linkedin.com/in/xavierchong/" target="_blank"><span>linkedin</span>/in/xavierchong</a>
+      <a class="contact-link" href="https://xavierchongch.github.io/" target="_blank"><span>github</span>xavierchongch.github.io</a>
     </div>
   </div>
 </section>
