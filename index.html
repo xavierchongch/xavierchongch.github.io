@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Xavier — Tax Automation</title>
+<meta name="description" content="A portfolio of tax automation projects — Python, Power Query, and tooling for compliance & provision work." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #fafaf7;
+    --ink: #1a1a1a;
+    --ink-soft: #4a4a4a;
+    --ink-muted: #888880;
+    --rule: #e6e4dc;
+    --accent: #c2410c;       /* warm rust */
+    --accent-soft: #fed7aa;
+    --card: #ffffff;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Subtle grain overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.025;
+    z-index: 100;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(250, 250, 247, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid transparent;
+    z-index: 50;
+    transition: border-color 0.3s ease;
+  }
+  nav.scrolled { border-bottom-color: var(--rule); }
+  nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+  .logo {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 1.1rem;
+    letter-spacing: -0.01em;
+    font-style: italic;
+  }
+  .nav-links { display: flex; gap: 2.25rem; }
+  .nav-links a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 400;
+    transition: color 0.2s ease;
+    position: relative;
+  }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+  }
+  .nav-links a:hover::after { width: 100%; }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    padding-top: 6rem;
+    position: relative;
+  }
+  .hero-meta {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.2s forwards;
+  }
+  .hero-meta::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--ink-muted);
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.75rem, 7vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin-bottom: 2rem;
+    max-width: 18ch;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.4s forwards;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+  .hero p {
+    font-size: 1.125rem;
+    color: var(--ink-soft);
+    max-width: 52ch;
+    line-height: 1.65;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.6s forwards;
+  }
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeIn 1s ease 1.2s forwards;
+  }
+  .hero-scroll span {
+    display: block;
+    width: 1px;
+    height: 32px;
+    background: var(--ink-muted);
+    margin: 0.75rem auto 0;
+    animation: scrollBounce 2s ease-in-out infinite;
+  }
+
+  /* ─── EXPERTISE STRIP ─── */
+  .expertise {
+    padding: 4rem 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    background: var(--card);
+  }
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.75rem;
+  }
+  .expertise-item h4 {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+  }
+  .expertise-item p {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    color: var(--ink);
+    line-height: 1.4;
+    font-weight: 400;
+  }
+  @media (max-width: 1100px) {
+    .expertise-grid { grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+  }
+  @media (max-width: 640px) {
+    .expertise-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 7rem 0; }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-label::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 4rem;
+    max-width: 22ch;
+  }
+  .section-title em { font-style: italic; color: var(--accent); }
+
+  /* ─── PROJECTS ─── */
+  .projects { display: flex; flex-direction: column; gap: 1px; background: var(--rule); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .project {
+    background: var(--bg);
+    padding: 2.5rem 0;
+    display: grid;
+    grid-template-columns: 80px 1fr 200px 140px;
+    gap: 2rem;
+    align-items: start;
+    cursor: pointer;
+    transition: padding 0.4s ease, background 0.3s ease;
+    position: relative;
+  }
+  .project:hover { padding-left: 1.5rem; padding-right: 1.5rem; background: var(--card); }
+  .project-num {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+    padding-top: 0.5rem;
+  }
+  .project-content h3 {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+  }
+  .project:hover .project-content h3 { color: var(--accent); }
+  .project-content p {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 55ch;
+  }
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding-top: 0.6rem;
+  }
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--ink-soft);
+    padding: 0.25rem 0.6rem;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    letter-spacing: 0.02em;
+  }
+  .project-arrow {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    color: var(--ink-muted);
+    text-align: right;
+    padding-top: 0.4rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  .project:hover .project-arrow { transform: translateX(8px); color: var(--accent); }
+
+  /* ─── DEMO PLACEHOLDERS ─── */
+  .demos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .demo-card {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    aspect-ratio: 16 / 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .demo-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .demo-card::before {
+    content: '';
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+  }
+  .demo-icon {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 2.5rem;
+    color: var(--ink-muted);
+    opacity: 0.3;
+  }
+  .demo-label {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .demo-title {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    margin-top: 0.25rem;
+    color: var(--ink);
+  }
+
+  /* ─── ABOUT ─── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .about-meta {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    line-height: 2;
+  }
+  .about-meta div { display: flex; justify-content: space-between; border-bottom: 1px dashed var(--rule); padding: 0.5rem 0; }
+  .about-meta span:first-child { color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.7rem; }
+  .about-text p {
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+  }
+  .about-text p:first-child {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.4;
+    margin-bottom: 2rem;
+  }
+  .about-text p:first-child em { font-style: italic; color: var(--accent); }
+
+  /* ─── CONTACT ─── */
+  .contact { padding: 8rem 0; text-align: center; border-top: 1px solid var(--rule); }
+  .contact h2 {
+    font-family: var(--serif);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 2.5rem;
+    max-width: 18ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .contact h2 em { font-style: italic; color: var(--accent); }
+  .contact-links {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .contact-link {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    min-width: 320px;
+  }
+  .contact-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  .contact-link span { font-family: var(--mono); font-size: 0.75rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.15em; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes scrollBounce { 0%, 100% { transform: scaleY(1); transform-origin: top; } 50% { transform: scaleY(0.4); transform-origin: top; } }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .container { padding: 0 1.25rem; }
+    .nav-links { gap: 1.25rem; }
+    .nav-links a { font-size: 0.8rem; }
+    section { padding: 4.5rem 0; }
+    .project { grid-template-columns: 40px 1fr; gap: 1rem; padding: 2rem 0; }
+    .project-tags, .project-arrow { display: none; }
+    .project:hover { padding-left: 0.5rem; padding-right: 0.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .contact-link { min-width: auto; font-size: 1.15rem; }
+    .contact-link span { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="container">
+    <div class="logo">Xavier&nbsp;·&nbsp;<em>tax automation</em></div>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-meta">Portfolio · 2026</div>
+    <h1>Tax provision, compliance, and the discipline of <em>clean data</em>.</h1>
+    <p>I work in Canadian and US tax at a public company — full ASC 740 provision, FIN 48, FIN 18, valuation allowance, and cross-border compliance. The thread that runs through everything I do: standardizing processes, enforcing consistency, and making the underlying data trustworthy enough to build on.</p>
+  </div>
+  <div class="hero-scroll">scroll<span></span></div>
+</header>
+
+<!-- EXPERTISE STRIP -->
+<section class="expertise" style="padding: 3.5rem 0;">
+  <div class="container">
+    <div class="expertise-grid">
+      <div class="expertise-item reveal">
+        <h4>Provision</h4>
+        <p>ASC 740, FIN 48, FIN 18, VA, deferred tax roll</p>
+      </div>
+      <div class="expertise-item reveal">
+        <h4>SEC Reporting</h4>
+        <p>10-K &amp; 10-Q tax footnotes, statutory financials</p>
+      </div>
+      <div class="expertise-item reveal">
+        <h4>CDN &amp; US Tax</h4>
+        <p>T2, T5013, T106, NR4, T5, T4ANR + US federal &amp; state</p>
+      </div>
+      <div class="expertise-item reveal">
+        <h4>Global Reporting</h4>
+        <p>Country-by-Country (CbCR), transfer pricing</p>
+      </div>
+      <div class="expertise-item reveal">
+        <h4>Standardization</h4>
+        <p>Process design, data hygiene, naming &amp; metadata governance</p>
+      </div>
+      <div class="expertise-item reveal">
+        <h4>Platforms</h4>
+        <p>OneSource Tax Provision, PwC Tax DataHub, Python, Power Query</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <div class="container">
+    <div class="section-label reveal">Selected work</div>
+    <h2 class="section-title reveal">Most of these started with the same problem: <em>inconsistent inputs</em>. The fix was always upstream.</h2>
+
+    <div class="projects reveal">
+
+      <div class="project">
+        <div class="project-num">01 / 04</div>
+        <div class="project-content">
+          <h3>NOA Tagger</h3>
+          <p>Python GUI that parses Canadian tax notice filenames and auto-applies SharePoint metadata across thousands of documents. Built with tkinter; integrates with the SharePoint REST API.</p>
+        </div>
+        <div class="project-tags"><span class="tag">Python</span><span class="tag">tkinter</span><span class="tag">SharePoint</span></div>
+        <div class="project-arrow">→</div>
+      </div>
+
+      <div class="project">
+        <div class="project-num">02 / 04</div>
+        <div class="project-content">
+          <h3>Provision Waterfall</h3>
+          <p>Power Query model that consolidates ASC 740 provision schedules across 21 legal entities — book-to-tax, P-codes, T-codes, and deferred roll all in one refreshable workbook.</p>
+        </div>
+        <div class="project-tags"><span class="tag">Power Query</span><span class="tag">Excel</span><span class="tag">ASC 740</span></div>
+        <div class="project-arrow">→</div>
+      </div>
+
+      <div class="project">
+        <div class="project-num">03 / 04</div>
+        <div class="project-content">
+          <h3>EIFEL Calculator</h3>
+          <p>Python tool that automates Schedule 13 EIFEL calculations under ITA s.18.2 / s.18.21 — handles ATI, IFE, excluded interest, and group ratio elections.</p>
+        </div>
+        <div class="project-tags"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">ITA</span></div>
+        <div class="project-arrow">→</div>
+      </div>
+
+      <div class="project">
+        <div class="project-num">04 / 04</div>
+        <div class="project-content">
+          <h3>T106 Bulk Builder</h3>
+          <p>Generates T106 transfer pricing summary forms from a master intercompany ledger. Replaces what used to be a two-week manual exercise across dozens of entities.</p>
+        </div>
+        <div class="project-tags"><span class="tag">Python</span><span class="tag">openpyxl</span><span class="tag">CRA</span></div>
+        <div class="project-arrow">→</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DEMOS -->
+<section id="demos" style="padding-top: 0;">
+  <div class="container">
+    <div class="section-label reveal">In motion</div>
+    <h2 class="section-title reveal">Short clips of the tools running.</h2>
+
+    <div class="demos reveal">
+      <div class="demo-card">
+        <div class="demo-icon">▶</div>
+        <div>
+          <div class="demo-label">Demo · 00:42</div>
+          <div class="demo-title">NOA tagger walk-through</div>
+        </div>
+      </div>
+      <div class="demo-card">
+        <div class="demo-icon">▶</div>
+        <div>
+          <div class="demo-label">Demo · 01:15</div>
+          <div class="demo-title">Provision refresh</div>
+        </div>
+      </div>
+      <div class="demo-card">
+        <div class="demo-icon">▶</div>
+        <div>
+          <div class="demo-label">Demo · 00:58</div>
+          <div class="demo-title">EIFEL calc end-to-end</div>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top: 1.5rem; font-family: var(--mono); font-size: 0.75rem; color: var(--ink-muted);">// drop your .gif or .mp4 files into a <strong>/demos</strong> folder and replace the cards above with &lt;video&gt; or &lt;img&gt; tags</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-label reveal">About</div>
+    <div class="about-grid">
+      <div class="about-meta reveal">
+        <div><span>Role</span><span>Tax Analyst</span></div>
+        <div><span>Industry</span><span>Public co.</span></div>
+        <div><span>Provision</span><span>ASC 740</span></div>
+        <div><span>Specialties</span><span>FIN 48 · FIN 18</span></div>
+        <div><span>Reporting</span><span>10-K · 10-Q · Stat</span></div>
+        <div><span>Global</span><span>CbCR · TP</span></div>
+        <div><span>Jurisdictions</span><span>CDN · US</span></div>
+        <div><span>Platforms</span><span>OTP · DataHub</span></div>
+        <div><span>Stack</span><span>Python · PQ</span></div>
+        <div><span>Based</span><span>Canada</span></div>
+      </div>
+      <div class="about-text reveal">
+        <p>I'm a tax analyst with a bias for <em>clean data</em>. Most of the problems I've solved at work didn't start as automation problems — they started as consistency problems. Once the inputs are standardized, the automation is almost trivial.</p>
+
+        <p><strong>On the provision side</strong>, I work the full ASC 740 cycle — current and deferred tax, FIN 48 uncertain tax positions, FIN 18 interim reporting, valuation allowance assessments, return-to-provision true-ups, and the deferred tax roll across a portfolio of legal entities. The output feeds into <em>10-K and 10-Q tax footnotes</em>, statutory financials, and the broader external reporting cycle.</p>
+
+        <p><strong>On compliance</strong>, my Canadian work covers T2, T5013, T106, NR4, T5, and T4ANR — for public corporations, Canadian and foreign partnerships, and non-resident withholding situations. I also have US tax exposure on the federal and state side, plus Country-by-Country Reporting (CbCR) and transfer pricing on the global side, which keeps the cross-border picture coherent end-to-end.</p>
+
+        <p><strong>On the tooling side</strong>, I work day-to-day in <em>OneSource Tax Provision</em> and <em>PwC Tax DataHub</em>, and I build my own utilities around them in Python and Power Query — usually to enforce a naming convention, normalize a data source, or make sure two workpapers agree before they hit review.</p>
+
+        <p>The throughline: <em>standardize the process</em>, then trust the data, then let the work scale. A clean foundation makes everything downstream — provision, footnotes, audits, transitions — meaningfully easier.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="container">
+    <h2 class="reveal">Open to <em>conversations</em>.</h2>
+    <p class="reveal" style="font-size: 1.05rem; color: var(--ink-soft); max-width: 48ch; margin: -1.5rem auto 2.5rem; line-height: 1.6;">If you're a recruiter, hiring manager, or fellow tax professional and something here resonates — the easiest way to reach me is below.</p>
+    <div class="contact-links reveal">
+      <a class="contact-link" href="mailto:your.email@example.com"><span>email</span>your.email@example.com</a>
+      <a class="contact-link" href="https://linkedin.com/in/yourprofile" target="_blank"><span>linkedin</span>/in/yourprofile</a>
+      <a class="contact-link" href="https://github.com/yourusername" target="_blank"><span>github</span>@yourusername</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; width: 100%;">
+    <div>© 2026 Xavier · built by hand</div>
+    <div>hosted on github pages · no cookies, no tracking</div>
+  </div>
+</footer>
+
+<script>
+  // Nav border on scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
