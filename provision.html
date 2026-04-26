@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Global Tax Provision | Xavier Chong Tax Portfolio</title>
+<title>Global Tax Provision | Xavier Chong Portfolio</title>
 <meta name="description" content="Full-cycle ASC 740 provision — current tax, deferred tax, FIN 48, FIN 18, ETR and OTP implementation." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -366,6 +366,19 @@
     max-height: 900px;
     opacity: 1;
   }
+  .project.is-open {
+    background: var(--card);
+    padding-left: 1.5rem;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+  }
+  .project.is-open::before { transform: scaleY(1); }
+  .project.is-open .project-header h3 { color: var(--accent); }
+  .project.is-open .project-arrow { transform: translateX(6px) rotate(45deg); color: var(--accent); opacity: 0; }
+  .project.is-open .tag { border-color: var(--accent); color: var(--accent); }
+  .project.is-open .project-detail {
+    max-height: 1400px;
+    opacity: 1;
+  }
   .project-detail-inner {
     padding-top: 1.5rem;
     border-top: 1px solid var(--rule);
@@ -666,6 +679,19 @@
     max-height: 600px;
     opacity: 1;
   }
+  .cycle-card.is-open {
+    border-color: var(--accent);
+    box-shadow: 0 4px 24px rgba(194,65,12,0.08);
+    transform: translateY(-2px);
+  }
+  .cycle-card.is-open::before { transform: scaleX(1); }
+  .cycle-card.is-open .cycle-num { color: var(--accent); }
+  .cycle-card.is-open h3 { color: var(--accent); }
+  .cycle-card.is-open .tag { border-color: var(--accent); color: var(--accent); }
+  .cycle-card.is-open .cycle-detail {
+    max-height: 1400px;
+    opacity: 1;
+  }
   .cycle-detail-inner {
     padding-top: 1.25rem;
     margin-top: 1rem;
@@ -698,7 +724,7 @@
 </head>
 <body>
 <nav id="nav"><div class="container">
-  <div class="logo"><a href="index.html" style="text-decoration:none;color:inherit;">Xavier Chong&nbsp;&middot;&nbsp;<em>Tax Portfolio</em></a></div>
+  <div class="logo"><a href="index.html" style="text-decoration:none;color:inherit;">Xavier Chong&nbsp;&middot;&nbsp;<em>Portfolio</em></a></div>
   <div class="nav-links"><a href="index.html">Home</a><a href="provision.html"  class="active">Provision</a><a href="tax.html">Tax</a><a href="automation.html">Automation</a></div>
 </div></nav>
 
@@ -953,7 +979,7 @@
 
 <footer>
   <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; width: 100%;">
-    <div>&copy; 2026 Xavier Chong Tax Portfolio &middot; built by hand</div>
+    <div>&copy; 2026 Xavier Chong Portfolio &middot; built by hand</div>
     <div>hosted on github pages &middot; no cookies, no tracking</div>
   </div>
 </footer>
@@ -965,6 +991,41 @@
     entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('.project, .cycle-card, .tile').forEach((card, index) => {
+    const detail = card.querySelector('.project-detail, .cycle-detail, .tile-detail');
+    if (!detail) return;
+
+    const detailId = detail.id || `expandable-card-${index}`;
+    detail.id = detailId;
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-expanded', 'false');
+    card.setAttribute('aria-controls', detailId);
+
+    const toggleCard = () => {
+      const shouldOpen = !card.classList.contains('is-open');
+      const group = card.closest('.projects, .cycle-grid, .mosaic');
+      if (group) {
+        group.querySelectorAll('.is-open').forEach(openCard => {
+          if (openCard !== card) {
+            openCard.classList.remove('is-open');
+            openCard.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+      card.classList.toggle('is-open', shouldOpen);
+      card.setAttribute('aria-expanded', String(shouldOpen));
+    };
+
+    card.addEventListener('click', toggleCard);
+    card.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        toggleCard();
+      }
+    });
+  });
 </script>
 </body>
 </html>
