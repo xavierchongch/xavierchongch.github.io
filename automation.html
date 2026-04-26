@@ -396,15 +396,41 @@
     line-height: 1.65;
     margin-bottom: 1rem;
   }
-  .project-detail-inner img {
+  .prototype-preview {
+    margin: 0.75rem 0 1.25rem;
+  }
+  .prototype-preview img {
     width: 100%;
     max-width: 100%;
     height: auto;
     object-fit: contain;
     border-radius: 8px;
     border: 1px solid var(--rule);
-    margin: 0.75rem 0 1.25rem;
     display: block;
+  }
+  .prototype-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    width: fit-content;
+    margin-top: 0.55rem;
+    padding: 0.32rem 0.55rem;
+    border: 1px solid rgba(194, 65, 12, 0.18);
+    border-radius: 999px;
+    background: rgba(255, 247, 237, 0.94);
+    box-shadow: 0 6px 18px rgba(26, 26, 26, 0.06);
+    font-family: var(--mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .prototype-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
   }
 
   .project-bullets {
@@ -595,7 +621,7 @@
 <body>
 <nav id="nav"><div class="container">
   <div class="logo"><a href="index.html" style="text-decoration:none;color:inherit;">Xavier Chong&nbsp;&middot;&nbsp;<em>Portfolio</em></a></div>
-  <div class="nav-links"><a href="index.html">Home</a><a href="provision.html">Provision</a><a href="tax.html">Tax</a><a href="automation.html"  class="active">Automation</a></div>
+  <div class="nav-links"><a href="index.html">Home</a><a href="provision.html">Tax Provision</a><a href="tax.html">Tax Compliance</a><a href="automation.html"  class="active">Automation</a></div>
 </div></nav>
 
 <header class="hero">
@@ -620,7 +646,7 @@
     <div class="projects reveal">
 
       <div class="project">
-        <div class="project-num">01 / 03</div>
+        <div class="project-num">01 / 04</div>
         <div>
           <div class="project-header">
             <h3>T2 Extract</h3>
@@ -633,7 +659,10 @@
           <div class="project-detail">
             <div class="project-detail-inner">
               <p>Python tool that reads T2 corporate returns across 70+ entities in bulk and feeds the data directly into OneSource Tax Provision workpapers. RTP that used to take days gets done accurately in hours.</p>
-              <img src="automation_t2_extract.svg" alt="T2 Extract app interface showing adjustment code mapping" loading="lazy" />
+              <figure class="prototype-preview">
+                <img src="automation_t2_extract.svg" alt="T2 Extract app interface showing adjustment code mapping" loading="lazy" />
+                <figcaption class="prototype-badge">Prototype for demo only</figcaption>
+              </figure>
               <ul class="project-bullets">
                 <li><span class="bullet-label">Sch 1</span><span>Each line maps to an OTP adjustment code — RTP is automated, not manual. Inconsistent descriptions across entities get flagged so nothing slips through.</span></li>
                 <li><span class="bullet-label">Sch 4</span><span>Loss continuity pulled from the return is compared against the provision balance to identify where an RTP entry is needed.</span></li>
@@ -647,7 +676,7 @@
       </div>
 
       <div class="project">
-        <div class="project-num">02 / 03</div>
+        <div class="project-num">02 / 04</div>
         <div>
           <div class="project-header">
             <h3>Reg 105 Automation</h3>
@@ -660,7 +689,10 @@
           <div class="project-detail">
             <div class="project-detail-inner">
               <p>End-to-end Regulation 105 withholding tax compliance tool built in Python with SAP GUI Scripting and Power Query. Replaces a largely manual multi-step process with a single run that handles everything from data pull to reconciliation.</p>
-              <img src="automation_reg105.svg" alt="Reg 105 Automation app interface showing withholding variance checks and reconciliation" loading="lazy" />
+              <figure class="prototype-preview">
+                <img src="automation_reg105.svg" alt="Reg 105 Automation app interface showing withholding variance checks and reconciliation" loading="lazy" />
+                <figcaption class="prototype-badge">Prototype for demo only</figcaption>
+              </figure>
               <ul class="project-bullets">
                 <li><span class="bullet-label">Rollover</span><span>Prior period workbook is automatically rolled forward — structure, formulas and reference data carry over with no manual setup.</span></li>
                 <li><span class="bullet-label">SAP pull</span><span>GL detail is extracted directly from SAP via GUI Scripting. Invoices are downloaded in the same run — no switching between screens or manual exports.</span></li>
@@ -674,7 +706,37 @@
       </div>
 
       <div class="project">
-        <div class="project-num">03 / 03</div>
+        <div class="project-num">03 / 04</div>
+        <div>
+          <div class="project-header">
+            <h3>Part XIII Automation</h3>
+            <span class="project-arrow">→</span>
+          </div>
+          <p class="project-tagline">Part XIII withholding workpaper automation — rollover, SAP GL pull, Power Query line pickup and reconciliation.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span><span class="tag">SAP GUI Scripting</span><span class="tag">Power Query</span><span class="tag">Part XIII</span><span class="tag">WHT</span><span class="tag">Reconciliation</span>
+          </div>
+          <div class="project-detail">
+            <div class="project-detail-inner">
+              <p>Automation tool for Part XIII withholding tax workpapers. Python rolls forward the prior period file, SAP GUI Scripting downloads the GL detail and Power Query identifies line items that require Part XIII WHT review. The workflow also performs reconciliation so the workpaper ties back cleanly before filing support is finalized.</p>
+              <figure class="prototype-preview">
+                <img src="automation_partxiii.svg" alt="Part XIII Automation app interface showing rollover, SAP GL detail, Power Query WHT pickup and reconciliation" loading="lazy" />
+                <figcaption class="prototype-badge">Prototype for demo only</figcaption>
+              </figure>
+              <ul class="project-bullets">
+                <li><span class="bullet-label">Rollover</span><span>Python rolls forward the prior period workpaper, preserving formulas, tabs, references and review structure.</span></li>
+                <li><span class="bullet-label">SAP pull</span><span>SAP GUI Scripting downloads the GL detail directly, reducing manual exports and copy-paste risk.</span></li>
+                <li><span class="bullet-label">Power Query</span><span>Power Query automatically picks up line items that require Part XIII withholding review based on the workpaper logic.</span></li>
+                <li><span class="bullet-label">Review</span><span>Relevant payments are isolated for treaty-rate, withholding and support review instead of scanning the full GL manually.</span></li>
+                <li><span class="bullet-label">Reconcile</span><span>Reconciliation is performed to tie the WHT population, remittance support and workpaper totals back to the source data.</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project">
+        <div class="project-num">04 / 04</div>
         <div>
           <div class="project-header">
             <h3>Instalment Calculator</h3>
@@ -687,7 +749,10 @@
           <div class="project-detail">
             <div class="project-detail-inner">
               <p>Excel workbook covering 70+ entities across multiple brands. Fed by tax return data, prior and current period provision and provincial allocation — it calculates instalments in both USD and CAD and picks the minimum method under ITA s.157(1) to optimize cash flow.</p>
-              <img src="automation_instalment.svg" alt="Canada Instalment Calculator interface showing instalment summary and cash deferred" loading="lazy" />
+              <figure class="prototype-preview">
+                <img src="automation_instalment.svg" alt="Canada Instalment Calculator interface showing instalment summary and cash deferred" loading="lazy" />
+                <figcaption class="prototype-badge">Prototype for demo only</figcaption>
+              </figure>
               <ul class="project-bullets">
                 <li><span class="bullet-label">Method</span><span>Compares three instalment bases (prior-prior year, prior year and current year estimate) and automatically selects the minimum for each entity to optimize cash outflow. Hybrid 2+10 method is also supported.</span></li>
                 <li><span class="bullet-label">Exemption</span><span>Entities below the $3,000 CAD threshold are automatically flagged as exempt. Entities are grouped into "Require Instalment" and "Exempt" for cleaner review.</span></li>
