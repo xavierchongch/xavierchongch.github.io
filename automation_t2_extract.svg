@@ -6,7 +6,7 @@
   <circle cx="24" cy="22" r="7" fill="#ef4444"/>
   <circle cx="44" cy="22" r="7" fill="#f59e0b"/>
   <circle cx="64" cy="22" r="7" fill="#22c55e"/>
-  <text x="600" y="28" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">T2 Extract - 74 entities loaded</text>
+  <text x="600" y="28" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">T2 Extract - portfolio loaded</text>
 
   <rect x="0" y="46" width="150" height="714" fill="#fbfbf8"/>
   <path d="M150 46V760" stroke="#e6e4dc"/>
@@ -20,7 +20,7 @@
     <text x="26" y="565">Tax Due</text>
   </g>
   <rect x="26" y="650" width="78" height="42" rx="6" fill="#c2410c"/>
-  <text x="65" y="677" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" fill="#ffffff">74 / 74</text>
+  <text x="65" y="677" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" fill="#ffffff">ALL</text>
 
   <text x="205" y="112" font-family="Fraunces, Georgia, serif" font-size="25" font-weight="500" fill="#1a1a1a">Schedule 1 - Adjustment Code Mapping</text>
   <rect x="190" y="154" width="960" height="72" rx="8" fill="#fafaf7" stroke="#e6e4dc"/>
@@ -29,7 +29,7 @@
     <text x="310" y="198">Description</text>
     <text x="545" y="198">Return Amount</text>
     <text x="720" y="198">Provision Amount</text>
-    <text x="900" y="198">OTP Code</text>
+    <text x="900" y="198">Adj Code</text>
     <text x="1085" y="198">Status</text>
   </g>
 

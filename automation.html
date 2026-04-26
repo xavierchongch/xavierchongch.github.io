@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Automation & Data | Xavier Chong Portfolio</title>
-<meta name="description" content="Python, SAP GUI Scripting and Power Query tools for tax workflows — T2 Extract and Reg 105 Automation." />
+<meta name="description" content="Python, ERP automation, Power Query, Power Automate and SharePoint tools for tax workflows — T2 Extract, Reg 105, Part XIII and instalment automation." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -652,23 +652,23 @@
             <h3>T2 Extract</h3>
             <span class="project-arrow">→</span>
           </div>
-          <p class="project-tagline">Bulk T2 data extraction into OneSource Tax Provision — RTP in hours, not days.</p>
+          <p class="project-tagline">Bulk T2 data extraction into OneSource Tax Provision workpapers — RTP in hours, not days.</p>
           <div class="project-tags">
-            <span class="tag">Python</span><span class="tag">OneSource</span><span class="tag">T2</span><span class="tag">GIFI</span><span class="tag">Sch 1</span><span class="tag">Sch 4</span><span class="tag">Sch 8</span><span class="tag">EIFEL</span><span class="tag">RTP</span>
+            <span class="tag">Python</span><span class="tag">OneSource Tax Provision</span><span class="tag">T2</span><span class="tag">GIFI</span><span class="tag">Sch 1</span><span class="tag">Sch 4</span><span class="tag">Sch 8</span><span class="tag">EIFEL</span><span class="tag">RTP</span>
           </div>
           <div class="project-detail">
             <div class="project-detail-inner">
-              <p>Python tool that reads T2 corporate returns across 70+ entities in bulk and feeds the data directly into OneSource Tax Provision workpapers. RTP that used to take days gets done accurately in hours.</p>
+              <p>Python tool that reads T2 corporate returns across a large entity portfolio in bulk and feeds the data directly into OneSource Tax Provision workpapers. RTP that used to take days gets done accurately in hours.</p>
               <figure class="prototype-preview">
                 <img src="automation_t2_extract.svg" alt="T2 Extract app interface showing adjustment code mapping" loading="lazy" />
                 <figcaption class="prototype-badge">Prototype for demo only</figcaption>
               </figure>
               <ul class="project-bullets">
-                <li><span class="bullet-label">Sch 1</span><span>Each line maps to an OTP adjustment code — RTP is automated, not manual. Inconsistent descriptions across entities get flagged so nothing slips through.</span></li>
+                <li><span class="bullet-label">Sch 1</span><span>Each line maps to a provision adjustment code — RTP is automated, not manual. Inconsistent descriptions across entities get flagged so nothing slips through.</span></li>
                 <li><span class="bullet-label">Sch 4</span><span>Loss continuity pulled from the return is compared against the provision balance to identify where an RTP entry is needed.</span></li>
                 <li><span class="bullet-label">Sch 8 &amp; 13</span><span>CCA claims and reserve balances are validated against supporting workpapers and traced through to Schedule 1 to confirm the flow is clean.</span></li>
-                <li><span class="bullet-label">Sch 130</span><span>EIFEL data is extracted and reviewed to confirm the best interest deductibility position is captured and the return is free of errors under ITA s.18.2 / s.18.21.</span></li>
-                <li><span class="bullet-label">Tax due</span><span>Extracts tax payable and payment history across all entities — used to calculate instalments, run cash tax analyses, determine final payment amounts and reconcile against the tax payable rollforward on the provision side.</span></li>
+                <li><span class="bullet-label">Sch 130</span><span>EIFEL data is extracted and reviewed to confirm the best interest deductibility position is captured and the return is free of errors under ITA ss. 18.2 and 18.21.</span></li>
+                <li><span class="bullet-label">Tax due</span><span>Extracts tax payable and payment history across the entity portfolio — used to calculate instalments, run cash tax analyses, determine final payment amounts and reconcile against the tax payable rollforward on the provision side.</span></li>
               </ul>
             </div>
           </div>
@@ -682,22 +682,22 @@
             <h3>Reg 105 Automation</h3>
             <span class="project-arrow">→</span>
           </div>
-          <p class="project-tagline">End-to-end Reg 105 withholding compliance — SAP pull to CRA reconciliation in one run.</p>
+          <p class="project-tagline">End-to-end Reg 105 withholding compliance — ERP pull to CRA reconciliation in one run.</p>
           <div class="project-tags">
-            <span class="tag">Python</span><span class="tag">SAP GUI Scripting</span><span class="tag">Power Query</span><span class="tag">Reg 105</span><span class="tag">Part XIII</span><span class="tag">Reconciliation</span>
+            <span class="tag">Python</span><span class="tag">ERP GUI scripting</span><span class="tag">Power Query</span><span class="tag">Reg 105</span><span class="tag">Part XIII</span><span class="tag">Reconciliation</span>
           </div>
           <div class="project-detail">
             <div class="project-detail-inner">
-              <p>End-to-end Regulation 105 withholding tax compliance tool built in Python with SAP GUI Scripting and Power Query. Replaces a largely manual multi-step process with a single run that handles everything from data pull to reconciliation.</p>
+              <p>End-to-end Regulation 105 withholding tax compliance tool built in Python with ERP GUI scripting and Power Query. Replaces a largely manual multi-step process with a single run that handles everything from data pull to reconciliation.</p>
               <figure class="prototype-preview">
                 <img src="automation_reg105.svg" alt="Reg 105 Automation app interface showing withholding variance checks and reconciliation" loading="lazy" />
                 <figcaption class="prototype-badge">Prototype for demo only</figcaption>
               </figure>
               <ul class="project-bullets">
                 <li><span class="bullet-label">Rollover</span><span>Prior period workbook is automatically rolled forward — structure, formulas and reference data carry over with no manual setup.</span></li>
-                <li><span class="bullet-label">SAP pull</span><span>GL detail is extracted directly from SAP via GUI Scripting. Invoices are downloaded in the same run — no switching between screens or manual exports.</span></li>
-                <li><span class="bullet-label">WHT check</span><span>Invoice line items are read and the system-calculated withholding is compared against the actual amount withheld. Variances are flagged for review.</span></li>
-                <li><span class="bullet-label">Vendor rec</span><span>Vendor-level reconciliation is produced automatically — ties withholding amounts back to each vendor across the period.</span></li>
+                <li><span class="bullet-label">ERP pull</span><span>GL detail is extracted directly from the ERP via GUI scripting. Source documents are downloaded in the same run — no switching between screens or manual exports.</span></li>
+                <li><span class="bullet-label">WHT check</span><span>Source document line items are read and the system-calculated withholding is compared against the actual amount withheld. Variances are flagged for review.</span></li>
+                <li><span class="bullet-label">Payee rec</span><span>Payee-level reconciliation is produced automatically — ties withholding amounts back to each payee across the period.</span></li>
                 <li><span class="bullet-label">CRA rec</span><span>CRA reconciliation is generated to confirm total remittances agree with what was reported, closing the loop before filing.</span></li>
               </ul>
             </div>
@@ -712,20 +712,20 @@
             <h3>Part XIII Automation</h3>
             <span class="project-arrow">→</span>
           </div>
-          <p class="project-tagline">Part XIII withholding workpaper automation — rollover, SAP GL pull, Power Query line pickup and reconciliation.</p>
+          <p class="project-tagline">Part XIII withholding workpaper automation — rollover, ERP GL pull, Power Query line pickup and reconciliation.</p>
           <div class="project-tags">
-            <span class="tag">Python</span><span class="tag">SAP GUI Scripting</span><span class="tag">Power Query</span><span class="tag">Part XIII</span><span class="tag">WHT</span><span class="tag">Reconciliation</span>
+            <span class="tag">Python</span><span class="tag">ERP GUI scripting</span><span class="tag">Power Query</span><span class="tag">Part XIII</span><span class="tag">WHT</span><span class="tag">Reconciliation</span>
           </div>
           <div class="project-detail">
             <div class="project-detail-inner">
-              <p>Automation tool for Part XIII withholding tax workpapers. Python rolls forward the prior period file, SAP GUI Scripting downloads the GL detail and Power Query identifies line items that require Part XIII WHT review. The workflow also performs reconciliation so the workpaper ties back cleanly before filing support is finalized.</p>
+              <p>Automation tool for Part XIII withholding tax workpapers. Python rolls forward the prior period file, ERP GUI scripting downloads the GL detail and Power Query identifies line items that require Part XIII WHT review. The workflow also performs reconciliation so the workpaper ties back cleanly before filing support is finalized.</p>
               <figure class="prototype-preview">
-                <img src="automation_partxiii.svg" alt="Part XIII Automation app interface showing rollover, SAP GL detail, Power Query WHT pickup and reconciliation" loading="lazy" />
+                <img src="automation_partxiii.svg" alt="Part XIII Automation app interface showing rollover, ERP GL detail, Power Query WHT pickup and reconciliation" loading="lazy" />
                 <figcaption class="prototype-badge">Prototype for demo only</figcaption>
               </figure>
               <ul class="project-bullets">
                 <li><span class="bullet-label">Rollover</span><span>Python rolls forward the prior period workpaper, preserving formulas, tabs, references and review structure.</span></li>
-                <li><span class="bullet-label">SAP pull</span><span>SAP GUI Scripting downloads the GL detail directly, reducing manual exports and copy-paste risk.</span></li>
+                <li><span class="bullet-label">ERP pull</span><span>ERP GUI scripting downloads the GL detail directly, reducing manual exports and copy-paste risk.</span></li>
                 <li><span class="bullet-label">Power Query</span><span>Power Query automatically picks up line items that require Part XIII withholding review based on the workpaper logic.</span></li>
                 <li><span class="bullet-label">Review</span><span>Relevant payments are isolated for treaty-rate, withholding and support review instead of scanning the full GL manually.</span></li>
                 <li><span class="bullet-label">Reconcile</span><span>Reconciliation is performed to tie the WHT population, remittance support and workpaper totals back to the source data.</span></li>
@@ -742,13 +742,13 @@
             <h3>Instalment Calculator</h3>
             <span class="project-arrow">→</span>
           </div>
-          <p class="project-tagline">70+ entity instalment workbook — minimum method, cash flow optimized, all outputs in one place.</p>
+          <p class="project-tagline">Multi-entity instalment workbook — minimum method, cash flow optimized, all outputs in one place.</p>
           <div class="project-tags">
-            <span class="tag">Excel</span><span class="tag">ITA s.157</span><span class="tag">Instalments</span><span class="tag">Cash tax</span><span class="tag">Provincial allocation</span>
+            <span class="tag">Spreadsheet</span><span class="tag">ITA s. 157</span><span class="tag">Instalments</span><span class="tag">Cash tax</span><span class="tag">Provincial allocation</span>
           </div>
           <div class="project-detail">
             <div class="project-detail-inner">
-              <p>Excel workbook covering 70+ entities across multiple brands. Fed by tax return data, prior and current period provision and provincial allocation — it calculates instalments in both USD and CAD and picks the minimum method under ITA s.157(1) to optimize cash flow.</p>
+              <p>Spreadsheet workbook covering a large entity portfolio across multiple business units. Fed by tax return data, prior and current period provision and provincial allocation — it calculates instalments in both USD and CAD and picks the minimum method under ITA s. 157(1) to optimize cash flow.</p>
               <figure class="prototype-preview">
                 <img src="automation_instalment.svg" alt="Canada Instalment Calculator interface showing instalment summary and cash deferred" loading="lazy" />
                 <figcaption class="prototype-badge">Prototype for demo only</figcaption>
@@ -757,8 +757,8 @@
                 <li><span class="bullet-label">Method</span><span>Compares three instalment bases (prior-prior year, prior year and current year estimate) and automatically selects the minimum for each entity to optimize cash outflow. Hybrid 2+10 method is also supported.</span></li>
                 <li><span class="bullet-label">Exemption</span><span>Entities below the $3,000 CAD threshold are automatically flagged as exempt. Entities are grouped into "Require Instalment" and "Exempt" for cleaner review.</span></li>
                 <li><span class="bullet-label">Payments</span><span>YTD payments and prior year overpayments are tracked per entity. Completed months use actual paid amounts; future months are formula-driven.</span></li>
-                <li><span class="bullet-label">Deferral</span><span>Deferral summary shows how much tax is deferred to the next year, broken out by entity and by brand with a percentage deferred column for management review.</span></li>
-                <li><span class="bullet-label">Outputs</span><span>Brand-level instalment summary (USD and CAD), monthly dashboard, payment request with federal/Quebec/Alberta provincial splits and a deferral analysis — all in one workbook.</span></li>
+                <li><span class="bullet-label">Deferral</span><span>Deferral summary shows how much tax is deferred to the next year, broken out by entity and by business unit with a percentage deferred column for management review.</span></li>
+                <li><span class="bullet-label">Outputs</span><span>Business-unit instalment summary (USD and CAD), monthly dashboard, payment request with federal/Quebec/Alberta provincial splits and a deferral analysis — all in one workbook.</span></li>
               </ul>
             </div>
           </div>
@@ -780,16 +780,16 @@
         <p>Primary language for data extraction, transformation and GUI tooling. Libraries: pandas, openpyxl, tkinter, requests.</p>
       </div>
       <div class="expertise-item">
-        <h4>SAP GUI Scripting</h4>
+        <h4>ERP GUI Scripting</h4>
         <p>Direct ERP interaction — GL extracts, report downloads and navigation automation without needing API access.</p>
       </div>
       <div class="expertise-item">
         <h4>Power Query</h4>
-        <p>Data transformation and consolidation inside Excel and Power BI. M language for custom steps.</p>
+        <p>Data transformation and consolidation inside spreadsheet and reporting tools, including reusable query logic for custom steps.</p>
       </div>
       <div class="expertise-item">
         <h4>Power Automate</h4>
-        <p>Workflow automation for document routing, SharePoint metadata and scheduled data refreshes.</p>
+        <p>Workflow automation for document routing, SharePoint metadata updates and scheduled data refreshes.</p>
       </div>
     </div>
   </div>

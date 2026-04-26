@@ -12,7 +12,7 @@
     <rect x="30" y="68" width="128" height="36" rx="18" fill="#f0fdf4" stroke="#bbf7d0"/>
     <text x="94" y="91" text-anchor="middle" fill="#166534">Rollover</text>
     <rect x="182" y="68" width="136" height="36" rx="18" fill="#f0fdf4" stroke="#bbf7d0"/>
-    <text x="250" y="91" text-anchor="middle" fill="#166534">SAP GL Pull</text>
+    <text x="250" y="91" text-anchor="middle" fill="#166534">ERP GL Pull</text>
     <rect x="342" y="68" width="148" height="36" rx="18" fill="#fff7ed" stroke="#fb923c"/>
     <text x="416" y="91" text-anchor="middle" fill="#c2410c" font-weight="700">Power Query</text>
     <rect x="514" y="68" width="136" height="36" rx="18" fill="#fff7ed" stroke="#fb923c"/>
@@ -32,7 +32,7 @@
   </g>
 
   <rect x="402" y="134" width="368" height="250" rx="12" fill="#ffffff" stroke="#e6e4dc"/>
-  <text x="428" y="172" font-family="Fraunces, Georgia, serif" font-size="22" font-weight="500" fill="#1a1a1a">SAP GL Detail</text>
+  <text x="428" y="172" font-family="Fraunces, Georgia, serif" font-size="22" font-weight="500" fill="#1a1a1a">ERP GL Detail</text>
   <g font-family="JetBrains Mono, monospace" font-size="10.5" fill="#1a1a1a">
     <text x="428" y="214" font-weight="700">Doc</text><text x="512" y="214" font-weight="700">Account</text><text x="650" y="214" font-weight="700">Amount</text><text x="720" y="214" font-weight="700">Type</text>
     <path d="M428 232H744M428 278H744M428 324H744" stroke="#e6e4dc"/>

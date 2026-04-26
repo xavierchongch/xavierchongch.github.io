@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Tax Provision | Xavier Chong Portfolio</title>
-<meta name="description" content="Full-cycle ASC 740 provision — current tax, deferred tax, FIN 48, FIN 18, ETR and OTP implementation." />
+<meta name="description" content="Full-cycle ASC 740 provision — current tax, deferred tax, uncertain tax positions (FIN 48), interim reporting (FIN 18), ETR and OneSource Tax Provision implementation." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -655,7 +655,17 @@
     margin-bottom: 0.4rem;
     transition: color 0.3s ease;
   }
+  .legacy-term {
+    color: var(--ink-muted);
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
   .cycle-card:hover h3 { color: var(--accent); }
+  .cycle-card:hover .legacy-term { color: var(--accent); }
 
   .cycle-tagline {
     font-family: var(--serif);
@@ -707,7 +717,7 @@
   }
   .cycle-detail-inner .project-bullets { margin-top: 0; }
 
-  /* OTP card spans full width */
+  /* Implementation card spans full width */
   .cycle-card--full {
     grid-column: 1 / -1;
     background: var(--bg);
@@ -741,7 +751,7 @@
     <div>
       <div class="hero-meta">Tax Provision</div>
       <h1>Full-cycle ASC 740 — from quarterly provision to <em>year-end close</em>.</h1>
-      <p>Every step of the provision cycle across a global entity portfolio. Current and deferred tax, FIN 48, FIN 18, valuation allowance, ETR and journal entries, with platform implementation highlighted separately below.</p>
+      <p>Every step of the provision cycle across a global entity portfolio. Current and deferred tax, uncertain tax positions (FIN 48), interim reporting (FIN 18), valuation allowance, ETR and journal entries, with OneSource Tax Provision implementation highlighted separately below.</p>
     </div>
     <div class="hero-visual">
       <img src="provision_visual.svg" alt="Abstract provision workflow visual" />
@@ -802,11 +812,11 @@
       <div class="cycle-card reveal">
         <div class="cycle-num">04</div>
         <h3>Return-to-Provision</h3>
-        <p class="cycle-tagline">Systematic RTP across 70+ entities — every adjustment traced, coded and posted.</p>
+        <p class="cycle-tagline">Systematic RTP across a multi-entity portfolio — every adjustment traced, coded and posted.</p>
         <div class="cycle-tags"><span class="tag">RTP</span><span class="tag">T2 Extract</span><span class="tag">OneSource Tax Provision</span><span class="tag">Adjustment codes</span></div>
         <div class="cycle-detail"><div class="cycle-detail-inner">
           <ul class="project-bullets">
-            <li><span class="bullet-label">Extract</span><span>Pull Schedule 1 data from T2 returns across all entities using T2 Extract — each line mapped to an OTP adjustment code automatically.</span></li>
+            <li><span class="bullet-label">Extract</span><span>Pull Schedule 1 data from T2 returns across the entity portfolio using T2 Extract — each line mapped to a provision adjustment code automatically.</span></li>
             <li><span class="bullet-label">Analyze</span><span>Compare tax return positions to provision estimates — identify permanent and temporary differences requiring true-up entries.</span></li>
             <li><span class="bullet-label">Post</span><span>Book RTP journal entries and update the deferred tax roll to reflect the as-filed positions.</span></li>
           </ul>
@@ -815,24 +825,24 @@
 
       <div class="cycle-card reveal">
         <div class="cycle-num">05</div>
-        <h3>FIN 48 — Uncertain Tax Positions</h3>
+        <h3>ASC 740 — Uncertain Tax Positions <span class="legacy-term">(FIN 48)</span></h3>
         <p class="cycle-tagline">Recognition and measurement of UTPs each period.</p>
-        <div class="cycle-tags"><span class="tag">FIN 48</span><span class="tag">ASC 740-10</span><span class="tag">UTPs</span></div>
+        <div class="cycle-tags"><span class="tag">ASC 740-10-25</span><span class="tag">ASC 740-10-30</span><span class="tag">FIN 48</span><span class="tag">UTPs</span></div>
         <div class="cycle-detail"><div class="cycle-detail-inner">
           <ul class="project-bullets">
             <li><span class="bullet-label">Recognize</span><span>Assess each identified position and document the technical basis for recognition or non-recognition.</span></li>
             <li><span class="bullet-label">Measure</span><span>Compute the cumulative probability distribution and determine the measured benefit for each recognized position.</span></li>
             <li><span class="bullet-label">Rollforward</span><span>Maintain the UTP rollforward each period — additions, reductions, settlements and lapse of statute of limitations.</span></li>
-            <li><span class="bullet-label">Disclose</span><span>Prepare FIN 48 disclosures for the 10-K and 10-Q tax footnote including a reconciliation of the beginning and ending unrecognized tax benefit balance.</span></li>
+            <li><span class="bullet-label">Disclose</span><span>Prepare uncertain tax position disclosures for the 10-K and 10-Q tax footnote, including a reconciliation of the beginning and ending unrecognized tax benefit balance.</span></li>
           </ul>
         </div></div>
       </div>
 
       <div class="cycle-card reveal">
         <div class="cycle-num">06</div>
-        <h3>FIN 18 — Interim Reporting</h3>
+        <h3>ASC 740-270 — Interim Reporting <span class="legacy-term">(FIN 18)</span></h3>
         <p class="cycle-tagline">Quarterly provision using the annual effective tax rate method.</p>
-        <div class="cycle-tags"><span class="tag">FIN 18</span><span class="tag">AETR</span><span class="tag">Interim provision</span><span class="tag">ASC 740-270</span></div>
+        <div class="cycle-tags"><span class="tag">ASC 740-270</span><span class="tag">FIN 18</span><span class="tag">AETR</span><span class="tag">Interim provision</span><span class="tag">Discrete items</span></div>
         <div class="cycle-detail"><div class="cycle-detail-inner">
           <ul class="project-bullets">
             <li><span class="bullet-label">AETR</span><span>Estimate the annual effective tax rate each quarter based on projected full-year ordinary income and tax — updated as the year progresses.</span></li>
@@ -865,7 +875,7 @@
           <ul class="project-bullets">
             <li><span class="bullet-label">Bridge</span><span>Build the rate reconciliation from statutory rate to effective rate — permanent items, rate differentials, uncertain positions, VA movements and discrete items.</span></li>
             <li><span class="bullet-label">Narrative</span><span>Write the ETR commentary explaining quarter-over-quarter and year-over-year drivers for management and the audit committee.</span></li>
-            <li><span class="bullet-label">Forecast</span><span>Prepare the projected full-year ETR for FIN 18 and update it each quarter as new information arises.</span></li>
+            <li><span class="bullet-label">Forecast</span><span>Prepare the projected full-year ETR for interim reporting under ASC 740-270 and update it each quarter as new information arises.</span></li>
           </ul>
         </div></div>
       </div>
@@ -901,12 +911,12 @@
       <div class="cycle-card reveal">
         <div class="cycle-num">01</div>
         <h3>Lead &amp; Stakeholder Support</h3>
-        <p class="cycle-tagline">Led the OTP implementation across tax teams and brands.</p>
-        <div class="cycle-tags"><span class="tag">Lead</span><span class="tag">US</span><span class="tag">Canada</span><span class="tag">International</span><span class="tag">Brands</span></div>
+        <p class="cycle-tagline">Led the OneSource Tax Provision implementation across tax teams and business units.</p>
+        <div class="cycle-tags"><span class="tag">Lead</span><span class="tag">US</span><span class="tag">Canada</span><span class="tag">International</span><span class="tag">Business units</span></div>
         <div class="cycle-detail"><div class="cycle-detail-inner">
           <ul class="project-bullets">
             <li><span class="bullet-label">Lead</span><span>Acted as the lead for the implementation workstream and coordinated support across US, Canada and International tax teams.</span></li>
-            <li><span class="bullet-label">Brands</span><span>Supported all brands through setup questions, testing issues and close-readiness follow-ups.</span></li>
+            <li><span class="bullet-label">Units</span><span>Supported business units through setup questions, testing issues and close-readiness follow-ups.</span></li>
             <li><span class="bullet-label">Enable</span><span>Helped teams understand the new workflow, key dependencies and where to go when issues surfaced during implementation.</span></li>
           </ul>
         </div></div>
@@ -915,13 +925,13 @@
       <div class="cycle-card reveal">
         <div class="cycle-num">02</div>
         <h3>Replication &amp; Configuration</h3>
-        <p class="cycle-tagline">Replicated legacy provision logic inside OTP.</p>
+        <p class="cycle-tagline">Replicated legacy provision logic inside the new platform.</p>
         <div class="cycle-tags"><span class="tag">Replication</span><span class="tag">Entity setup</span><span class="tag">COA mapping</span><span class="tag">Adjustment codes</span></div>
         <div class="cycle-detail"><div class="cycle-detail-inner">
           <ul class="project-bullets">
-            <li><span class="bullet-label">Replicate</span><span>Replicated PwC TaxDataHub calculations, reports and workpaper logic in OneSource Tax Provision.</span></li>
+            <li><span class="bullet-label">Replicate</span><span>Replicated legacy provision platform calculations, reports and workpaper logic in OneSource Tax Provision.</span></li>
             <li><span class="bullet-label">Configure</span><span>Set up entity structure, chart of accounts mapping, adjustment codes and report templates.</span></li>
-            <li><span class="bullet-label">Control</span><span>Maintained consistency between legacy process outputs and the new OTP configuration.</span></li>
+            <li><span class="bullet-label">Control</span><span>Maintained consistency between legacy process outputs and the new platform configuration.</span></li>
           </ul>
         </div></div>
       </div>
@@ -933,7 +943,7 @@
         <div class="cycle-tags"><span class="tag">Parallel test</span><span class="tag">Historical data</span><span class="tag">Opening balances</span><span class="tag">Variance review</span></div>
         <div class="cycle-detail"><div class="cycle-detail-inner">
           <ul class="project-bullets">
-            <li><span class="bullet-label">Test</span><span>Performed parallel testing between PwC TaxDataHub and OTP outputs across current tax, deferred tax and reporting views.</span></li>
+            <li><span class="bullet-label">Test</span><span>Performed parallel testing between the legacy platform and OneSource Tax Provision outputs across current tax, deferred tax and reporting views.</span></li>
             <li><span class="bullet-label">Review</span><span>Investigated variances, corrected mappings and validated opening balances before the platform transition.</span></li>
             <li><span class="bullet-label">Evidence</span><span>Kept testing support and reconciliation evidence available for review and sign-off.</span></li>
           </ul>
@@ -947,7 +957,7 @@
         <div class="cycle-tags"><span class="tag">SOX controls</span><span class="tag">Internal audit</span><span class="tag">External auditors</span><span class="tag">Walkthrough</span></div>
         <div class="cycle-detail"><div class="cycle-detail-inner">
           <ul class="project-bullets">
-            <li><span class="bullet-label">SOX</span><span>Participated in internal audit procedures for SOX control purposes related to the OTP implementation.</span></li>
+            <li><span class="bullet-label">SOX</span><span>Participated in internal audit procedures for SOX control purposes related to the OneSource Tax Provision implementation.</span></li>
             <li><span class="bullet-label">Walkthrough</span><span>Walked external auditors through the implementation process, system changes, testing approach and control evidence.</span></li>
             <li><span class="bullet-label">Support</span><span>Answered audit follow-ups and helped connect implementation evidence back to control objectives.</span></li>
           </ul>
@@ -962,7 +972,7 @@
         <div class="cycle-detail"><div class="cycle-detail-inner">
           <ul class="project-bullets">
             <li><span class="bullet-label">Train</span><span>Delivered training and documentation for ongoing team use after go-live.</span></li>
-            <li><span class="bullet-label">Enhance</span><span>Improved the OTP close process as we went, using testing issues and user feedback to tighten the workflow.</span></li>
+            <li><span class="bullet-label">Enhance</span><span>Refined the tax provision close workflow throughout implementation by turning testing issues and user feedback into practical improvements.</span></li>
             <li><span class="bullet-label">Document</span><span>Documented repeatable steps and review points so implementation knowledge could support future close cycles.</span></li>
           </ul>
         </div></div>
@@ -971,13 +981,13 @@
       <div class="cycle-card reveal">
         <div class="cycle-num">06</div>
         <h3>Go-Live &amp; Ongoing Support</h3>
-        <p class="cycle-tagline">Supported live close cycles across teams and brands.</p>
-        <div class="cycle-tags"><span class="tag">Go-live</span><span class="tag">Close support</span><span class="tag">All brands</span><span class="tag">US / Canada / International</span></div>
+        <p class="cycle-tagline">Supported live close cycles across teams and business units.</p>
+        <div class="cycle-tags"><span class="tag">Go-live</span><span class="tag">Close support</span><span class="tag">Business units</span><span class="tag">US / Canada / International</span></div>
         <div class="cycle-detail"><div class="cycle-detail-inner">
           <ul class="project-bullets">
             <li><span class="bullet-label">Launch</span><span>Supported go-live and post-implementation cleanup so the close process could continue smoothly.</span></li>
             <li><span class="bullet-label">Teams</span><span>Provided ongoing support to US, Canada and International users as issues surfaced during live close cycles.</span></li>
-            <li><span class="bullet-label">Brands</span><span>Supported all brands through setup questions, data issues and reporting follow-ups.</span></li>
+            <li><span class="bullet-label">Units</span><span>Supported business units through setup questions, data issues and reporting follow-ups.</span></li>
           </ul>
         </div></div>
       </div>
