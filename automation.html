@@ -26,6 +26,7 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  img { max-width: 100%; height: auto; }
 
   html { scroll-behavior: smooth; }
 
@@ -130,6 +131,7 @@
   .hero-visual img {
     width: 100%;
     max-width: 620px;
+    height: auto;
     margin-left: auto;
     display: block;
   }
@@ -284,6 +286,7 @@
     position: relative;
     overflow: hidden;
   }
+  .project > div { min-width: 0; }
   .project::before {
     content: '';
     position: absolute;
@@ -362,6 +365,7 @@
     max-height: 0;
     overflow: hidden;
     opacity: 0;
+    min-width: 0;
     transition: max-height 0.55s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease 0.1s;
   }
   .project:hover .project-detail {
@@ -394,6 +398,9 @@
   }
   .project-detail-inner img {
     width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
     border-radius: 8px;
     border: 1px solid var(--rule);
     margin: 0.75rem 0 1.25rem;
@@ -578,7 +585,8 @@
     .project { padding: 1.5rem 1rem 1.5rem 0; }
     .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .hero .container { grid-template-columns: 1fr; }
-    .hero-visual { display: none; }
+    .hero-visual { display: block; max-width: min(100%, 520px); margin: 0 auto; }
+    .hero-visual img { margin: 0 auto; }
     .contact-link { min-width: auto; font-size: 1rem; }
     .contact-link span { display: none; }
   }

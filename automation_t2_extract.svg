@@ -1,45 +1,59 @@
-<svg width="980" height="720" viewBox="0 0 980 720" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="980" height="720" rx="18" fill="#ffffff"/>
-  <rect x="1" y="1" width="978" height="718" rx="17" stroke="#e6e4dc"/>
-  <rect x="1" y="1" width="978" height="46" rx="17" fill="#fafaf7"/>
-  <path d="M1 47H979" stroke="#e6e4dc"/>
-  <circle cx="24" cy="24" r="7" fill="#ef4444"/>
-  <circle cx="44" cy="24" r="7" fill="#f59e0b"/>
-  <circle cx="64" cy="24" r="7" fill="#22c55e"/>
-  <text x="490" y="29" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">T2 Extract - 74 entities loaded</text>
-  <rect x="0" y="48" width="150" height="671" fill="#fbfbf8"/>
-  <path d="M150 48V720" stroke="#e6e4dc"/>
-  <rect x="20" y="92" width="92" height="46" rx="5" fill="#fff7ed" stroke="#fed7aa"/>
-  <path d="M0 92H5V138H0" fill="#c2410c"/>
-  <text x="32" y="120" font-family="JetBrains Mono, monospace" font-size="17" font-weight="600" fill="#c2410c">Sch 1</text>
-  <text x="32" y="180" font-family="JetBrains Mono, monospace" font-size="15" fill="#4a4a4a">Sch 4</text>
-  <text x="32" y="240" font-family="JetBrains Mono, monospace" font-size="15" fill="#4a4a4a">Sch 8</text>
-  <text x="32" y="300" font-family="JetBrains Mono, monospace" font-size="15" fill="#4a4a4a">Sch 13</text>
-  <text x="32" y="360" font-family="JetBrains Mono, monospace" font-size="15" fill="#4a4a4a">Sch 130</text>
-  <text x="32" y="420" font-family="JetBrains Mono, monospace" font-size="15" fill="#4a4a4a">Tax Due</text>
-  <rect x="22" y="508" width="72" height="42" rx="5" fill="#c2410c"/>
-  <text x="58" y="535" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700" fill="#ffffff">74 / 74</text>
-  <text x="210" y="110" font-family="Fraunces, Georgia, serif" font-size="30" font-weight="500" fill="#1a1a1a">Schedule 1 - Adjustment Code Mapping</text>
-  <rect x="205" y="156" width="710" height="56" rx="7" fill="#fafaf7" stroke="#e6e4dc"/>
-  <text x="228" y="191" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600" fill="#1a1a1a">Line</text>
-  <text x="310" y="191" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600" fill="#1a1a1a">Description</text>
-  <text x="565" y="191" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600" fill="#1a1a1a">Return Amt</text>
-  <text x="670" y="191" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600" fill="#1a1a1a">OTP Code</text>
-  <text x="770" y="191" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600" fill="#1a1a1a">Provision</text>
-  <text x="876" y="191" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600" fill="#1a1a1a">Status</text>
-  <g font-family="Inter, Arial, sans-serif" font-size="14" fill="#1a1a1a">
-    <path d="M205 250H915M205 318H915M205 386H915M205 454H915M205 522H915" stroke="#e6e4dc"/>
-    <text x="228" y="245">101</text><text x="310" y="245">Meals &amp; entertainment</text><text x="595" y="245" text-anchor="end">(45,678)</text><text x="690" y="245">8520</text><text x="810" y="245" text-anchor="end">(45,678)</text><text x="890" y="245" text-anchor="middle">OK</text>
-    <text x="228" y="313">106</text><text x="310" y="313">Stock option deduction</text><text x="595" y="313" text-anchor="end">(123,456)</text><text x="690" y="313">8670</text><text x="810" y="313" text-anchor="end">(100,000)</text><text x="890" y="313" text-anchor="middle" fill="#c2410c">FLAG</text>
-    <text x="228" y="381">120</text><text x="310" y="381">CCA - Class 8</text><text x="595" y="381" text-anchor="end">(234,567)</text><text x="690" y="381">8930</text><text x="810" y="381" text-anchor="end">(234,567)</text><text x="890" y="381" text-anchor="middle">OK</text>
-    <text x="228" y="449">125</text><text x="310" y="449">Non-capital loss</text><text x="595" y="449" text-anchor="end">(456,789)</text><text x="690" y="449">9780</text><text x="810" y="449" text-anchor="end">(300,000)</text><text x="890" y="449" text-anchor="middle" fill="#c2410c">FLAG</text>
-    <text x="228" y="517">143</text><text x="310" y="517">Transfer pricing adj.</text><text x="595" y="517" text-anchor="end">67,890</text><text x="690" y="517">9997</text><text x="810" y="517" text-anchor="end">67,890</text><text x="890" y="517" text-anchor="middle" fill="#b45309">RTP</text>
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" rx="18" fill="#ffffff"/>
+  <rect x="1" y="1" width="1198" height="758" rx="17" stroke="#e6e4dc"/>
+  <rect x="1" y="1" width="1198" height="44" rx="17" fill="#fafaf7"/>
+  <path d="M1 45H1199" stroke="#e6e4dc"/>
+  <circle cx="24" cy="22" r="7" fill="#ef4444"/>
+  <circle cx="44" cy="22" r="7" fill="#f59e0b"/>
+  <circle cx="64" cy="22" r="7" fill="#22c55e"/>
+  <text x="600" y="28" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">T2 Extract - 74 entities loaded</text>
+
+  <rect x="0" y="46" width="150" height="714" fill="#fbfbf8"/>
+  <path d="M150 46V760" stroke="#e6e4dc"/>
+  <path d="M0 108H6V164H0" fill="#c2410c"/>
+  <g font-family="JetBrains Mono, monospace" font-size="15" fill="#4a4a4a">
+    <text x="26" y="140" font-weight="700" fill="#c2410c">Sch 1</text>
+    <text x="26" y="225">Sch 4</text>
+    <text x="26" y="310">Sch 8</text>
+    <text x="26" y="395">Sch 13</text>
+    <text x="26" y="480">Sch 130</text>
+    <text x="26" y="565">Tax Due</text>
   </g>
-  <rect x="870" y="226" width="42" height="24" rx="12" fill="#dcfce7"/>
-  <rect x="870" y="294" width="42" height="24" rx="12" fill="#fee2e2"/>
-  <rect x="870" y="362" width="42" height="24" rx="12" fill="#dcfce7"/>
-  <rect x="870" y="430" width="42" height="24" rx="12" fill="#fee2e2"/>
-  <rect x="870" y="498" width="42" height="24" rx="12" fill="#ffedd5"/>
-  <rect x="205" y="604" width="710" height="50" rx="7" fill="#fff7ed" stroke="#fed7aa"/>
-  <text x="560" y="635" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="15" fill="#1a1a1a">68 lines mapped  -  4 flagged  -  2 require RTP entry</text>
+  <rect x="26" y="650" width="78" height="42" rx="6" fill="#c2410c"/>
+  <text x="65" y="677" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" fill="#ffffff">74 / 74</text>
+
+  <text x="205" y="112" font-family="Fraunces, Georgia, serif" font-size="25" font-weight="500" fill="#1a1a1a">Schedule 1 - Adjustment Code Mapping</text>
+  <rect x="190" y="154" width="960" height="72" rx="8" fill="#fafaf7" stroke="#e6e4dc"/>
+  <g font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#1a1a1a">
+    <text x="220" y="198">Line</text>
+    <text x="310" y="198">Description</text>
+    <text x="545" y="198">Return Amount</text>
+    <text x="720" y="198">Provision Amount</text>
+    <text x="900" y="198">OTP Code</text>
+    <text x="1085" y="198">Status</text>
+  </g>
+
+  <g font-family="Inter, Arial, sans-serif" font-size="13" fill="#1a1a1a">
+    <path d="M190 280H1150M190 350H1150M190 420H1150M190 490H1150M190 560H1150M190 630H1150" stroke="#e6e4dc"/>
+    <text x="220" y="264">101</text><text x="310" y="264">Meals &amp; entertainment</text><text x="655" y="264" text-anchor="end">(45,678)</text><text x="835" y="264" text-anchor="end">(45,678)</text><text x="920" y="264">P8520</text>
+    <rect x="1080" y="242" width="42" height="24" rx="12" fill="#dcfce7"/><text x="1101" y="259" text-anchor="middle" font-size="11" fill="#166534">OK</text>
+
+    <text x="220" y="334">106</text><text x="310" y="334">Stock option deduction</text><text x="655" y="334" text-anchor="end">(123,456)</text><text x="835" y="334" text-anchor="end">(100,000)</text><text x="920" y="334">P8670</text>
+    <rect x="1076" y="312" width="46" height="24" rx="12" fill="#ffedd5"/><text x="1099" y="329" text-anchor="middle" font-size="11" fill="#b45309">RTP</text>
+
+    <text x="220" y="404">120</text><text x="310" y="404">CCA - Class 8</text><text x="655" y="404" text-anchor="end">(234,567)</text><text x="835" y="404" text-anchor="end">(234,567)</text><text x="920" y="404">T8930</text>
+    <rect x="1080" y="382" width="42" height="24" rx="12" fill="#dcfce7"/><text x="1101" y="399" text-anchor="middle" font-size="11" fill="#166534">OK</text>
+
+    <text x="220" y="474">125</text><text x="310" y="474">Non-capital loss</text><text x="655" y="474" text-anchor="end">(456,789)</text><text x="835" y="474" text-anchor="end">(400,000)</text><text x="920" y="474">T9780</text>
+    <rect x="1076" y="452" width="46" height="24" rx="12" fill="#ffedd5"/><text x="1099" y="469" text-anchor="middle" font-size="11" fill="#b45309">RTP</text>
+
+    <text x="220" y="544">143</text><text x="310" y="544">Transfer pricing adj.</text><text x="655" y="544" text-anchor="end">67,890</text><text x="835" y="544" text-anchor="end">67,890</text><text x="920" y="544">P9997</text>
+    <rect x="1080" y="522" width="42" height="24" rx="12" fill="#dcfce7"/><text x="1101" y="539" text-anchor="middle" font-size="11" fill="#166534">OK</text>
+
+    <text x="220" y="614">192</text><text x="310" y="614">Loss carryforward</text><text x="655" y="614" text-anchor="end">(1,234,567)</text><text x="835" y="614" text-anchor="end">(1,234,567)</text><text x="920" y="614">T1110</text>
+    <rect x="1080" y="592" width="42" height="24" rx="12" fill="#dcfce7"/><text x="1101" y="609" text-anchor="middle" font-size="11" fill="#166534">OK</text>
+  </g>
+
+  <rect x="190" y="684" width="960" height="42" rx="8" fill="#fff7ed" stroke="#fed7aa"/>
+  <text x="670" y="710" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="#1a1a1a">68 lines mapped  +  P/T codes assigned  +  2 RTP entries required</text>
 </svg>

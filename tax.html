@@ -24,6 +24,7 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  img { max-width: 100%; height: auto; }
 
   html { scroll-behavior: smooth; }
 
@@ -128,6 +129,7 @@
   .hero-visual img {
     width: 100%;
     max-width: 620px;
+    height: auto;
     margin-left: auto;
     display: block;
   }
@@ -282,6 +284,7 @@
     position: relative;
     overflow: hidden;
   }
+  .project > div { min-width: 0; }
   .project::before {
     content: '';
     position: absolute;
@@ -360,6 +363,7 @@
     max-height: 0;
     overflow: hidden;
     opacity: 0;
+    min-width: 0;
     transition: max-height 0.55s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease 0.1s;
   }
   .project:hover .project-detail {
@@ -392,6 +396,9 @@
   }
   .project-detail-inner img {
     width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
     border-radius: 8px;
     border: 1px solid var(--rule);
     margin: 0.75rem 0 1.25rem;
@@ -576,7 +583,8 @@
     .project { padding: 1.5rem 1rem 1.5rem 0; }
     .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .hero .container { grid-template-columns: 1fr; }
-    .hero-visual { display: none; }
+    .hero-visual { display: block; max-width: min(100%, 520px); margin: 0 auto; }
+    .hero-visual img { margin: 0 auto; }
     .contact-link { min-width: auto; font-size: 1rem; }
     .contact-link span { display: none; }
   }
@@ -604,7 +612,6 @@
     border-color: var(--accent);
     box-shadow: 0 4px 20px rgba(194,65,12,0.06);
   }
-  .tile--wide { grid-column: 1 / -1; }
   .tile-icon {
     font-family: var(--mono);
     font-size: 0.65rem;
@@ -705,7 +712,7 @@
       <div class="tile reveal">
         <div class="tile-icon">Canadian</div>
         <h3>Canadian Tax Returns</h3>
-        <p class="tile-tagline">T2, T106 and CbCR — public corporations across federal and provincial jurisdictions.</p>
+        <p class="tile-tagline">T2 and T106 — public corporations across federal and provincial jurisdictions.</p>
         <div class="tile-tags"><span class="tag">T2</span><span class="tag">T106</span><span class="tag">NR4</span><span class="tag">T4ANR</span><span class="tag">T5</span><span class="tag">Provincial allocation</span></div>
         <div class="tile-detail"><div class="tile-detail-inner">
           <ul class="project-bullets">
@@ -736,13 +743,14 @@
       <div class="tile reveal">
         <div class="tile-icon">US</div>
         <h3>US Tax Returns</h3>
-        <p class="tile-tagline">Prior experience with Form 1120, 1120-F and 1065 — federal and state compliance, estimates and extensions.</p>
-        <div class="tile-tags"><span class="tag">Form 1120</span><span class="tag">Form 1120-F</span><span class="tag">Form 1065</span><span class="tag">State returns</span><span class="tag">Estimates</span><span class="tag">Extensions</span></div>
+        <p class="tile-tagline">Prior experience with Form 1120 and 1120-F — federal and state compliance, estimates and extensions.</p>
+        <div class="tile-tags"><span class="tag">Form 1120</span><span class="tag">Form 1120-F</span><span class="tag">State returns</span><span class="tag">Estimates</span><span class="tag">Extensions</span></div>
         <div class="tile-detail"><div class="tile-detail-inner">
           <ul class="project-bullets">
-            <li><span class="bullet-label">1120</span><span>Prepared US federal corporate income tax returns for domestic corporations — Schedule M-1/M-3 reconciliations, credits and estimated payments.</span></li>
+            <li><span class="bullet-label">1120</span><span>Prepared US federal corporate income tax returns for domestic corporations — Schedule M-1/M-3 reconciliations, credits and taxable income support.</span></li>
             <li><span class="bullet-label">1120-F</span><span>Prepared Form 1120-F for foreign corporations with US-source income — treaty positions, effectively connected income analysis and protective return filings.</span></li>
-            <li><span class="bullet-label">Estimates</span><span>Calculated and filed quarterly estimated tax payments (Form 1120-W) and prepared extension requests (Form 7004) to secure additional filing time.</span></li>
+            <li><span class="bullet-label">Estimates</span><span>Calculated quarterly estimated tax payments and supported safe-harbor review for federal and state filings.</span></li>
+            <li><span class="bullet-label">Extensions</span><span>Prepared extension requests, including Form 7004, and coordinated required extension payments.</span></li>
             <li><span class="bullet-label">Apportion</span><span>Computed state apportionment factors (sales, payroll, property) and applied them to allocate taxable income across filing states.</span></li>
             <li><span class="bullet-label">State</span><span>Assisted with state and local tax compliance — nexus analysis, combined/consolidated return positions and multi-state filing obligations.</span></li>
           </ul>
@@ -764,7 +772,7 @@
       </div>
 
 
-      <div class="tile tile--wide reveal">
+      <div class="tile reveal">
         <div class="tile-icon">Statutory</div>
         <h3>Statutory Financials</h3>
         <p class="tile-tagline">Legal entity financial statements — tax notes, disclosures and local GAAP compliance.</p>

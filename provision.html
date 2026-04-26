@@ -24,6 +24,7 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  img { max-width: 100%; height: auto; }
 
   html { scroll-behavior: smooth; }
 
@@ -128,6 +129,7 @@
   .hero-visual img {
     width: 100%;
     max-width: 620px;
+    height: auto;
     margin-left: auto;
     display: block;
   }
@@ -282,6 +284,7 @@
     position: relative;
     overflow: hidden;
   }
+  .project > div { min-width: 0; }
   .project::before {
     content: '';
     position: absolute;
@@ -360,6 +363,7 @@
     max-height: 0;
     overflow: hidden;
     opacity: 0;
+    min-width: 0;
     transition: max-height 0.55s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease 0.1s;
   }
   .project:hover .project-detail {
@@ -392,6 +396,9 @@
   }
   .project-detail-inner img {
     width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
     border-radius: 8px;
     border: 1px solid var(--rule);
     margin: 0.75rem 0 1.25rem;
@@ -576,7 +583,8 @@
     .project { padding: 1.5rem 1rem 1.5rem 0; }
     .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .hero .container { grid-template-columns: 1fr; }
-    .hero-visual { display: none; }
+    .hero-visual { display: block; max-width: min(100%, 520px); margin: 0 auto; }
+    .hero-visual img { margin: 0 auto; }
     .contact-link { min-width: auto; font-size: 1rem; }
     .contact-link span { display: none; }
   }
@@ -809,10 +817,10 @@
         <div class="cycle-num">05</div>
         <h3>FIN 48 — Uncertain Tax Positions</h3>
         <p class="cycle-tagline">Recognition and measurement of UTPs each period.</p>
-        <div class="cycle-tags"><span class="tag">FIN 48</span><span class="tag">ASC 740-10</span><span class="tag">UTPs</span><span class="tag">MLTN threshold</span></div>
+        <div class="cycle-tags"><span class="tag">FIN 48</span><span class="tag">ASC 740-10</span><span class="tag">UTPs</span></div>
         <div class="cycle-detail"><div class="cycle-detail-inner">
           <ul class="project-bullets">
-            <li><span class="bullet-label">Recognize</span><span>Apply the more-likely-than-not threshold to each identified position — document the technical basis for recognition or non-recognition.</span></li>
+            <li><span class="bullet-label">Recognize</span><span>Assess each identified position and document the technical basis for recognition or non-recognition.</span></li>
             <li><span class="bullet-label">Measure</span><span>Compute the cumulative probability distribution and determine the measured benefit for each recognized position.</span></li>
             <li><span class="bullet-label">Rollforward</span><span>Maintain the UTP rollforward each period — additions, reductions, settlements and lapse of statute of limitations.</span></li>
             <li><span class="bullet-label">Disclose</span><span>Prepare FIN 48 disclosures for the 10-K and 10-Q tax footnote including a reconciliation of the beginning and ending unrecognized tax benefit balance.</span></li>
@@ -899,7 +907,7 @@
           <ul class="project-bullets">
             <li><span class="bullet-label">Lead</span><span>Acted as the lead for the implementation workstream and coordinated support across US, Canada and International tax teams.</span></li>
             <li><span class="bullet-label">Brands</span><span>Supported all brands through setup questions, testing issues and close-readiness follow-ups.</span></li>
-            <li><span class="bullet-label">Coach</span><span>Trained team members and taught my superior the OTP workflow so support knowledge was not concentrated in one person.</span></li>
+            <li><span class="bullet-label">Enable</span><span>Helped teams understand the new workflow, key dependencies and where to go when issues surfaced during implementation.</span></li>
           </ul>
         </div></div>
       </div>
@@ -911,7 +919,7 @@
         <div class="cycle-tags"><span class="tag">Replication</span><span class="tag">Entity setup</span><span class="tag">COA mapping</span><span class="tag">Adjustment codes</span></div>
         <div class="cycle-detail"><div class="cycle-detail-inner">
           <ul class="project-bullets">
-            <li><span class="bullet-label">Replicate</span><span>Replicated Tax Datahub calculations, reports and workpaper logic in OneSource Tax Provision.</span></li>
+            <li><span class="bullet-label">Replicate</span><span>Replicated PwC TaxDataHub calculations, reports and workpaper logic in OneSource Tax Provision.</span></li>
             <li><span class="bullet-label">Configure</span><span>Set up entity structure, chart of accounts mapping, adjustment codes and report templates.</span></li>
             <li><span class="bullet-label">Control</span><span>Maintained consistency between legacy process outputs and the new OTP configuration.</span></li>
           </ul>
@@ -925,7 +933,7 @@
         <div class="cycle-tags"><span class="tag">Parallel test</span><span class="tag">Historical data</span><span class="tag">Opening balances</span><span class="tag">Variance review</span></div>
         <div class="cycle-detail"><div class="cycle-detail-inner">
           <ul class="project-bullets">
-            <li><span class="bullet-label">Test</span><span>Performed parallel testing between Tax Datahub and OTP outputs across current tax, deferred tax and reporting views.</span></li>
+            <li><span class="bullet-label">Test</span><span>Performed parallel testing between PwC TaxDataHub and OTP outputs across current tax, deferred tax and reporting views.</span></li>
             <li><span class="bullet-label">Review</span><span>Investigated variances, corrected mappings and validated opening balances before the platform transition.</span></li>
             <li><span class="bullet-label">Evidence</span><span>Kept testing support and reconciliation evidence available for review and sign-off.</span></li>
           </ul>
@@ -948,14 +956,14 @@
 
       <div class="cycle-card reveal">
         <div class="cycle-num">05</div>
-        <h3>Training &amp; Knowledge Transfer</h3>
-        <p class="cycle-tagline">Built shared knowledge for the new platform.</p>
-        <div class="cycle-tags"><span class="tag">Training</span><span class="tag">Documentation</span><span class="tag">Knowledge transfer</span></div>
+        <h3>Training &amp; Process Enhancement</h3>
+        <p class="cycle-tagline">Built shared knowledge while improving the process as we went.</p>
+        <div class="cycle-tags"><span class="tag">Training</span><span class="tag">Documentation</span><span class="tag">Process enhancement</span></div>
         <div class="cycle-detail"><div class="cycle-detail-inner">
           <ul class="project-bullets">
             <li><span class="bullet-label">Train</span><span>Delivered training and documentation for ongoing team use after go-live.</span></li>
-            <li><span class="bullet-label">Coach</span><span>Taught my superior the OTP workflow, including setup logic, common issues and review touchpoints.</span></li>
-            <li><span class="bullet-label">Document</span><span>Documented repeatable steps so the implementation knowledge could support future close cycles.</span></li>
+            <li><span class="bullet-label">Enhance</span><span>Improved the OTP close process as we went, using testing issues and user feedback to tighten the workflow.</span></li>
+            <li><span class="bullet-label">Document</span><span>Documented repeatable steps and review points so implementation knowledge could support future close cycles.</span></li>
           </ul>
         </div></div>
       </div>

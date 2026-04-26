@@ -26,6 +26,7 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  img { max-width: 100%; height: auto; }
 
   html { scroll-behavior: smooth; }
 
@@ -130,6 +131,7 @@
   .hero-visual img {
     width: 100%;
     max-width: 620px;
+    height: auto;
     margin-left: auto;
     display: block;
   }
@@ -284,6 +286,7 @@
     position: relative;
     overflow: hidden;
   }
+  .project > div { min-width: 0; }
   .project::before {
     content: '';
     position: absolute;
@@ -362,6 +365,7 @@
     max-height: 0;
     overflow: hidden;
     opacity: 0;
+    min-width: 0;
     transition: max-height 0.55s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease 0.1s;
   }
   .project:hover .project-detail {
@@ -394,6 +398,9 @@
   }
   .project-detail-inner img {
     width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
     border-radius: 8px;
     border: 1px solid var(--rule);
     margin: 0.75rem 0 1.25rem;
@@ -608,7 +615,8 @@
     .project { padding: 1.5rem 1rem 1.5rem 0; }
     .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .hero .container { grid-template-columns: 1fr; }
-    .hero-visual { display: none; }
+    .hero-visual { display: block; max-width: min(100%, 520px); margin: 0 auto; }
+    .hero-visual img { margin: 0 auto; }
     .contact-link { min-width: auto; font-size: 1rem; }
     .contact-link span { display: none; }
   }
@@ -626,7 +634,7 @@
     <div>
       <div class="hero-meta">Portfolio · 2026</div>
       <h1>Tax provision, compliance and the discipline of <em>clean data</em>.</h1>
-      <p>I work in Canadian tax and global tax provision at a public company — full ASC 740, FIN 48, FIN 18, valuation allowance and cross-border compliance. I also have prior experience with US federal and state tax. The thread that runs through everything I do: standardizing processes, enforcing consistency and making the underlying data trustworthy enough to build on.</p>
+      <p>I'm a Senior Tax Analyst focused on Canadian tax compliance and global tax provision at a public company, with hands-on experience across ASC 740, FIN 48, FIN 18, valuation allowance and cross-border compliance. I also bring prior experience in US federal and state tax. Across all of it, my focus is consistent: standardize the process, tighten controls and make the underlying data reliable enough to build on.</p>
     </div>
     <div class="hero-visual">
       <img src="hero_visual.png" alt="Messy data standardized into clean structured output" />
@@ -640,7 +648,7 @@
   <div class="container">
     <div class="section-label reveal">About</div>
     <div class="about-text reveal" style="max-width: 680px;">
-      <p>I'm a Senior Tax Analyst, CPA (Washington) and CPA In-Depth candidate with a bias for <em>clean data</em>.</p>
+      <p>I'm a Senior Tax Analyst and CPA (Washington), currently completing the CPA In-Depth Tax Program, with a bias for <em>clean data</em>.</p>
 
       <p>I don't just do the work — I think about how the work gets done. If I'm spending hours preparing data that should take minutes, something upstream needs to change. The goal is always the same: spend less time on preparation and more time on the tax issues that actually require judgment.</p>
     </div>
