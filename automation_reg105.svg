@@ -6,7 +6,7 @@
   <circle cx="24" cy="22" r="7" fill="#ef4444"/>
   <circle cx="44" cy="22" r="7" fill="#f59e0b"/>
   <circle cx="64" cy="22" r="7" fill="#22c55e"/>
-  <text x="600" y="28" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Reg 105 Automation - January Run</text>
+  <text x="600" y="28" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Reg 105 Review - January Run</text>
 
   <g font-family="JetBrains Mono, monospace" font-size="12">
     <rect x="30" y="68" width="116" height="36" rx="18" fill="#f0fdf4" stroke="#bbf7d0"/>

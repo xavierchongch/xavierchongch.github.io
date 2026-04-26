@@ -6,7 +6,7 @@
   <circle cx="24" cy="22" r="7" fill="#ef4444"/>
   <circle cx="44" cy="22" r="7" fill="#f59e0b"/>
   <circle cx="64" cy="22" r="7" fill="#22c55e"/>
-  <text x="600" y="28" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">T2 Extract - portfolio loaded</text>
+  <text x="600" y="28" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">T2 Review - portfolio loaded</text>
 
   <rect x="0" y="46" width="150" height="714" fill="#fbfbf8"/>
   <path d="M150 46V760" stroke="#e6e4dc"/>
