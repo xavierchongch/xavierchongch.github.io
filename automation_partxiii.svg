@@ -1,0 +1,75 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" rx="18" fill="#ffffff"/>
+  <rect x="1" y="1" width="1198" height="758" rx="17" stroke="#e6e4dc"/>
+  <rect x="1" y="1" width="1198" height="44" rx="17" fill="#fafaf7"/>
+  <path d="M1 45H1199" stroke="#e6e4dc"/>
+  <circle cx="24" cy="22" r="7" fill="#ef4444"/>
+  <circle cx="44" cy="22" r="7" fill="#f59e0b"/>
+  <circle cx="64" cy="22" r="7" fill="#22c55e"/>
+  <text x="600" y="28" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Part XIII Review - Monthly Run</text>
+
+  <g font-family="JetBrains Mono, monospace" font-size="12">
+    <rect x="30" y="68" width="128" height="36" rx="18" fill="#f0fdf4" stroke="#bbf7d0"/>
+    <text x="94" y="91" text-anchor="middle" fill="#166534">Rollover</text>
+    <rect x="182" y="68" width="136" height="36" rx="18" fill="#f0fdf4" stroke="#bbf7d0"/>
+    <text x="250" y="91" text-anchor="middle" fill="#166534">GL Detail</text>
+    <rect x="342" y="68" width="148" height="36" rx="18" fill="#fff7ed" stroke="#fb923c"/>
+    <text x="416" y="91" text-anchor="middle" fill="#c2410c" font-weight="700">Power Query</text>
+    <rect x="514" y="68" width="136" height="36" rx="18" fill="#fff7ed" stroke="#fb923c"/>
+    <text x="582" y="91" text-anchor="middle" fill="#c2410c" font-weight="700">WHT Lines</text>
+    <rect x="674" y="68" width="152" height="36" rx="18" fill="#ffffff" stroke="#e6e4dc"/>
+    <text x="750" y="91" text-anchor="middle" fill="#1a1a1a">Reconciliation</text>
+  </g>
+
+  <rect x="30" y="134" width="344" height="250" rx="12" fill="#ffffff" stroke="#e6e4dc"/>
+  <text x="56" y="172" font-family="Fraunces, Georgia, serif" font-size="22" font-weight="500" fill="#1a1a1a">Workpaper Rollover</text>
+  <g font-family="JetBrains Mono, monospace" font-size="12" fill="#166534">
+    <text x="58" y="220">09:01:12  Open prior period</text>
+    <text x="58" y="252">09:01:14  Copy workbook shell</text>
+    <text x="58" y="284">09:01:17  Update period dates</text>
+    <text x="58" y="316">09:01:20  Preserve formulas</text>
+    <text x="58" y="348">09:01:24  Rollover complete</text>
+  </g>
+
+  <rect x="402" y="134" width="368" height="250" rx="12" fill="#ffffff" stroke="#e6e4dc"/>
+  <text x="428" y="172" font-family="Fraunces, Georgia, serif" font-size="22" font-weight="500" fill="#1a1a1a">GL Detail Review</text>
+  <g font-family="JetBrains Mono, monospace" font-size="10.5" fill="#1a1a1a">
+    <text x="428" y="214" font-weight="700">Doc</text><text x="512" y="214" font-weight="700">Account</text><text x="650" y="214" font-weight="700">Amount</text><text x="720" y="214" font-weight="700">Type</text>
+    <path d="M428 232H744M428 278H744M428 324H744" stroke="#e6e4dc"/>
+    <text x="428" y="262">910221</text><text x="512" y="262">Dividend</text><text x="690" y="262" text-anchor="end">48,000</text><text x="720" y="262">WHT</text>
+    <text x="428" y="308">910244</text><text x="512" y="308">Interest</text><text x="690" y="308" text-anchor="end">12,500</text><text x="720" y="308">WHT</text>
+    <text x="428" y="354">910319</text><text x="512" y="354">Royalty</text><text x="690" y="354" text-anchor="end">8,750</text><text x="720" y="354">WHT</text>
+  </g>
+
+  <rect x="798" y="134" width="372" height="250" rx="12" fill="#ffffff" stroke="#e6e4dc"/>
+  <text x="824" y="172" font-family="Fraunces, Georgia, serif" font-size="22" font-weight="500" fill="#1a1a1a">Power Query Pickup</text>
+  <g font-family="JetBrains Mono, monospace" font-size="10.5" fill="#1a1a1a">
+    <text x="824" y="214" font-weight="700">Rule</text><text x="982" y="214" font-weight="700">Lines</text><text x="1088" y="214" font-weight="700">Status</text>
+    <path d="M824 232H1144M824 278H1144M824 324H1144" stroke="#e6e4dc"/>
+    <text x="824" y="262">Dividend accounts</text><text x="1008" y="262" text-anchor="end">18</text><circle cx="1108" cy="258" r="6" fill="#16a34a"/>
+    <text x="824" y="308">Interest paid NR</text><text x="1008" y="308" text-anchor="end">7</text><circle cx="1108" cy="304" r="6" fill="#16a34a"/>
+    <text x="824" y="354">Royalty keywords</text><text x="1008" y="354" text-anchor="end">4</text><circle cx="1108" cy="350" r="6" fill="#ea580c"/>
+  </g>
+  <path d="M798 324H804V370H798" fill="#c2410c"/>
+
+  <rect x="30" y="420" width="740" height="292" rx="12" fill="#ffffff" stroke="#e6e4dc"/>
+  <text x="56" y="458" font-family="Fraunces, Georgia, serif" font-size="22" font-weight="500" fill="#1a1a1a">Part XIII WHT Review Population</text>
+  <g font-family="JetBrains Mono, monospace" font-size="10.5" fill="#1a1a1a">
+    <text x="56" y="500" font-weight="700">Payee</text><text x="250" y="500" font-weight="700">Payment</text><text x="390" y="500" font-weight="700">Treaty</text><text x="505" y="500" font-weight="700">WHT Rate</text><text x="635" y="500" font-weight="700">WHT</text>
+    <path d="M56 518H744M56 564H744M56 610H744M56 656H744" stroke="#e6e4dc"/>
+    <text x="56" y="548">NR HoldCo A</text><text x="310" y="548" text-anchor="end">48,000</text><text x="390" y="548">US</text><text x="560" y="548" text-anchor="end">5%</text><text x="690" y="548" text-anchor="end">2,400</text>
+    <text x="56" y="594">Global Lender</text><text x="310" y="594" text-anchor="end">12,500</text><text x="390" y="594">UK</text><text x="560" y="594" text-anchor="end">10%</text><text x="690" y="594" text-anchor="end">1,250</text>
+    <text x="56" y="640">IP Licensor</text><text x="310" y="640" text-anchor="end">8,750</text><text x="390" y="640">NL</text><text x="560" y="640" text-anchor="end">0%</text><text x="690" y="640" text-anchor="end">0</text>
+    <text x="56" y="686">Mgmt Fees</text><text x="310" y="686" text-anchor="end">31,200</text><text x="390" y="686">Review</text><text x="560" y="686" text-anchor="end" fill="#c2410c">TBD</text><text x="690" y="686" text-anchor="end" fill="#c2410c">Review</text>
+  </g>
+
+  <rect x="798" y="420" width="372" height="292" rx="12" fill="#ffffff" stroke="#e6e4dc"/>
+  <text x="824" y="458" font-family="Fraunces, Georgia, serif" font-size="22" font-weight="500" fill="#1a1a1a">Reconciliation</text>
+  <g font-family="JetBrains Mono, monospace" font-size="11" fill="#1a1a1a">
+    <text x="824" y="510" font-weight="700">Check</text><text x="1028" y="510" font-weight="700">Result</text>
+    <path d="M824 532H1144M824 592H1144M824 652H1144" stroke="#e6e4dc"/>
+    <text x="824" y="572">GL population</text><text x="1090" y="572" text-anchor="end">100,450</text>
+    <text x="824" y="632">Review population</text><text x="1090" y="632" text-anchor="end">100,450</text>
+    <text x="824" y="692">Difference</text><text x="1090" y="692" text-anchor="end" fill="#166534">0</text>
+  </g>
+</svg>

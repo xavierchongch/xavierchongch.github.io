@@ -3,737 +3,26 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Global Tax Provision | Xavier Chong Portfolio</title>
-<meta name="description" content="Full-cycle ASC 740 provision — current tax, deferred tax, FIN 48, FIN 18, ETR and OTP implementation." />
+<title>Tax Provision | Xavier Chong Portfolio</title>
+<meta name="description" content="Full-cycle ASC 740 provision — current tax, deferred tax, uncertain tax positions (FIN 48), interim reporting (FIN 18), ETR and OneSource Tax Provision implementation." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #fafaf7;
-    --ink: #1a1a1a;
-    --ink-soft: #4a4a4a;
-    --ink-muted: #888880;
-    --rule: #e6e4dc;
-    --accent: #c2410c;       /* warm rust */
-    --accent-soft: #fed7aa;
-    --card: #ffffff;
-    --serif: 'Fraunces', Georgia, serif;
-    --sans: 'Inter', -apple-system, sans-serif;
-    --mono: 'JetBrains Mono', monospace;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: var(--sans);
-    font-weight: 300;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-
-  /* Subtle grain overlay */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.025;
-    z-index: 100;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-
-  .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-
-  /* ─── NAV ─── */
-  nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: rgba(250, 250, 247, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid transparent;
-    z-index: 50;
-    transition: border-color 0.3s ease;
-  }
-  nav.scrolled { border-bottom-color: var(--rule); }
-  nav .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 1.25rem;
-    padding-bottom: 1.25rem;
-  }
-  .logo {
-    font-family: var(--serif);
-    font-weight: 500;
-    font-size: 1.1rem;
-    letter-spacing: -0.01em;
-    font-style: italic;
-  }
-  .nav-links { display: flex; gap: 2.25rem; }
-  .nav-links a {
-    color: var(--ink-soft);
-    text-decoration: none;
-    font-size: 0.875rem;
-    font-weight: 400;
-    transition: color 0.2s ease;
-    position: relative;
-  }
-  .nav-links a:hover { color: var(--accent); }
-  .nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: var(--accent);
-    transition: width 0.3s ease;
-  }
-  .nav-links a:hover::after { width: 100%; }
-  .nav-links a.active { color: var(--accent); }
-  .nav-links a.active::after { width: 100%; }
-
-  /* ─── HERO ─── */
-  .hero {
-    min-height: 92vh;
-    display: flex;
-    align-items: center;
-    padding-top: 6rem;
-    position: relative;
-  }
-  .hero .container {
-    max-width: 1220px;
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 2.25rem;
-    align-items: center;
-  }
-  .hero-visual {
-    opacity: 0;
-    animation: fadeUp 1s ease 0.8s forwards;
-  }
-  .hero-visual img {
-    width: 100%;
-    max-width: 620px;
-    margin-left: auto;
-    display: block;
-  }
-  .hero-meta {
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    color: var(--ink-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    margin-bottom: 2rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    opacity: 0;
-    animation: fadeUp 0.8s ease 0.2s forwards;
-  }
-  .hero-meta::before {
-    content: '';
-    width: 24px;
-    height: 1px;
-    background: var(--ink-muted);
-  }
-  .hero h1 {
-    font-family: var(--serif);
-    font-size: clamp(2.75rem, 7vw, 5.5rem);
-    font-weight: 300;
-    line-height: 1.05;
-    letter-spacing: -0.025em;
-    margin-bottom: 2rem;
-    max-width: 18ch;
-    opacity: 0;
-    animation: fadeUp 1s ease 0.4s forwards;
-  }
-  .hero h1 em {
-    font-style: italic;
-    font-weight: 400;
-    color: var(--accent);
-  }
-  .hero p {
-    font-size: 1.125rem;
-    color: var(--ink-soft);
-    max-width: 52ch;
-    line-height: 1.65;
-    opacity: 0;
-    animation: fadeUp 1s ease 0.6s forwards;
-  }
-  .hero-scroll {
-    position: absolute;
-    bottom: 2.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    color: var(--ink-muted);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    opacity: 0;
-    animation: fadeIn 1s ease 1.2s forwards;
-  }
-  .hero-scroll span {
-    display: block;
-    width: 1px;
-    height: 32px;
-    background: var(--ink-muted);
-    margin: 0.75rem auto 0;
-    animation: scrollBounce 2s ease-in-out infinite;
-  }
-
-  /* ─── EXPERTISE STRIP ─── */
-  .expertise {
-    padding: 4rem 0;
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-    background: var(--card);
-  }
-  .expertise-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.75rem;
-  }
-  .expertise-item {
-    padding-left: 1rem;
-    border-left: 2px solid var(--rule);
-    transition: border-color 0.3s ease;
-  }
-  .expertise-item:hover { border-left-color: var(--accent); }
-  .expertise-item h4 {
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--accent);
-    margin-bottom: 0.75rem;
-    font-weight: 500;
-  }
-  .expertise-item p {
-    font-family: var(--serif);
-    font-size: 0.95rem;
-    color: var(--ink);
-    line-height: 1.4;
-    font-weight: 400;
-  }
-  @media (max-width: 1100px) {
-    .expertise-grid { grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
-  }
-  @media (max-width: 640px) {
-    .expertise-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-  }
-
-  /* ─── SECTIONS ─── */
-  section { padding: 7rem 0; }
-
-  .section-label {
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    color: var(--ink-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-  .section-label::before {
-    content: '';
-    width: 24px;
-    height: 1px;
-    background: var(--accent);
-  }
-  .section-title {
-    font-family: var(--serif);
-    font-size: clamp(2rem, 4vw, 2.75rem);
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    margin-bottom: 4rem;
-    max-width: 22ch;
-  }
-  .section-title em { font-style: italic; color: var(--accent); }
-
-  /* ─── PROJECTS ─── */
-  .projects { display: flex; flex-direction: column; gap: 1px; background: var(--rule); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-
-  .project {
-    background: var(--bg);
-    padding: 2rem 2rem 2rem 0;
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 0 2rem;
-    cursor: pointer;
-    transition: background 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
-  }
-  .project::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 3px;
-    background: var(--accent);
-    transform: scaleY(0);
-    transform-origin: bottom;
-    transition: transform 0.4s ease;
-  }
-  .project:hover { background: var(--card); padding-left: 1.5rem; box-shadow: 0 2px 16px rgba(0,0,0,0.05); }
-  .project:hover::before { transform: scaleY(1); }
-
-  .project-num {
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    color: var(--ink-muted);
-    padding-top: 0.35rem;
-  }
-
-  /* Default visible: header row */
-  .project-header {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-  .project-header h3 {
-    font-family: var(--serif);
-    font-size: 1.7rem;
-    font-weight: 400;
-    letter-spacing: -0.015em;
-    transition: color 0.3s ease;
-    line-height: 1.15;
-  }
-  .project:hover .project-header h3 { color: var(--accent); }
-
-  .project-arrow {
-    font-family: var(--serif);
-    font-size: 1.4rem;
-    color: var(--ink-muted);
-    flex-shrink: 0;
-    transition: transform 0.35s ease, color 0.3s ease, opacity 0.3s ease;
-  }
-  .project:hover .project-arrow { transform: translateX(6px) rotate(45deg); color: var(--accent); opacity: 0; }
-
-  .project-tagline {
-    font-size: 0.9rem;
-    color: var(--ink-muted);
-    margin-top: 0.4rem;
-    font-style: italic;
-    font-family: var(--serif);
-  }
-
-  .project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem;
-    margin-top: 0.85rem;
-  }
-  .tag {
-    font-family: var(--mono);
-    font-size: 0.68rem;
-    color: var(--ink-soft);
-    padding: 0.2rem 0.55rem;
-    border: 1px solid var(--rule);
-    border-radius: 2px;
-    letter-spacing: 0.02em;
-    transition: border-color 0.3s ease, color 0.3s ease;
-  }
-  .project:hover .tag { border-color: var(--accent); color: var(--accent); }
-
-  /* Expandable detail — hidden by default, revealed on hover */
-  .project-detail {
-    grid-column: 2 / 3;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.55s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease 0.1s;
-  }
-  .project:hover .project-detail {
-    max-height: 900px;
-    opacity: 1;
-  }
-  .project.is-open {
-    background: var(--card);
-    padding-left: 1.5rem;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.05);
-  }
-  .project.is-open::before { transform: scaleY(1); }
-  .project.is-open .project-header h3 { color: var(--accent); }
-  .project.is-open .project-arrow { transform: translateX(6px) rotate(45deg); color: var(--accent); opacity: 0; }
-  .project.is-open .tag { border-color: var(--accent); color: var(--accent); }
-  .project.is-open .project-detail {
-    max-height: 1400px;
-    opacity: 1;
-  }
-  .project-detail-inner {
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--rule);
-    margin-top: 1.25rem;
-  }
-  .project-detail-inner p {
-    color: var(--ink-soft);
-    font-size: 0.95rem;
-    line-height: 1.65;
-    margin-bottom: 1rem;
-  }
-  .project-detail-inner img {
-    width: 100%;
-    border-radius: 8px;
-    border: 1px solid var(--rule);
-    margin: 0.75rem 0 1.25rem;
-    display: block;
-  }
-
-  .project-bullets {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.65rem;
-    margin-top: 0.5rem;
-  }
-  .project-bullets li {
-    display: grid;
-    grid-template-columns: minmax(92px, 0.28fr) 1fr;
-    gap: 0.85rem;
-    align-items: start;
-    font-size: 0.9rem;
-    color: var(--ink-soft);
-    line-height: 1.55;
-  }
-  .bullet-label {
-    font-family: var(--mono);
-    font-size: 0.67rem;
-    color: var(--accent);
-    line-height: 1.35;
-    padding-top: 0.12rem;
-    letter-spacing: 0.03em;
-  }
-  .demos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
-  .demo-card {
-    background: var(--card);
-    border: 1px solid var(--rule);
-    aspect-ratio: 16 / 10;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 1.5rem;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-  }
-  .demo-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-  .demo-card::before {
-    content: '';
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--accent-soft);
-    border: 1px solid var(--accent);
-  }
-  .demo-icon {
-    font-family: var(--serif);
-    font-style: italic;
-    font-size: 2.5rem;
-    color: var(--ink-muted);
-    opacity: 0.3;
-  }
-  .demo-label {
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    color: var(--ink-soft);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-  .demo-title {
-    font-family: var(--serif);
-    font-size: 1.1rem;
-    margin-top: 0.25rem;
-    color: var(--ink);
-  }
-
-  /* ─── ABOUT ─── */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 4rem;
-    align-items: start;
-  }
-  .about-meta {
-    font-family: var(--mono);
-    font-size: 0.8rem;
-    color: var(--ink-soft);
-    line-height: 2;
-  }
-  .about-meta div { display: flex; justify-content: space-between; border-bottom: 1px dashed var(--rule); padding: 0.5rem 0; }
-  .about-meta span:first-child { color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.7rem; }
-  .about-text p {
-    font-size: 1.1rem;
-    color: var(--ink-soft);
-    line-height: 1.75;
-    margin-bottom: 1.25rem;
-  }
-  .about-text p:first-child {
-    font-family: var(--serif);
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: var(--ink);
-    line-height: 1.4;
-    margin-bottom: 2rem;
-    padding-top: 1.5rem;
-    border-top: 2px solid var(--accent);
-    display: inline-block;
-  }
-  .about-text p:first-child em { font-style: italic; color: var(--accent); }
-
-  /* ─── CONTACT ─── */
-  .contact { padding: 6rem 0; text-align: center; border-top: 1px solid var(--rule); }
-  .contact h2 {
-    font-family: var(--serif);
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 300;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    margin-bottom: 3rem;
-    max-width: 18ch;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .contact h2 em { font-style: italic; color: var(--accent); }
-  .contact-links {
-    display: inline-flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-  .contact-link {
-    font-family: var(--serif);
-    font-size: 1.25rem;
-    color: var(--ink);
-    text-decoration: none;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid var(--rule);
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 3rem;
-    min-width: 360px;
-  }
-  .contact-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
-  .contact-link span { font-family: var(--mono); font-size: 0.75rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.15em; }
-
-  /* ─── FOOTER ─── */
-  footer {
-    padding: 2.5rem 0;
-    border-top: 1px solid var(--rule);
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    color: var(--ink-muted);
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  /* ─── ANIMATIONS ─── */
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-  @keyframes scrollBounce { 0%, 100% { transform: scaleY(1); transform-origin: top; } 50% { transform: scaleY(0.4); transform-origin: top; } }
-
-  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-
-  /* ─── RESPONSIVE ─── */
-  @media (max-width: 768px) {
-    .container { padding: 0 1.25rem; }
-    nav .container { align-items: flex-start; gap: 0.85rem; }
-    .logo { width: 100%; font-size: 1rem; }
-    .nav-links { width: 100%; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap; }
-    .nav-links a { font-size: 0.8rem; }
-    section { padding: 4.5rem 0; }
-    .project { padding: 1.5rem 1rem 1.5rem 0; }
-    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .hero .container { grid-template-columns: 1fr; }
-    .hero-visual { display: none; }
-    .contact-link { min-width: auto; font-size: 1rem; }
-    .contact-link span { display: none; }
-  }
-</style>
-
-
-<style>
-  /* ─── CYCLE GRID ─── */
-  .cycle-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    position: relative;
-  }
-  .cycle-grid::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(to bottom, var(--accent), var(--accent-soft), var(--rule));
-    transform: translateX(-50%);
-    z-index: 0;
-  }
-  .cycle-card {
-    background: var(--card);
-    border: 1px solid var(--rule);
-    border-radius: 12px;
-    padding: 2rem;
-    position: relative;
-    z-index: 1;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-    overflow: hidden;
-  }
-  .cycle-card:hover {
-    border-color: var(--accent);
-    box-shadow: 0 4px 24px rgba(194,65,12,0.08);
-    transform: translateY(-2px);
-  }
-  .cycle-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--accent);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s ease;
-  }
-  .cycle-card:hover::before { transform: scaleX(1); }
-
-  .cycle-num {
-    font-family: var(--mono);
-    font-size: 2rem;
-    font-weight: 500;
-    color: var(--accent-soft);
-    line-height: 1;
-    margin-bottom: 0.75rem;
-  }
-  .cycle-card:hover .cycle-num { color: var(--accent); }
-
-  .cycle-card h3 {
-    font-family: var(--serif);
-    font-size: 1.35rem;
-    font-weight: 400;
-    margin-bottom: 0.4rem;
-    transition: color 0.3s ease;
-  }
-  .cycle-card:hover h3 { color: var(--accent); }
-
-  .cycle-tagline {
-    font-family: var(--serif);
-    font-size: 0.85rem;
-    font-style: italic;
-    color: var(--ink-muted);
-    margin-bottom: 0.75rem;
-  }
-
-  .cycle-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.3rem;
-    margin-bottom: 0;
-  }
-  .cycle-tags .tag {
-    font-size: 0.62rem;
-    padding: 0.15rem 0.45rem;
-  }
-  .cycle-card:hover .tag { border-color: var(--accent); color: var(--accent); }
-
-  .cycle-detail {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.35s ease 0.1s;
-  }
-  .cycle-card:hover .cycle-detail {
-    max-height: 600px;
-    opacity: 1;
-  }
-  .cycle-card.is-open {
-    border-color: var(--accent);
-    box-shadow: 0 4px 24px rgba(194,65,12,0.08);
-    transform: translateY(-2px);
-  }
-  .cycle-card.is-open::before { transform: scaleX(1); }
-  .cycle-card.is-open .cycle-num { color: var(--accent); }
-  .cycle-card.is-open h3 { color: var(--accent); }
-  .cycle-card.is-open .tag { border-color: var(--accent); color: var(--accent); }
-  .cycle-card.is-open .cycle-detail {
-    max-height: 1400px;
-    opacity: 1;
-  }
-  .cycle-detail-inner {
-    padding-top: 1.25rem;
-    margin-top: 1rem;
-    border-top: 1px solid var(--rule);
-  }
-  .cycle-detail-inner .project-bullets { margin-top: 0; }
-
-  /* OTP card spans full width */
-  .cycle-card--full {
-    grid-column: 1 / -1;
-    background: var(--bg);
-    border: 2px solid var(--accent);
-  }
-  .cycle-card--full .cycle-num { color: var(--accent); }
-
-  .implementation-section {
-    padding-top: 0;
-  }
-  .implementation-grid {
-    margin-top: 3rem;
-  }
-  @media (max-width: 768px) {
-    .cycle-grid { grid-template-columns: 1fr; }
-    .cycle-grid::before { left: 1.5rem; }
-  }
-  @media (max-width: 520px) {
-    .project-bullets li { grid-template-columns: 1fr; gap: 0.15rem; }
-  }
-</style>
+<link rel="stylesheet" href="styles.css" />
+<script defer src="site.js"></script>
 </head>
 <body>
 <nav id="nav"><div class="container">
   <div class="logo"><a href="index.html" style="text-decoration:none;color:inherit;">Xavier Chong&nbsp;&middot;&nbsp;<em>Portfolio</em></a></div>
-  <div class="nav-links"><a href="index.html">Home</a><a href="provision.html"  class="active">Provision</a><a href="tax.html">Tax</a><a href="automation.html">Automation</a></div>
+  <div class="nav-links"><a href="index.html">Home</a><a href="provision.html"  class="active">Tax Provision</a><a href="tax.html">Tax Compliance</a><a href="automation.html">Process Improvement</a></div>
 </div></nav>
 
 <header class="hero">
   <div class="container">
     <div>
-      <div class="hero-meta">Global Tax Provision</div>
+      <div class="hero-meta">Tax Provision</div>
       <h1>Full-cycle ASC 740 — from quarterly provision to <em>year-end close</em>.</h1>
-      <p>Every step of the provision cycle across a global entity portfolio. Current and deferred tax, FIN 48, FIN 18, valuation allowance, ETR and journal entries, with platform implementation highlighted separately below.</p>
+      <p>Tax provision support across a global entity portfolio, with a focus on accurate reporting, clear reconciliations and workpapers that can stand up to management and auditor review.</p>
     </div>
     <div class="hero-visual">
       <img src="provision_visual.svg" alt="Abstract provision workflow visual" />
@@ -751,13 +40,13 @@
       <div class="cycle-card reveal">
         <div class="cycle-num">01</div>
         <h3>Current Tax</h3>
-        <p class="cycle-tagline">Current tax expense each period across all jurisdictions.</p>
+        <p class="cycle-tagline">Current tax expense supported by consistent source data and reviewable calculations.</p>
         <div class="cycle-tags"><span class="tag">Current tax</span><span class="tag">OneSource Tax Provision</span><span class="tag">ASC 740</span></div>
         <div class="cycle-detail"><div class="cycle-detail-inner">
           <ul class="project-bullets">
-            <li><span class="bullet-label">Compute</span><span>Calculate current tax expense for each entity based on taxable income and applicable federal and provincial/state rates.</span></li>
-            <li><span class="bullet-label">Allocate</span><span>Apply provincial allocation percentages (Canada) and state apportionment factors (US) to compute jurisdiction-level current tax.</span></li>
-            <li><span class="bullet-label">True-up</span><span>Adjust the current tax balance for prior-year true-ups identified during the RTP process.</span></li>
+            <li><span class="bullet-label">Calculate</span><span>Prepare current tax expense support using taxable income, jurisdictional rates and entity-level filing positions.</span></li>
+            <li><span class="bullet-label">Allocate</span><span>Apply provincial allocation percentages and state apportionment factors consistently across entities.</span></li>
+            <li><span class="bullet-label">Review</span><span>Identify prior-year true-ups through the RTP process and support the related current tax adjustments.</span></li>
           </ul>
         </div></div>
       </div>
@@ -765,13 +54,13 @@
       <div class="cycle-card reveal">
         <div class="cycle-num">02</div>
         <h3>Tax Payable</h3>
-        <p class="cycle-tagline">Rollforward, balance proof and GL reconciliation.</p>
+        <p class="cycle-tagline">Tax payable rollforward, balance proof and GL reconciliation.</p>
         <div class="cycle-tags"><span class="tag">Tax payable</span><span class="tag">Rollforward</span><span class="tag">Balance proof</span><span class="tag">GL reconciliation</span></div>
         <div class="cycle-detail"><div class="cycle-detail-inner">
           <ul class="project-bullets">
-            <li><span class="bullet-label">Rollforward</span><span>Maintain the tax payable rollforward each period — opening balance, current tax expense, payments, refunds and adjustments.</span></li>
-            <li><span class="bullet-label">Balance proof</span><span>Perform an ending tax payable balance proof — compare the computed payable to the GL balance and determine whether a payable true-up entry is needed.</span></li>
-            <li><span class="bullet-label">Reconcile</span><span>Tie the tax payable balance to the balance sheet and resolve any unexplained variances before period close.</span></li>
+            <li><span class="bullet-label">Rollforward</span><span>Maintain the tax payable rollforward each period, including current tax expense, payments, refunds and adjustments.</span></li>
+            <li><span class="bullet-label">Proof</span><span>Compare the computed payable to the GL balance and identify whether a true-up entry is needed.</span></li>
+            <li><span class="bullet-label">Resolve</span><span>Investigate unexplained variances before close so the balance sheet support is complete and review-ready.</span></li>
           </ul>
         </div></div>
       </div>
@@ -779,14 +68,14 @@
       <div class="cycle-card reveal">
         <div class="cycle-num">03</div>
         <h3>Deferred Tax</h3>
-        <p class="cycle-tagline">Full deferred tax roll — temporary differences, rate changes and balance proof.</p>
+        <p class="cycle-tagline">Deferred tax rollforward, temporary differences and balance proof.</p>
         <div class="cycle-tags"><span class="tag">Deferred tax</span><span class="tag">Temporary differences</span><span class="tag">Rate reconciliation</span><span class="tag">ASC 740</span></div>
         <div class="cycle-detail"><div class="cycle-detail-inner">
           <ul class="project-bullets">
-            <li><span class="bullet-label">Roll</span><span>Maintain the deferred tax asset and liability roll — opening balance, current period movements and rate change adjustments across federal and provincial/state jurisdictions.</span></li>
-            <li><span class="bullet-label">Balance proof</span><span>Perform an ending deferred tax balance proof each period — compare the computed DTA/DTL to the GL balance and determine whether a deferred true-up entry is needed.</span></li>
-            <li><span class="bullet-label">True-up</span><span>Perform the deferred tax true-up at year end — compare provision deferred tax to the as-filed return positions and book the adjustment.</span></li>
-            <li><span class="bullet-label">Presentation</span><span>Prepare net deferred tax balances for financial statement presentation per jurisdiction.</span></li>
+            <li><span class="bullet-label">Roll</span><span>Maintain deferred tax asset and liability support for temporary differences, rate changes and current period movements.</span></li>
+            <li><span class="bullet-label">Proof</span><span>Compare computed DTA/DTL balances to the GL and identify any deferred true-up entries needed for close.</span></li>
+            <li><span class="bullet-label">True-up</span><span>Compare provision deferred tax to as-filed return positions and support the year-end adjustment.</span></li>
+            <li><span class="bullet-label">Present</span><span>Prepare net deferred tax balances for financial statement presentation by jurisdiction.</span></li>
           </ul>
         </div></div>
       </div>
@@ -794,42 +83,42 @@
       <div class="cycle-card reveal">
         <div class="cycle-num">04</div>
         <h3>Return-to-Provision</h3>
-        <p class="cycle-tagline">Systematic RTP across 70+ entities — every adjustment traced, coded and posted.</p>
+        <p class="cycle-tagline">RTP review across a multi-entity portfolio — adjustments traced, explained and recorded.</p>
         <div class="cycle-tags"><span class="tag">RTP</span><span class="tag">T2 Extract</span><span class="tag">OneSource Tax Provision</span><span class="tag">Adjustment codes</span></div>
         <div class="cycle-detail"><div class="cycle-detail-inner">
           <ul class="project-bullets">
-            <li><span class="bullet-label">Extract</span><span>Pull Schedule 1 data from T2 returns across all entities using T2 Extract — each line mapped to an OTP adjustment code automatically.</span></li>
-            <li><span class="bullet-label">Analyze</span><span>Compare tax return positions to provision estimates — identify permanent and temporary differences requiring true-up entries.</span></li>
-            <li><span class="bullet-label">Post</span><span>Book RTP journal entries and update the deferred tax roll to reflect the as-filed positions.</span></li>
+            <li><span class="bullet-label">Review</span><span>Review Schedule 1 data from T2 returns across the entity portfolio and map return adjustments to provision categories.</span></li>
+            <li><span class="bullet-label">Analyze</span><span>Compare tax return positions to provision estimates and identify permanent or temporary differences requiring true-up entries.</span></li>
+            <li><span class="bullet-label">Record</span><span>Support RTP journal entries and update the deferred tax roll to reflect as-filed positions.</span></li>
           </ul>
         </div></div>
       </div>
 
       <div class="cycle-card reveal">
         <div class="cycle-num">05</div>
-        <h3>FIN 48 — Uncertain Tax Positions</h3>
-        <p class="cycle-tagline">Recognition and measurement of UTPs each period.</p>
-        <div class="cycle-tags"><span class="tag">FIN 48</span><span class="tag">ASC 740-10</span><span class="tag">UTPs</span><span class="tag">MLTN threshold</span></div>
+        <h3>ASC 740 — Uncertain Tax Positions <span class="legacy-term">(FIN 48)</span></h3>
+        <p class="cycle-tagline">Recognition, measurement and disclosure support for uncertain tax positions.</p>
+        <div class="cycle-tags"><span class="tag">ASC 740-10-25</span><span class="tag">ASC 740-10-30</span><span class="tag">FIN 48</span><span class="tag">UTPs</span></div>
         <div class="cycle-detail"><div class="cycle-detail-inner">
           <ul class="project-bullets">
-            <li><span class="bullet-label">Recognize</span><span>Apply the more-likely-than-not threshold to each identified position — document the technical basis for recognition or non-recognition.</span></li>
-            <li><span class="bullet-label">Measure</span><span>Compute the cumulative probability distribution and determine the measured benefit for each recognized position.</span></li>
-            <li><span class="bullet-label">Rollforward</span><span>Maintain the UTP rollforward each period — additions, reductions, settlements and lapse of statute of limitations.</span></li>
-            <li><span class="bullet-label">Disclose</span><span>Prepare FIN 48 disclosures for the 10-K and 10-Q tax footnote including a reconciliation of the beginning and ending unrecognized tax benefit balance.</span></li>
+            <li><span class="bullet-label">Assess</span><span>Review identified positions and document the technical basis for recognition or non-recognition.</span></li>
+            <li><span class="bullet-label">Measure</span><span>Support measurement of recognized positions and maintain clear support for the benefit recorded.</span></li>
+            <li><span class="bullet-label">Rollforward</span><span>Maintain the UTP rollforward, including additions, reductions, settlements and statute changes.</span></li>
+            <li><span class="bullet-label">Disclose</span><span>Prepare uncertain tax position disclosure support for quarterly and annual tax footnotes.</span></li>
           </ul>
         </div></div>
       </div>
 
       <div class="cycle-card reveal">
         <div class="cycle-num">06</div>
-        <h3>FIN 18 — Interim Reporting</h3>
+        <h3>ASC 740-270 — Interim Reporting <span class="legacy-term">(FIN 18)</span></h3>
         <p class="cycle-tagline">Quarterly provision using the annual effective tax rate method.</p>
-        <div class="cycle-tags"><span class="tag">FIN 18</span><span class="tag">AETR</span><span class="tag">Interim provision</span><span class="tag">ASC 740-270</span></div>
+        <div class="cycle-tags"><span class="tag">ASC 740-270</span><span class="tag">FIN 18</span><span class="tag">AETR</span><span class="tag">Interim provision</span><span class="tag">Discrete items</span></div>
         <div class="cycle-detail"><div class="cycle-detail-inner">
           <ul class="project-bullets">
-            <li><span class="bullet-label">AETR</span><span>Estimate the annual effective tax rate each quarter based on projected full-year ordinary income and tax — updated as the year progresses.</span></li>
-            <li><span class="bullet-label">Apply</span><span>Apply the AETR to year-to-date ordinary income to compute the interim tax provision. Discrete items are recognized in the period they occur.</span></li>
-            <li><span class="bullet-label">Reconcile</span><span>Reconcile the interim provision to the prior quarter and explain material movements for management reporting.</span></li>
+            <li><span class="bullet-label">Estimate</span><span>Support the annual effective tax rate each quarter using projected ordinary income and current tax assumptions.</span></li>
+            <li><span class="bullet-label">Apply</span><span>Apply the AETR to year-to-date ordinary income and separately identify discrete items in the period they occur.</span></li>
+            <li><span class="bullet-label">Explain</span><span>Reconcile the interim provision to the prior quarter and explain material movements for management reporting.</span></li>
           </ul>
         </div></div>
       </div>
@@ -841,9 +130,9 @@
         <div class="cycle-tags"><span class="tag">Valuation allowance</span><span class="tag">DTA realizability</span><span class="tag">ASC 740-10-30</span></div>
         <div class="cycle-detail"><div class="cycle-detail-inner">
           <ul class="project-bullets">
-            <li><span class="bullet-label">Assess</span><span>Evaluate each jurisdiction's deferred tax asset position against the four sources of taxable income under ASC 740-10-30.</span></li>
-            <li><span class="bullet-label">Evidence</span><span>Weigh positive evidence (future taxable income, reversing temporary differences, tax planning strategies) against negative evidence (cumulative losses, expiring attributes).</span></li>
-            <li><span class="bullet-label">Document</span><span>Prepare the VA memo supporting the conclusion — used by external auditors and referenced in the tax footnote disclosure.</span></li>
+            <li><span class="bullet-label">Assess</span><span>Evaluate deferred tax asset realizability by jurisdiction under ASC 740-10-30.</span></li>
+            <li><span class="bullet-label">Evidence</span><span>Weigh positive and negative evidence, including future taxable income, reversing temporary differences and cumulative loss history.</span></li>
+            <li><span class="bullet-label">Document</span><span>Prepare valuation allowance support used for auditor review and tax footnote disclosure.</span></li>
           </ul>
         </div></div>
       </div>
@@ -855,9 +144,9 @@
         <div class="cycle-tags"><span class="tag">ETR</span><span class="tag">Rate reconciliation</span><span class="tag">Statutory rate</span><span class="tag">Permanent items</span></div>
         <div class="cycle-detail"><div class="cycle-detail-inner">
           <ul class="project-bullets">
-            <li><span class="bullet-label">Bridge</span><span>Build the rate reconciliation from statutory rate to effective rate — permanent items, rate differentials, uncertain positions, VA movements and discrete items.</span></li>
-            <li><span class="bullet-label">Narrative</span><span>Write the ETR commentary explaining quarter-over-quarter and year-over-year drivers for management and the audit committee.</span></li>
-            <li><span class="bullet-label">Forecast</span><span>Prepare the projected full-year ETR for FIN 18 and update it each quarter as new information arises.</span></li>
+            <li><span class="bullet-label">Bridge</span><span>Prepare the rate reconciliation from statutory rate to effective rate, including permanent items, rate differentials, uncertain positions, VA movements and discrete items.</span></li>
+            <li><span class="bullet-label">Narrative</span><span>Explain quarter-over-quarter and year-over-year ETR drivers for management reporting.</span></li>
+            <li><span class="bullet-label">Update</span><span>Refresh the projected full-year ETR under ASC 740-270 as new information becomes available.</span></li>
           </ul>
         </div></div>
       </div>
@@ -865,7 +154,7 @@
       <div class="cycle-card reveal">
         <div class="cycle-num">09</div>
         <h3>Tax Journal Entries</h3>
-        <p class="cycle-tagline">Book all tax entries each period.</p>
+        <p class="cycle-tagline">Tax journal entries supported by clear calculations and reconciliations.</p>
         <div class="cycle-tags"><span class="tag">Journal entries</span><span class="tag">Current expense</span><span class="tag">Deferred expense</span><span class="tag">UTP</span><span class="tag">DTA/DTL</span></div>
         <div class="cycle-detail"><div class="cycle-detail-inner">
           <p style="color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 0.75rem;">Key entries each period:</p>
@@ -886,20 +175,20 @@
 
 <section class="implementation-section">
   <div class="container">
-    <div class="section-label reveal">System Implementation</div>
+    <div class="section-label reveal">Process Support</div>
     <h2 class="section-title reveal">OneSource Tax Provision Implementation</h2>
 
     <div class="cycle-grid implementation-grid">
       <div class="cycle-card reveal">
         <div class="cycle-num">01</div>
         <h3>Lead &amp; Stakeholder Support</h3>
-        <p class="cycle-tagline">Led the OTP implementation across tax teams and brands.</p>
-        <div class="cycle-tags"><span class="tag">Lead</span><span class="tag">US</span><span class="tag">Canada</span><span class="tag">International</span><span class="tag">Brands</span></div>
+        <p class="cycle-tagline">Led tax-side coordination for OneSource Tax Provision across teams and business units.</p>
+        <div class="cycle-tags"><span class="tag">Lead</span><span class="tag">US</span><span class="tag">Canada</span><span class="tag">International</span><span class="tag">Business units</span></div>
         <div class="cycle-detail"><div class="cycle-detail-inner">
           <ul class="project-bullets">
-            <li><span class="bullet-label">Lead</span><span>Acted as the lead for the implementation workstream and coordinated support across US, Canada and International tax teams.</span></li>
-            <li><span class="bullet-label">Brands</span><span>Supported all brands through setup questions, testing issues and close-readiness follow-ups.</span></li>
-            <li><span class="bullet-label">Coach</span><span>Trained team members and taught my superior the OTP workflow so support knowledge was not concentrated in one person.</span></li>
+            <li><span class="bullet-label">Lead</span><span>Coordinated tax-side support across US, Canada and International teams during the transition.</span></li>
+            <li><span class="bullet-label">Support</span><span>Helped business units resolve setup questions, testing issues and close-readiness items.</span></li>
+            <li><span class="bullet-label">Guide</span><span>Helped teams understand the new workflow, key dependencies and review expectations before go-live.</span></li>
           </ul>
         </div></div>
       </div>
@@ -907,13 +196,13 @@
       <div class="cycle-card reveal">
         <div class="cycle-num">02</div>
         <h3>Replication &amp; Configuration</h3>
-        <p class="cycle-tagline">Replicated legacy provision logic inside OTP.</p>
+        <p class="cycle-tagline">Supported accurate carryover of existing provision logic into OneSource.</p>
         <div class="cycle-tags"><span class="tag">Replication</span><span class="tag">Entity setup</span><span class="tag">COA mapping</span><span class="tag">Adjustment codes</span></div>
         <div class="cycle-detail"><div class="cycle-detail-inner">
           <ul class="project-bullets">
-            <li><span class="bullet-label">Replicate</span><span>Replicated Tax Datahub calculations, reports and workpaper logic in OneSource Tax Provision.</span></li>
-            <li><span class="bullet-label">Configure</span><span>Set up entity structure, chart of accounts mapping, adjustment codes and report templates.</span></li>
-            <li><span class="bullet-label">Control</span><span>Maintained consistency between legacy process outputs and the new OTP configuration.</span></li>
+            <li><span class="bullet-label">Validate</span><span>Checked that legacy calculations, reports and workpaper logic carried forward accurately into OneSource Tax Provision.</span></li>
+            <li><span class="bullet-label">Support</span><span>Supported entity structure, chart of accounts mapping, adjustment codes and report templates.</span></li>
+            <li><span class="bullet-label">Control</span><span>Maintained consistency between legacy process outputs and OneSource reporting.</span></li>
           </ul>
         </div></div>
       </div>
@@ -921,13 +210,13 @@
       <div class="cycle-card reveal">
         <div class="cycle-num">03</div>
         <h3>Parallel Testing</h3>
-        <p class="cycle-tagline">Ran side-by-side testing before go-live.</p>
+        <p class="cycle-tagline">Reviewed side-by-side results before go-live.</p>
         <div class="cycle-tags"><span class="tag">Parallel test</span><span class="tag">Historical data</span><span class="tag">Opening balances</span><span class="tag">Variance review</span></div>
         <div class="cycle-detail"><div class="cycle-detail-inner">
           <ul class="project-bullets">
-            <li><span class="bullet-label">Test</span><span>Performed parallel testing between Tax Datahub and OTP outputs across current tax, deferred tax and reporting views.</span></li>
-            <li><span class="bullet-label">Review</span><span>Investigated variances, corrected mappings and validated opening balances before the platform transition.</span></li>
-            <li><span class="bullet-label">Evidence</span><span>Kept testing support and reconciliation evidence available for review and sign-off.</span></li>
+            <li><span class="bullet-label">Compare</span><span>Reviewed parallel results between the legacy process and OneSource outputs across current tax, deferred tax and reporting views.</span></li>
+            <li><span class="bullet-label">Resolve</span><span>Investigated variances, corrected mappings and validated opening balances before go-live.</span></li>
+            <li><span class="bullet-label">Evidence</span><span>Maintained reconciliation evidence for review and sign-off.</span></li>
           </ul>
         </div></div>
       </div>
@@ -939,23 +228,23 @@
         <div class="cycle-tags"><span class="tag">SOX controls</span><span class="tag">Internal audit</span><span class="tag">External auditors</span><span class="tag">Walkthrough</span></div>
         <div class="cycle-detail"><div class="cycle-detail-inner">
           <ul class="project-bullets">
-            <li><span class="bullet-label">SOX</span><span>Participated in internal audit procedures for SOX control purposes related to the OTP implementation.</span></li>
-            <li><span class="bullet-label">Walkthrough</span><span>Walked external auditors through the implementation process, system changes, testing approach and control evidence.</span></li>
-            <li><span class="bullet-label">Support</span><span>Answered audit follow-ups and helped connect implementation evidence back to control objectives.</span></li>
+            <li><span class="bullet-label">SOX</span><span>Participated in internal audit procedures related to control readiness for the OneSource transition.</span></li>
+            <li><span class="bullet-label">Walkthrough</span><span>Walked external auditors through process changes, testing approach and control evidence.</span></li>
+            <li><span class="bullet-label">Support</span><span>Answered audit follow-ups and connected implementation evidence back to control objectives.</span></li>
           </ul>
         </div></div>
       </div>
 
       <div class="cycle-card reveal">
         <div class="cycle-num">05</div>
-        <h3>Training &amp; Knowledge Transfer</h3>
-        <p class="cycle-tagline">Built shared knowledge for the new platform.</p>
-        <div class="cycle-tags"><span class="tag">Training</span><span class="tag">Documentation</span><span class="tag">Knowledge transfer</span></div>
+        <h3>Training &amp; Process Enhancement</h3>
+        <p class="cycle-tagline">Shared knowledge while improving the process as we went.</p>
+        <div class="cycle-tags"><span class="tag">Training</span><span class="tag">Documentation</span><span class="tag">Process enhancement</span></div>
         <div class="cycle-detail"><div class="cycle-detail-inner">
           <ul class="project-bullets">
-            <li><span class="bullet-label">Train</span><span>Delivered training and documentation for ongoing team use after go-live.</span></li>
-            <li><span class="bullet-label">Coach</span><span>Taught my superior the OTP workflow, including setup logic, common issues and review touchpoints.</span></li>
-            <li><span class="bullet-label">Document</span><span>Documented repeatable steps so the implementation knowledge could support future close cycles.</span></li>
+            <li><span class="bullet-label">Train</span><span>Provided training and documentation for ongoing team use after go-live.</span></li>
+            <li><span class="bullet-label">Enhance</span><span>Improved the tax provision close workflow by turning testing issues and user feedback into practical process updates.</span></li>
+            <li><span class="bullet-label">Document</span><span>Documented repeatable steps and review points to support future close cycles.</span></li>
           </ul>
         </div></div>
       </div>
@@ -963,13 +252,13 @@
       <div class="cycle-card reveal">
         <div class="cycle-num">06</div>
         <h3>Go-Live &amp; Ongoing Support</h3>
-        <p class="cycle-tagline">Supported live close cycles across teams and brands.</p>
-        <div class="cycle-tags"><span class="tag">Go-live</span><span class="tag">Close support</span><span class="tag">All brands</span><span class="tag">US / Canada / International</span></div>
+        <p class="cycle-tagline">Supported live close cycles across teams and business units.</p>
+        <div class="cycle-tags"><span class="tag">Go-live</span><span class="tag">Close support</span><span class="tag">Business units</span><span class="tag">US / Canada / International</span></div>
         <div class="cycle-detail"><div class="cycle-detail-inner">
           <ul class="project-bullets">
-            <li><span class="bullet-label">Launch</span><span>Supported go-live and post-implementation cleanup so the close process could continue smoothly.</span></li>
-            <li><span class="bullet-label">Teams</span><span>Provided ongoing support to US, Canada and International users as issues surfaced during live close cycles.</span></li>
-            <li><span class="bullet-label">Brands</span><span>Supported all brands through setup questions, data issues and reporting follow-ups.</span></li>
+            <li><span class="bullet-label">Launch</span><span>Supported go-live and follow-up items so the provision close could continue smoothly.</span></li>
+            <li><span class="bullet-label">Teams</span><span>Provided ongoing support to US, Canada and International users during live close cycles.</span></li>
+            <li><span class="bullet-label">Units</span><span>Supported business units through data issues, reporting questions and close follow-ups.</span></li>
           </ul>
         </div></div>
       </div>
@@ -979,53 +268,10 @@
 
 <footer>
   <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; width: 100%;">
-    <div>&copy; 2026 Xavier Chong Portfolio &middot; built by hand</div>
+    <div>&copy; 2026 Xavier Chong Portfolio &middot; prepared with care</div>
     <div>hosted on github pages &middot; no cookies, no tracking</div>
   </div>
 </footer>
 
-<script>
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 20); });
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  document.querySelectorAll('.project, .cycle-card, .tile').forEach((card, index) => {
-    const detail = card.querySelector('.project-detail, .cycle-detail, .tile-detail');
-    if (!detail) return;
-
-    const detailId = detail.id || `expandable-card-${index}`;
-    detail.id = detailId;
-    card.setAttribute('role', 'button');
-    card.setAttribute('tabindex', '0');
-    card.setAttribute('aria-expanded', 'false');
-    card.setAttribute('aria-controls', detailId);
-
-    const toggleCard = () => {
-      const shouldOpen = !card.classList.contains('is-open');
-      const group = card.closest('.projects, .cycle-grid, .mosaic');
-      if (group) {
-        group.querySelectorAll('.is-open').forEach(openCard => {
-          if (openCard !== card) {
-            openCard.classList.remove('is-open');
-            openCard.setAttribute('aria-expanded', 'false');
-          }
-        });
-      }
-      card.classList.toggle('is-open', shouldOpen);
-      card.setAttribute('aria-expanded', String(shouldOpen));
-    };
-
-    card.addEventListener('click', toggleCard);
-    card.addEventListener('keydown', event => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        toggleCard();
-      }
-    });
-  });
-</script>
 </body>
 </html>

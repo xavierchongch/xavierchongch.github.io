@@ -1,61 +1,67 @@
-<svg width="980" height="720" viewBox="0 0 980 720" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="980" height="720" rx="18" fill="#ffffff"/>
-  <rect x="1" y="1" width="978" height="718" rx="17" stroke="#e6e4dc"/>
-  <rect x="1" y="1" width="978" height="46" rx="17" fill="#fafaf7"/>
-  <path d="M1 47H979" stroke="#e6e4dc"/>
-  <circle cx="24" cy="24" r="7" fill="#ef4444"/>
-  <circle cx="44" cy="24" r="7" fill="#f59e0b"/>
-  <circle cx="64" cy="24" r="7" fill="#22c55e"/>
-  <text x="490" y="29" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="#1a1a1a">Canada Instalment Calculator - 2026</text>
-  <g font-family="Inter, Arial, sans-serif" font-size="13" fill="#1a1a1a">
-    <rect x="0" y="48" width="172" height="38" fill="#fafaf7"/><text x="86" y="72" text-anchor="middle">Assumptions</text>
-    <rect x="172" y="48" width="172" height="38" fill="#fafaf7"/><text x="258" y="72" text-anchor="middle">Entity Calculator</text>
-    <rect x="344" y="48" width="172" height="38" fill="#fff7ed"/><text x="430" y="72" text-anchor="middle" fill="#c2410c" font-weight="700">Summary</text>
-    <rect x="516" y="48" width="172" height="38" fill="#fafaf7"/><text x="602" y="72" text-anchor="middle">Deferral</text>
-    <rect x="688" y="48" width="172" height="38" fill="#fafaf7"/><text x="774" y="72" text-anchor="middle">Payment Request</text>
-    <path d="M0 86H980M344 86H516" stroke="#e6e4dc"/>
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" rx="18" fill="#ffffff"/>
+  <rect x="1" y="1" width="1198" height="758" rx="17" stroke="#e6e4dc"/>
+  <rect x="1" y="1" width="1198" height="44" rx="17" fill="#fafaf7"/>
+  <path d="M1 45H1199" stroke="#e6e4dc"/>
+  <circle cx="24" cy="22" r="7" fill="#ef4444"/>
+  <circle cx="44" cy="22" r="7" fill="#f59e0b"/>
+  <circle cx="64" cy="22" r="7" fill="#22c55e"/>
+  <text x="600" y="28" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Canada Instalment Review - 2026</text>
+
+  <g font-family="Inter, Arial, sans-serif" font-size="11" fill="#1a1a1a">
+    <rect x="1" y="46" width="160" height="40" fill="#fafaf7"/><text x="81" y="71" text-anchor="middle">Assumptions</text>
+    <rect x="161" y="46" width="172" height="40" fill="#fafaf7"/><text x="247" y="71" text-anchor="middle">Entity Calculator</text>
+    <rect x="333" y="46" width="150" height="40" fill="#fff7ed"/><text x="408" y="71" text-anchor="middle" fill="#c2410c" font-weight="700">Summary</text>
+    <rect x="483" y="46" width="142" height="40" fill="#fafaf7"/><text x="554" y="71" text-anchor="middle">Deferral</text>
+    <rect x="625" y="46" width="176" height="40" fill="#fafaf7"/><text x="713" y="71" text-anchor="middle">Payment Request</text>
+    <path d="M1 86H1199M333 86H483" stroke="#e6e4dc"/>
   </g>
-  <text x="30" y="126" font-family="Fraunces, Georgia, serif" font-size="24" font-weight="500" fill="#1a1a1a">Instalment Summary by Brand - CAD</text>
-  <rect x="30" y="150" width="920" height="206" rx="10" fill="#ffffff" stroke="#e6e4dc"/>
-  <g font-family="JetBrains Mono, monospace" font-size="11" fill="#1a1a1a">
-    <text x="50" y="180" font-weight="600">Brand</text><text x="150" y="180" font-weight="600">CY Provision</text><text x="268" y="180" font-weight="600">PY Tax</text><text x="382" y="180" font-weight="600">Jan</text><text x="450" y="180" font-weight="600">Feb</text><text x="518" y="180" font-weight="600">Mar</text><text x="586" y="180" font-weight="600">Apr</text><text x="654" y="180" font-weight="600">May</text><text x="722" y="180" font-weight="600">Jun</text><text x="790" y="180" font-weight="600">Jul</text><text x="858" y="180" font-weight="600">Total</text>
-    <path d="M30 198H950M30 238H950M30 278H950M30 318H950" stroke="#e6e4dc"/>
-    <text x="50" y="224">Brand A</text><text x="218" y="224" text-anchor="end">25,000,000</text><text x="326" y="224" text-anchor="end">22,000,000</text><text x="405" y="224" text-anchor="end">1,200,000</text><text x="473" y="224" text-anchor="end">1,200,000</text><text x="541" y="224" text-anchor="end">1,200,000</text><text x="609" y="224" text-anchor="end">1,200,000</text><text x="677" y="224" text-anchor="end">1,200,000</text><text x="745" y="224" text-anchor="end">1,200,000</text><text x="813" y="224" text-anchor="end">1,200,000</text><text x="918" y="224" text-anchor="end">24,400,000</text>
-    <text x="50" y="264">Brand B</text><text x="218" y="264" text-anchor="end">18,000,000</text><text x="326" y="264" text-anchor="end">16,500,000</text><text x="405" y="264" text-anchor="end">900,000</text><text x="473" y="264" text-anchor="end">900,000</text><text x="541" y="264" text-anchor="end">900,000</text><text x="609" y="264" text-anchor="end">900,000</text><text x="677" y="264" text-anchor="end">900,000</text><text x="745" y="264" text-anchor="end">900,000</text><text x="813" y="264" text-anchor="end">900,000</text><text x="918" y="264" text-anchor="end">16,100,000</text>
-    <text x="50" y="304">Brand C</text><text x="218" y="304" text-anchor="end">12,000,000</text><text x="326" y="304" text-anchor="end">11,000,000</text><text x="405" y="304" text-anchor="end">560,000</text><text x="473" y="304" text-anchor="end">560,000</text><text x="541" y="304" text-anchor="end">560,000</text><text x="609" y="304" text-anchor="end">560,000</text><text x="677" y="304" text-anchor="end">560,000</text><text x="745" y="304" text-anchor="end">560,000</text><text x="813" y="304" text-anchor="end">560,000</text><text x="918" y="304" text-anchor="end">10,450,000</text>
-    <rect x="30" y="318" width="920" height="38" fill="#fff7ed"/>
-    <text x="50" y="342" font-weight="700">Total</text><text x="218" y="342" text-anchor="end">62,000,000</text><text x="326" y="342" text-anchor="end">56,500,000</text><text x="918" y="342" text-anchor="end">56,250,000</text>
+
+  <text x="32" y="128" font-family="Fraunces, Georgia, serif" font-size="22" font-weight="500" fill="#1a1a1a">Instalment Summary by Unit - CAD</text>
+  <rect x="32" y="150" width="1136" height="246" rx="10" fill="#ffffff" stroke="#e6e4dc"/>
+  <g font-family="JetBrains Mono, monospace" font-size="8.6" fill="#1a1a1a">
+    <text x="52" y="184" font-weight="700">Unit</text><text x="146" y="184" font-weight="700">CY Provision</text><text x="254" y="184" font-weight="700">PY Tax</text><text x="342" y="184" font-weight="700">Jan</text><text x="412" y="184" font-weight="700">Feb</text><text x="482" y="184" font-weight="700">Mar</text><text x="552" y="184" font-weight="700">Apr</text><text x="622" y="184" font-weight="700">May</text><text x="692" y="184" font-weight="700">Jun</text><text x="762" y="184" font-weight="700">Jul</text><text x="832" y="184" font-weight="700">Aug</text><text x="902" y="184" font-weight="700">Sep</text><text x="972" y="184" font-weight="700">Oct</text><text x="1042" y="184" font-weight="700">Nov</text><text x="1120" y="184" font-weight="700">Total</text>
+    <path d="M32 202H1168M32 248H1168M32 294H1168M32 340H1168" stroke="#e6e4dc"/>
+    <text x="52" y="232">Unit A</text><text x="206" y="232" text-anchor="end">25,000,000</text><text x="306" y="232" text-anchor="end">22,000,000</text><text x="366" y="232" text-anchor="end">1,200,000</text><text x="436" y="232" text-anchor="end">1,200,000</text><text x="506" y="232" text-anchor="end">1,200,000</text><text x="576" y="232" text-anchor="end">1,200,000</text><text x="646" y="232" text-anchor="end">1,200,000</text><text x="716" y="232" text-anchor="end">1,200,000</text><text x="786" y="232" text-anchor="end">1,200,000</text><text x="856" y="232" text-anchor="end">1,200,000</text><text x="926" y="232" text-anchor="end">1,200,000</text><text x="996" y="232" text-anchor="end">1,200,000</text><text x="1066" y="232" text-anchor="end">1,200,000</text><text x="1148" y="232" text-anchor="end">24,400,000</text>
+    <text x="52" y="278">Unit B</text><text x="206" y="278" text-anchor="end">18,000,000</text><text x="306" y="278" text-anchor="end">16,500,000</text><text x="366" y="278" text-anchor="end">900,000</text><text x="436" y="278" text-anchor="end">900,000</text><text x="506" y="278" text-anchor="end">900,000</text><text x="576" y="278" text-anchor="end">900,000</text><text x="646" y="278" text-anchor="end">900,000</text><text x="716" y="278" text-anchor="end">900,000</text><text x="786" y="278" text-anchor="end">900,000</text><text x="856" y="278" text-anchor="end">900,000</text><text x="926" y="278" text-anchor="end">900,000</text><text x="996" y="278" text-anchor="end">900,000</text><text x="1066" y="278" text-anchor="end">900,000</text><text x="1148" y="278" text-anchor="end">16,100,000</text>
+    <text x="52" y="324">Unit C</text><text x="206" y="324" text-anchor="end">12,000,000</text><text x="306" y="324" text-anchor="end">11,000,000</text><text x="366" y="324" text-anchor="end">560,000</text><text x="436" y="324" text-anchor="end">560,000</text><text x="506" y="324" text-anchor="end">560,000</text><text x="576" y="324" text-anchor="end">560,000</text><text x="646" y="324" text-anchor="end">560,000</text><text x="716" y="324" text-anchor="end">560,000</text><text x="786" y="324" text-anchor="end">560,000</text><text x="856" y="324" text-anchor="end">560,000</text><text x="926" y="324" text-anchor="end">560,000</text><text x="996" y="324" text-anchor="end">560,000</text><text x="1066" y="324" text-anchor="end">560,000</text><text x="1148" y="324" text-anchor="end">10,450,000</text>
+    <rect x="32" y="340" width="1136" height="56" fill="#fff7ed"/>
+    <text x="52" y="374" font-weight="700">Total</text><text x="206" y="374" text-anchor="end">62,000,000</text><text x="306" y="374" text-anchor="end">56,500,000</text><text x="1148" y="374" text-anchor="end">56,250,000</text>
   </g>
-  <text x="30" y="408" font-family="Fraunces, Georgia, serif" font-size="24" font-weight="500" fill="#1a1a1a">Monthly Profile - All Brands</text>
-  <rect x="30" y="430" width="920" height="160" rx="10" fill="#ffffff" stroke="#e6e4dc"/>
-  <path d="M80 545H920M80 510H920M80 475H920" stroke="#e6e4dc"/>
+
+  <text x="32" y="444" font-family="Fraunces, Georgia, serif" font-size="22" font-weight="500" fill="#1a1a1a">Monthly Profile - All Units</text>
+  <rect x="32" y="466" width="1136" height="150" rx="10" fill="#ffffff" stroke="#e6e4dc"/>
+  <path d="M92 584H1130M92 548H1130M92 512H1130" stroke="#e6e4dc"/>
   <g>
-    <rect x="110" y="512" width="28" height="34" fill="#fed7aa"/><rect x="110" y="501" width="28" height="11" fill="#c2410c"/>
-    <rect x="180" y="510" width="28" height="36" fill="#fed7aa"/><rect x="180" y="498" width="28" height="12" fill="#c2410c"/>
-    <rect x="250" y="508" width="28" height="38" fill="#fed7aa"/><rect x="250" y="496" width="28" height="12" fill="#c2410c"/>
-    <rect x="320" y="486" width="28" height="60" fill="#fed7aa"/><rect x="320" y="472" width="28" height="14" fill="#c2410c"/>
-    <rect x="390" y="482" width="28" height="64" fill="#fed7aa"/><rect x="390" y="468" width="28" height="14" fill="#c2410c"/>
-    <rect x="460" y="480" width="28" height="66" fill="#fed7aa"/><rect x="460" y="466" width="28" height="14" fill="#c2410c"/>
-    <rect x="530" y="478" width="28" height="68" fill="#fed7aa"/><rect x="530" y="464" width="28" height="14" fill="#c2410c"/>
-    <rect x="600" y="472" width="28" height="74" fill="#fed7aa"/><rect x="600" y="458" width="28" height="14" fill="#c2410c"/>
-    <rect x="670" y="466" width="28" height="80" fill="#fed7aa"/><rect x="670" y="452" width="28" height="14" fill="#c2410c"/>
-    <rect x="740" y="456" width="28" height="90" fill="#fed7aa"/><rect x="740" y="442" width="28" height="14" fill="#c2410c"/>
-    <rect x="810" y="448" width="28" height="98" fill="#fed7aa"/><rect x="810" y="434" width="28" height="14" fill="#c2410c"/>
+    <rect x="120" y="558" width="28" height="26" fill="#fed7aa"/><rect x="120" y="544" width="28" height="14" fill="#c2410c"/>
+    <rect x="204" y="557" width="28" height="27" fill="#fed7aa"/><rect x="204" y="543" width="28" height="14" fill="#c2410c"/>
+    <rect x="288" y="555" width="28" height="29" fill="#fed7aa"/><rect x="288" y="541" width="28" height="14" fill="#c2410c"/>
+    <rect x="372" y="534" width="28" height="50" fill="#fed7aa"/><rect x="372" y="518" width="28" height="16" fill="#c2410c"/>
+    <rect x="456" y="528" width="28" height="56" fill="#fed7aa"/><rect x="456" y="512" width="28" height="16" fill="#c2410c"/>
+    <rect x="540" y="526" width="28" height="58" fill="#fed7aa"/><rect x="540" y="510" width="28" height="16" fill="#c2410c"/>
+    <rect x="624" y="523" width="28" height="61" fill="#fed7aa"/><rect x="624" y="507" width="28" height="16" fill="#c2410c"/>
+    <rect x="708" y="520" width="28" height="64" fill="#fed7aa"/><rect x="708" y="504" width="28" height="16" fill="#c2410c"/>
+    <rect x="792" y="516" width="28" height="68" fill="#fed7aa"/><rect x="792" y="500" width="28" height="16" fill="#c2410c"/>
+    <rect x="876" y="510" width="28" height="74" fill="#fed7aa"/><rect x="876" y="494" width="28" height="16" fill="#c2410c"/>
+    <rect x="960" y="504" width="28" height="80" fill="#fed7aa"/><rect x="960" y="488" width="28" height="16" fill="#c2410c"/>
+    <rect x="1044" y="498" width="28" height="86" fill="#fed7aa"/><rect x="1044" y="482" width="28" height="16" fill="#c2410c"/>
   </g>
-  <g font-family="JetBrains Mono, monospace" font-size="11" fill="#4a4a4a">
-    <text x="80" y="550" text-anchor="end">0M</text><text x="80" y="515" text-anchor="end">4M</text><text x="80" y="480" text-anchor="end">8M</text>
-    <text x="124" y="572" text-anchor="middle">Jan</text><text x="194" y="572" text-anchor="middle">Feb</text><text x="264" y="572" text-anchor="middle">Mar</text><text x="334" y="572" text-anchor="middle">Apr</text><text x="404" y="572" text-anchor="middle">May</text><text x="474" y="572" text-anchor="middle">Jun</text><text x="544" y="572" text-anchor="middle">Jul</text><text x="614" y="572" text-anchor="middle">Aug</text><text x="684" y="572" text-anchor="middle">Sep</text><text x="754" y="572" text-anchor="middle">Oct</text><text x="824" y="572" text-anchor="middle">Nov</text>
+  <g font-family="JetBrains Mono, monospace" font-size="10" fill="#4a4a4a">
+    <text x="88" y="588" text-anchor="end">0M</text><text x="88" y="552" text-anchor="end">4M</text><text x="88" y="516" text-anchor="end">8M</text>
+    <text x="134" y="604" text-anchor="middle">Jan</text><text x="218" y="604" text-anchor="middle">Feb</text><text x="302" y="604" text-anchor="middle">Mar</text><text x="386" y="604" text-anchor="middle">Apr</text><text x="470" y="604" text-anchor="middle">May</text><text x="554" y="604" text-anchor="middle">Jun</text><text x="638" y="604" text-anchor="middle">Jul</text><text x="722" y="604" text-anchor="middle">Aug</text><text x="806" y="604" text-anchor="middle">Sep</text><text x="890" y="604" text-anchor="middle">Oct</text><text x="974" y="604" text-anchor="middle">Nov</text><text x="1058" y="604" text-anchor="middle">Dec</text>
   </g>
-  <rect x="30" y="612" width="280" height="84" rx="10" fill="#ffffff" stroke="#e6e4dc"/>
-  <text x="52" y="642" font-family="Fraunces, Georgia, serif" font-size="21" font-weight="500" fill="#1a1a1a">Method Breakdown</text>
-  <text x="52" y="672" font-family="Inter, Arial, sans-serif" font-size="15" fill="#4a4a4a">Current Year 45.1M (73%)</text>
-  <text x="52" y="692" font-family="Inter, Arial, sans-serif" font-size="15" fill="#4a4a4a">Prior Year 15.4M (25%)</text>
-  <rect x="350" y="612" width="280" height="84" rx="10" fill="#ffffff" stroke="#e6e4dc"/>
-  <text x="372" y="642" font-family="Fraunces, Georgia, serif" font-size="21" font-weight="500" fill="#1a1a1a">Exemption</text>
-  <text x="372" y="682" font-family="Fraunces, Georgia, serif" font-size="42" font-weight="500" fill="#15803d">15</text><text x="430" y="678" font-family="Inter, Arial, sans-serif" font-size="19" fill="#1a1a1a">required</text>
-  <text x="520" y="682" font-family="Fraunces, Georgia, serif" font-size="42" font-weight="500" fill="#15803d">59</text><text x="578" y="678" font-family="Inter, Arial, sans-serif" font-size="19" fill="#1a1a1a">exempt</text>
-  <rect x="670" y="612" width="280" height="84" rx="10" fill="#ffffff" stroke="#e6e4dc"/>
-  <text x="692" y="642" font-family="Fraunces, Georgia, serif" font-size="21" font-weight="500" fill="#1a1a1a">Cash Deferred</text>
-  <text x="692" y="682" font-family="Fraunces, Georgia, serif" font-size="40" font-weight="500" fill="#c2410c">$23.3M</text>
-  <text x="836" y="680" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="700" fill="#c2410c">CAD</text>
+
+  <rect x="32" y="642" width="348" height="86" rx="10" fill="#ffffff" stroke="#e6e4dc"/>
+  <text x="56" y="676" font-family="Fraunces, Georgia, serif" font-size="19" font-weight="500" fill="#1a1a1a">Method Breakdown</text>
+  <text x="56" y="706" font-family="Inter, Arial, sans-serif" font-size="13" fill="#4a4a4a">Current Year 45.1M (73%)</text>
+  <text x="250" y="706" font-family="Inter, Arial, sans-serif" font-size="13" fill="#4a4a4a">Prior Year 15.4M (25%)</text>
+  <rect x="426" y="642" width="348" height="86" rx="10" fill="#ffffff" stroke="#e6e4dc"/>
+  <text x="450" y="676" font-family="Fraunces, Georgia, serif" font-size="19" font-weight="500" fill="#1a1a1a">Exemption</text>
+  <text x="450" y="706" font-family="Inter, Arial, sans-serif" font-size="17" fill="#1a1a1a">Review required</text>
+  <text x="610" y="706" font-family="Inter, Arial, sans-serif" font-size="17" fill="#1a1a1a">Auto exempt</text>
+  <rect x="820" y="642" width="348" height="86" rx="10" fill="#ffffff" stroke="#e6e4dc"/>
+  <text x="844" y="676" font-family="Fraunces, Georgia, serif" font-size="19" font-weight="500" fill="#1a1a1a">Cash Deferred</text>
+  <text x="844" y="716" font-family="Fraunces, Georgia, serif" font-size="38" font-weight="500" fill="#c2410c">$23.3M</text>
+  <text x="986" y="710" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" fill="#c2410c">CAD</text>
+  <text x="1040" y="710" font-family="Inter, Arial, sans-serif" font-size="17" fill="#c2410c">(16%)</text>
 </svg>
