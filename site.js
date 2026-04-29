@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     card.addEventListener('click', event => {
       if (event.target.closest('a')) return;
+      if (canHover && card.classList.contains('is-open')) return;
       toggleCard(card);
     });
 
