@@ -41,6 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
     detail.style.height = `${detail.scrollHeight}px`;
     card.classList.remove('is-open');
     card.setAttribute('aria-expanded', 'false');
+    detail.setAttribute('aria-hidden', 'true');
+    detail.inert = true;
     requestAnimationFrame(() => {
       detail.style.height = '0px';
     });
@@ -57,6 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     card.classList.add('is-open');
     card.setAttribute('aria-expanded', 'true');
+    detail.removeAttribute('aria-hidden');
+    detail.inert = false;
     detail.style.height = `${detail.scrollHeight}px`;
   };
 
@@ -75,6 +79,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const detailId = detail.id || `expandable-card-${index}`;
     detail.id = detailId;
     detail.style.height = '0px';
+    detail.setAttribute('aria-hidden', 'true');
+    detail.inert = true;
     card.setAttribute('role', 'button');
     card.setAttribute('tabindex', '0');
     card.setAttribute('aria-expanded', 'false');

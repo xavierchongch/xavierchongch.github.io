@@ -356,18 +356,10 @@
   }
   .project:hover .tag { border-color: var(--accent); color: var(--accent); }
 
-  /* Expandable detail — hidden by default, revealed on hover */
+  /* Expandable detail: measured by site.js, with a no-JS hover fallback below. */
   .project-detail {
     grid-column: 2 / 3;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
     min-width: 0;
-    transition: max-height 0.55s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease 0.1s;
-  }
-  .project:hover .project-detail {
-    max-height: 1800px;
-    opacity: 1;
   }
   .project.is-open {
     background: var(--card);
@@ -378,10 +370,6 @@
   .project.is-open .project-header h3 { color: var(--accent); }
   .project.is-open .project-arrow { transform: translateX(6px) rotate(45deg); color: var(--accent); opacity: 0; }
   .project.is-open .tag { border-color: var(--accent); color: var(--accent); }
-  .project.is-open .project-detail {
-    max-height: 1800px;
-    opacity: 1;
-  }
   .project-detail-inner {
     padding-top: 1.5rem;
     border-top: 1px solid var(--rule);
@@ -1001,19 +989,9 @@
 .cycle-detail,
 .tile-detail {
   height: 0;
-  max-height: none;
   overflow: hidden;
   opacity: 0;
   transition: height 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.28s ease;
-}
-
-.project:hover .project-detail,
-.project.is-open .project-detail,
-.cycle-card:hover .cycle-detail,
-.cycle-card.is-open .cycle-detail,
-.tile:hover .tile-detail,
-.tile.is-open .tile-detail {
-  max-height: none;
 }
 
 .project.is-open .project-detail,
