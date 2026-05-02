@@ -1,0 +1,129 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" rx="18" fill="#ffffff"/>
+  <rect x="1" y="1" width="1198" height="758" rx="17" stroke="#e6e4dc"/>
+
+  <rect x="1" y="1" width="1198" height="44" rx="17" fill="#fafaf7"/>
+  <path d="M1 45H1199" stroke="#e6e4dc"/>
+  <circle cx="24" cy="22" r="7" fill="#ef4444"/>
+  <circle cx="44" cy="22" r="7" fill="#f59e0b"/>
+  <circle cx="64" cy="22" r="7" fill="#22c55e"/>
+  <text x="600" y="28" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#1a1a1a">Tax Operations Dashboard - Portfolio View</text>
+
+  <rect x="1" y="46" width="1198" height="714" fill="#fbfbf8"/>
+
+  <rect x="30" y="76" width="212" height="642" rx="16" fill="#ffffff" stroke="#e6e4dc"/>
+  <text x="58" y="124" font-family="Fraunces, Georgia, serif" font-size="28" font-weight="500" fill="#1a1a1a">Tax Hub</text>
+  <text x="58" y="150" font-family="Inter, Arial, sans-serif" font-size="12" letter-spacing="0.12em" text-transform="uppercase" fill="#888880">central review</text>
+
+  <g font-family="Inter, Arial, sans-serif" font-size="13">
+    <rect x="50" y="190" width="152" height="38" rx="10" fill="#fff7ed"/>
+    <path d="M50 190H56V228H50" fill="#c2410c"/>
+    <text x="76" y="214" fill="#c2410c" font-weight="600">Dashboard</text>
+    <text x="76" y="264" fill="#4a4a4a">Entities</text>
+    <text x="76" y="314" fill="#4a4a4a">Filings</text>
+    <text x="76" y="364" fill="#4a4a4a">Documents</text>
+    <text x="76" y="414" fill="#4a4a4a">Activity log</text>
+    <text x="76" y="464" fill="#4a4a4a">Calendar</text>
+  </g>
+
+  <rect x="50" y="560" width="152" height="112" rx="12" fill="#fafaf7" stroke="#e6e4dc"/>
+  <text x="70" y="596" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700" fill="#1a1a1a">Review status</text>
+  <g font-family="JetBrains Mono, monospace" font-size="11">
+    <circle cx="74" cy="628" r="5" fill="#16a34a"/>
+    <text x="90" y="632" fill="#4a4a4a">Filed</text>
+    <circle cx="74" cy="656" r="5" fill="#ea580c"/>
+    <text x="90" y="660" fill="#4a4a4a">Needs review</text>
+  </g>
+
+  <text x="278" y="118" font-family="Fraunces, Georgia, serif" font-size="34" font-weight="500" fill="#1a1a1a">Tax Operations Dashboard</text>
+  <text x="278" y="148" font-family="Inter, Arial, sans-serif" font-size="14" fill="#66615c">A single view for filing status, deadlines, support documents and review follow-up.</text>
+  <rect x="962" y="98" width="166" height="40" rx="20" fill="#ffffff" stroke="#e6e4dc"/>
+  <text x="1045" y="123" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#c2410c">FY 2026 VIEW</text>
+
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="278" y="184" width="202" height="118" rx="16" fill="#ffffff" stroke="#e6e4dc"/>
+    <text x="306" y="224" font-size="12" letter-spacing="0.12em" fill="#888880">DUE SOON</text>
+    <text x="306" y="266" font-family="Fraunces, Georgia, serif" font-size="42" font-weight="500" fill="#1a1a1a">23</text>
+    <path d="M396 264C420 248 438 242 458 230" stroke="#fed7aa" stroke-width="6" stroke-linecap="round"/>
+
+    <rect x="500" y="184" width="202" height="118" rx="16" fill="#ffffff" stroke="#e6e4dc"/>
+    <text x="528" y="224" font-size="12" letter-spacing="0.12em" fill="#888880">IN REVIEW</text>
+    <text x="528" y="266" font-family="Fraunces, Georgia, serif" font-size="42" font-weight="500" fill="#1a1a1a">41</text>
+    <path d="M620 268H672" stroke="#c2410c" stroke-width="6" stroke-linecap="round"/>
+
+    <rect x="722" y="184" width="202" height="118" rx="16" fill="#ffffff" stroke="#e6e4dc"/>
+    <text x="750" y="224" font-size="12" letter-spacing="0.12em" fill="#888880">FILED YTD</text>
+    <text x="750" y="266" font-family="Fraunces, Georgia, serif" font-size="42" font-weight="500" fill="#1a1a1a">188</text>
+    <path d="M848 266L866 282L902 238" stroke="#166534" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <rect x="944" y="184" width="184" height="118" rx="16" fill="#ffffff" stroke="#e6e4dc"/>
+    <text x="972" y="224" font-size="12" letter-spacing="0.12em" fill="#888880">OPEN ITEMS</text>
+    <text x="972" y="266" font-family="Fraunces, Georgia, serif" font-size="42" font-weight="500" fill="#1a1a1a">8</text>
+    <circle cx="1078" cy="250" r="26" fill="#fff7ed" stroke="#fed7aa"/>
+    <text x="1078" y="256" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="16" fill="#c2410c">!</text>
+  </g>
+
+  <rect x="278" y="336" width="568" height="342" rx="16" fill="#ffffff" stroke="#e6e4dc"/>
+  <text x="306" y="378" font-family="Fraunces, Georgia, serif" font-size="24" font-weight="500" fill="#1a1a1a">Compliance Tracker</text>
+  <text x="806" y="378" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="11" fill="#888880">FILTERED BY YEAR + STATUS</text>
+  <rect x="306" y="410" width="512" height="42" rx="10" fill="#fafaf7"/>
+  <g font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700" fill="#66615c">
+    <text x="326" y="436">Entity</text>
+    <text x="448" y="436">Filing</text>
+    <text x="560" y="436">Jurisdiction</text>
+    <text x="692" y="436">Due</text>
+    <text x="766" y="436">Status</text>
+  </g>
+  <path d="M306 496H818M306 546H818M306 596H818" stroke="#e6e4dc"/>
+  <g font-family="Inter, Arial, sans-serif" font-size="13" fill="#1a1a1a">
+    <text x="326" y="480">Entity A</text>
+    <rect x="440" y="462" width="52" height="24" rx="12" fill="#fff7ed"/>
+    <text x="466" y="479" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#c2410c">T2</text>
+    <text x="560" y="480">Canada</text>
+    <text x="692" y="480">Jun 30</text>
+    <rect x="754" y="462" width="52" height="24" rx="12" fill="#ffedd5"/>
+    <text x="780" y="479" text-anchor="middle" font-size="11" fill="#b45309">Review</text>
+
+    <text x="326" y="530">Entity B</text>
+    <rect x="432" y="512" width="68" height="24" rx="12" fill="#fff7ed"/>
+    <text x="466" y="529" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#c2410c">T5013</text>
+    <text x="560" y="530">Canada</text>
+    <text x="692" y="530">Mar 31</text>
+    <rect x="742" y="512" width="76" height="24" rx="12" fill="#eff6ff"/>
+    <text x="780" y="529" text-anchor="middle" font-size="11" fill="#1d4ed8">In progress</text>
+
+    <text x="326" y="580">Entity C</text>
+    <rect x="430" y="562" width="72" height="24" rx="12" fill="#fff7ed"/>
+    <text x="466" y="579" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#c2410c">GST/HST</text>
+    <text x="560" y="580">Ontario</text>
+    <text x="692" y="580">Apr 30</text>
+    <rect x="754" y="562" width="52" height="24" rx="12" fill="#dcfce7"/>
+    <text x="780" y="579" text-anchor="middle" font-size="11" fill="#166534">Filed</text>
+
+    <text x="326" y="630">Entity D</text>
+    <rect x="426" y="612" width="80" height="24" rx="12" fill="#fff7ed"/>
+    <text x="466" y="629" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#c2410c">Reg 105</text>
+    <text x="560" y="630">Canada</text>
+    <text x="692" y="630">Monthly</text>
+    <rect x="754" y="612" width="52" height="24" rx="12" fill="#ffedd5"/>
+    <text x="780" y="629" text-anchor="middle" font-size="11" fill="#b45309">Review</text>
+  </g>
+
+  <rect x="878" y="336" width="250" height="158" rx="16" fill="#ffffff" stroke="#e6e4dc"/>
+  <text x="904" y="378" font-family="Fraunces, Georgia, serif" font-size="22" font-weight="500" fill="#1a1a1a">Review Focus</text>
+  <g font-family="Inter, Arial, sans-serif" font-size="12">
+    <rect x="904" y="410" width="196" height="20" rx="10" fill="#fff7ed"/>
+    <rect x="904" y="410" width="132" height="20" rx="10" fill="#fb923c" opacity="0.55"/>
+    <text x="904" y="454" fill="#66615c">Open items reviewed by filing type, owner and due date.</text>
+  </g>
+
+  <rect x="878" y="520" width="250" height="158" rx="16" fill="#ffffff" stroke="#e6e4dc"/>
+  <text x="904" y="562" font-family="Fraunces, Georgia, serif" font-size="22" font-weight="500" fill="#1a1a1a">Documents</text>
+  <g font-family="Inter, Arial, sans-serif" font-size="12" fill="#4a4a4a">
+    <path d="M906 592H1100M906 630H1100" stroke="#e6e4dc"/>
+    <path d="M906 584H920L928 592V614H906V584Z" fill="#fed7aa" stroke="#c2410c"/>
+    <text x="940" y="604">Support package</text>
+    <path d="M906 622H920L928 630V652H906V622Z" fill="#fed7aa" stroke="#c2410c"/>
+    <text x="940" y="642">Review evidence</text>
+  </g>
+</svg>
