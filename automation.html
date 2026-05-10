@@ -4,12 +4,13 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Process Improvement | Xavier Chong Portfolio</title>
-<meta name="description" content="Tax process improvement for T2, Reg 105, Part XIII, instalment, dashboard and document retrieval work — focused on accuracy, review quality and recurring process efficiency." />
+<meta name="description" content="Tax process improvement for T2, Reg 105, Part XIII Snowflake automation, instalment, dashboard and document retrieval work — focused on accuracy, review quality and recurring process efficiency." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
 <link rel="stylesheet" href="styles.css" />
 <script defer src="site.js"></script>
 </head>
@@ -104,26 +105,27 @@
         <div class="project-num">03 / 06</div>
         <div>
           <div class="project-header">
-            <h3>Part XIII Withholding Review</h3>
+            <h3>Part XIII Snowflake Workpaper</h3>
             <span class="project-arrow">→</span>
           </div>
-          <p class="project-tagline">Part XIII withholding workpaper review supported by clearer data pickup and reconciliation.</p>
+          <p class="project-tagline">Snowflake Streamlit workflow that turns SAP withholding data into review-ready workpapers, requisitions and approval evidence.</p>
           <div class="project-tags">
-            <span class="tag">Part XIII</span><span class="tag">WHT</span><span class="tag">Power Query</span><span class="tag">Reconciliation</span><span class="tag">Review support</span>
+            <span class="tag">Part XIII</span><span class="tag">Snowflake</span><span class="tag">Streamlit</span><span class="tag">SAP data</span><span class="tag">Python</span><span class="tag">WHT</span><span class="tag">Approval routing</span><span class="tag">PDF exports</span>
           </div>
           <div class="project-detail">
             <div class="project-detail-inner">
-              <p>Improved the Part XIII withholding workpaper process by carrying forward prior period structure, using GL detail consistently and applying Power Query logic to identify line items requiring WHT review.</p>
+              <p>Built a Snowflake Streamlit app that moved the Part XIII process from an Excel-centered workpaper into a governed run surface. The app reads SAP GL data through Snowflake, produces the core review tabs, previews cheque requisitions, exports the workpaper package and applies approval logic tied to employee hierarchy and GAM thresholds.</p>
               <figure class="prototype-preview">
-                <img src="automation_partxiii.svg" alt="Part XIII review interface showing rollover, GL detail, Power Query WHT pickup and reconciliation" loading="lazy" />
+                <img src="automation_partxiii.svg" alt="Part XIII Snowflake Streamlit workflow showing SAP source data, governed review tables, embedded Python outputs and approval routing" loading="lazy" />
                 <figcaption class="prototype-badge">Prototype for demo only</figcaption>
               </figure>
               <ul class="project-bullets">
-                <li><span class="bullet-label">Rollover</span><span>Carry forward prior period workpaper structure while preserving formulas, tabs, references and review points.</span></li>
-                <li><span class="bullet-label">GL review</span><span>Use GL detail to reduce manual copy-paste risk and support a complete review population.</span></li>
-                <li><span class="bullet-label">Power Query</span><span>Identify line items that require Part XIII withholding review based on consistent workpaper logic.</span></li>
-                <li><span class="bullet-label">Review</span><span>Isolate relevant payments for treaty-rate, withholding and support review.</span></li>
-                <li><span class="bullet-label">Reconcile</span><span>Tie the WHT population, remittance support and workpaper totals back to source data.</span></li>
+                <li><span class="bullet-label">Source</span><span>Pull SAP GL data directly through Snowflake so the process no longer depends on switching systems and copying extracts into Excel.</span></li>
+                <li><span class="bullet-label">App</span><span>Centralize reusable SQL and Python logic for NR4 Summary, Payments Due, WHT Recon and GL Detail outputs.</span></li>
+                <li><span class="bullet-label">Tie-out</span><span>Validate Payments Due against withholding by entity and due date, with recon status designed for reviewer drilldown.</span></li>
+                <li><span class="bullet-label">Outputs</span><span>Download a review workbook and Snowflake-native cheque requisition PDF, while keeping a local bridge only when exact Excel-rendered layout is required.</span></li>
+                <li><span class="bullet-label">Approval</span><span>Resolve approval roles from employee hierarchy and GAM thresholds instead of manually typing approvers into a workbook.</span></li>
+                <li><span class="bullet-label">Evidence</span><span>Preserve a cleaner trail of source data, logic, timestamps, exports and review outputs than a file-only workbook process.</span></li>
               </ul>
             </div>
           </div>
@@ -231,20 +233,20 @@
     <h2 class="section-title reveal">Applications I use to support <em>tax work</em>.</h2>
     <div class="expertise-grid reveal">
       <div class="expertise-item">
+        <h4>Snowflake + Streamlit</h4>
+        <p>Used to move recurring tax workpapers into governed apps with direct source data, controlled refreshes and review-ready outputs.</p>
+      </div>
+      <div class="expertise-item">
         <h4>Python</h4>
-        <p>Used selectively to improve recurring data preparation, reduce manual rework and support consistent review files.</p>
+        <p>Used for workbook generation, PDF package creation, validation checks and embedded app logic where repeatability matters.</p>
       </div>
       <div class="expertise-item">
-        <h4>ERP GUI Scripting</h4>
-        <p>Used to support recurring GL extracts and report downloads for review and reconciliation.</p>
-      </div>
-      <div class="expertise-item">
-        <h4>Power Query</h4>
-        <p>Used to standardize spreadsheet data, combine recurring extracts and support review-ready outputs.</p>
+        <h4>SQL / SAP Data</h4>
+        <p>Used to turn SAP GL populations into traceable review tables, tie-outs and exception views without unnecessary spreadsheet handoffs.</p>
       </div>
       <div class="expertise-item">
         <h4>Power Automate</h4>
-        <p>Used for document routing, SharePoint metadata updates and scheduled refreshes that support recurring tax work.</p>
+        <p>Used for document routing, SharePoint metadata updates and workflow handoffs that support recurring tax work.</p>
       </div>
     </div>
   </div>
