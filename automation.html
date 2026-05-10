@@ -105,26 +105,26 @@
         <div class="project-num">03 / 06</div>
         <div>
           <div class="project-header">
-            <h3>Part XIII Snowflake Workpaper</h3>
+            <h3>Part XIII Full Automation Platform</h3>
             <span class="project-arrow">→</span>
           </div>
-          <p class="project-tagline">Snowflake Streamlit workflow that turns SAP withholding data into review-ready workpapers, requisitions and approval evidence.</p>
+          <p class="project-tagline">Snowflake Streamlit workflow that turns SAP withholding data into review-ready workpapers, NR4 renderings, requisitions and export packages.</p>
           <div class="project-tags">
-            <span class="tag">Part XIII</span><span class="tag">Snowflake</span><span class="tag">Streamlit</span><span class="tag">SAP data</span><span class="tag">Python</span><span class="tag">WHT</span><span class="tag">Approval routing</span><span class="tag">PDF exports</span>
+            <span class="tag">Part XIII</span><span class="tag">Snowflake</span><span class="tag">Streamlit</span><span class="tag">SAP data</span><span class="tag">Python</span><span class="tag">WHT</span><span class="tag">NR4 rendering</span><span class="tag">One-click exports</span>
           </div>
           <div class="project-detail">
             <div class="project-detail-inner">
-              <p>Built a Snowflake Streamlit app that moved the Part XIII process from an Excel-centered workpaper into a governed run surface. The app reads SAP GL data through Snowflake, produces the core review tabs, previews cheque requisitions, exports the workpaper package and applies approval logic tied to employee hierarchy and GAM thresholds.</p>
+              <p>Built a Snowflake Streamlit app that moved the Part XIII process from an Excel-centered workpaper into a governed run surface. The app reads SAP GL data through Snowflake, produces the core review tabs, renders NR4 returns, previews cheque requisitions and exports the workpaper package for review and cross-functional follow-up.</p>
               <figure class="prototype-preview">
                 <img src="automation_partxiii.png" alt="Evolution of Part XIII workpapers from 2025 manual Excel workpapers to 2026 February Power Query workpapers and now a fully automated Snowflake platform" loading="lazy" />
                 <figcaption class="prototype-badge">Prototype for demo only</figcaption>
               </figure>
               <ul class="project-bullets">
                 <li><span class="bullet-label">Source</span><span>Pull SAP GL data directly through Snowflake so the process no longer depends on switching systems and copying extracts into Excel.</span></li>
-                <li><span class="bullet-label">App</span><span>Centralize reusable SQL and Python logic for NR4 Summary, Payments Due, WHT Recon and GL Detail outputs.</span></li>
+                <li><span class="bullet-label">App</span><span>Centralize reusable SQL and Python logic for the dashboard, NR4 Summary, Payments Due, WHT Recon, GL Analysis and audit-trail outputs.</span></li>
+                <li><span class="bullet-label">NR4</span><span>Render NR4 returns directly from the app so the review package includes both the computation and the form output.</span></li>
                 <li><span class="bullet-label">Tie-out</span><span>Validate Payments Due against withholding by entity and due date, with recon status designed for reviewer drilldown.</span></li>
-                <li><span class="bullet-label">Outputs</span><span>Download a review workbook and Snowflake-native cheque requisition PDF, while keeping a local bridge only when exact Excel-rendered layout is required.</span></li>
-                <li><span class="bullet-label">Approval</span><span>Resolve approval roles from employee hierarchy and GAM thresholds instead of manually typing approvers into a workbook.</span></li>
+                <li><span class="bullet-label">Outputs</span><span>Provide one-click downloads with the full reviewer package, cross-functional support, YTD summary, NR4 renderings, cheque requisitions and export evidence.</span></li>
                 <li><span class="bullet-label">Evidence</span><span>Preserve a cleaner trail of source data, logic, timestamps, exports and review outputs than a file-only workbook process.</span></li>
               </ul>
             </div>
