@@ -1,88 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Xavier Chong Portfolio</title>
-<meta name="description" content="Xavier Chong Portfolio — Canadian tax, global provision, compliance and Snowflake-enabled process improvement." />
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-<link rel="icon" href="favicon.svg" type="image/svg+xml" />
-<link rel="stylesheet" href="styles.css" />
-<script defer src="site.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xavier Chong — Tax Workflow Lab</title>
+  <meta name="description" content="Practical field notes on building reliable, review-ready tax workflows." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="site.js"></script>
 </head>
 <body>
-<nav id="nav"><div class="container">
-  <div class="logo"><a href="index.html" style="text-decoration:none;color:inherit;">Xavier Chong&nbsp;&middot;&nbsp;<em>Portfolio</em></a></div>
-  <div class="nav-links"><a href="index.html"  class="active">Home</a><a href="provision.html">Tax Provision</a><a href="tax.html">Tax Compliance</a><a href="automation.html">Process Improvement</a></div>
-</div></nav>
+  <nav id="nav"><div class="container">
+    <div class="logo"><a href="index.html" style="text-decoration:none;color:inherit;">Xavier Chong&nbsp;&middot;&nbsp;<em>Tax Workflow Lab</em></a></div>
+    <div class="nav-links"><a href="index.html" class="active">Home</a><a href="provision.html">Provision</a><a href="tax.html">Compliance</a><a href="automation.html">Automation</a></div>
+  </div></nav>
 
-<!-- HERO -->
-<header class="hero">
-  <div class="container">
-    <div>
-      <div class="hero-meta">Portfolio · 2026</div>
-      <h1>Tax provision, compliance and the discipline of <em>reliable reporting</em>.</h1>
-      <p>I'm a Senior Tax Analyst focused on Canadian tax compliance and global tax provision at a public company, with hands-on experience across ASC 740 income tax accounting, uncertain tax positions (FIN 48), interim reporting (FIN 18), valuation allowance, cross-border compliance and controlled automation for recurring tax workpapers. My work is centered on accurate reporting, consistent support and practical judgment that helps tax positions stand up to review.</p>
+  <header class="hero">
+    <div class="container">
+      <div>
+        <div class="hero-meta">Field notes · Toronto · 2026</div>
+        <h1>Make tax work more <em>useful</em> than manual.</h1>
+        <p>A practical collection of tax-operation ideas: turn recurring workpapers into clean data, build review into the process, and give technical judgment the time it deserves.</p>
+      </div>
+      <div class="hero-visual">
+        <img src="hero_visual.png" alt="Scattered inputs becoming one structured and review-ready output" />
+      </div>
     </div>
-    <div class="hero-visual">
-      <img src="hero_visual.png" alt="Messy data standardized into clean structured output" />
+    <div class="hero-scroll">Explore<span></span></div>
+  </header>
+
+  <section class="expertise" aria-labelledby="principles-title">
+    <div class="container">
+      <div class="section-label reveal" id="principles-title">Four operating principles</div>
+      <div class="expertise-grid reveal">
+        <div class="expertise-item"><h4>01 / Start upstream</h4><p>Fix the data handoff before polishing the workpaper.</p></div>
+        <div class="expertise-item"><h4>02 / Keep the evidence</h4><p>Every output should be traceable, explainable and ready to review.</p></div>
+        <div class="expertise-item"><h4>03 / Automate the repeat</h4><p>Reserve human attention for exceptions, judgment and decisions.</p></div>
+        <div class="expertise-item"><h4>04 / Design for handoff</h4><p>A process is only better when someone else can run it with confidence.</p></div>
+      </div>
     </div>
-  </div>
-  <div class="hero-scroll">scroll<span></span></div>
-</header>
+  </section>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <div class="section-label reveal">About</div>
-    <div class="about-text reveal" style="max-width: 680px;">
-      <p>I'm a Senior Tax Analyst and CPA (Washington), currently completing the CPA In-Depth Tax Program, with a bias for <em>clean data</em>.</p>
-
-      <p>I don't just do the work — I think about how the work gets done. If I'm spending hours preparing data that should take minutes, something upstream needs to change. The goal is always the same: spend less time on preparation and more time on the tax issues that actually require judgment.</p>
+  <section id="toolkit">
+    <div class="container">
+      <div class="section-label reveal">The toolkit</div>
+      <div class="about-text reveal" style="max-width: 720px;">
+        <p>This site is for tax people who want less spreadsheet archaeology and more <em>decision-ready work</em>. Each section turns a real operating problem into a reusable pattern—not a generic tech pitch.</p>
+      </div>
+      <div class="page-cards reveal">
+        <a href="provision.html" class="page-card">
+          <div class="page-card-num">01</div>
+          <div class="page-card-title">Provision systems</div>
+          <div class="page-card-desc">A structured way to think about ETR, RTP, deferred taxes, UTPs and the evidence that holds a provision together.</div>
+        </a>
+        <a href="tax.html" class="page-card">
+          <div class="page-card-num">02</div>
+          <div class="page-card-title">Compliance operations</div>
+          <div class="page-card-desc">How clean schedules, reconciliations and clear ownership turn recurring filings into a dependable operating rhythm.</div>
+        </a>
+        <a href="automation.html" class="page-card">
+          <div class="page-card-num">03</div>
+          <div class="page-card-title">Automation patterns</div>
+          <div class="page-card-desc">Practical examples for document extraction, withholding, instalments, dashboards and controls that scale with the work.</div>
+        </a>
+      </div>
     </div>
+  </section>
 
-    <!-- PAGE LINKS -->
-    <div class="page-cards reveal">
-      <a href="provision.html" class="page-card">
-        <div class="page-card-num">01</div>
-        <div class="page-card-title">Tax Provision</div>
-        <div class="page-card-desc">ASC 740 current/deferred tax, UTPs (FIN 48), interim reporting (FIN 18), VA, ETR, RTP and OneSource Tax Provision support.</div>
-      </a>
-      <a href="tax.html" class="page-card">
-        <div class="page-card-num">02</div>
-        <div class="page-card-title">Tax Compliance</div>
-        <div class="page-card-desc">Canadian and US returns, statutory financials, CbCR, CRA and IRS audit support.</div>
-      </a>
-      <a href="automation.html" class="page-card">
-        <div class="page-card-num">03</div>
-        <div class="page-card-title">Process Improvement</div>
-        <div class="page-card-desc">Snowflake, Streamlit, Python, withholding, instalment, dashboard and document processes streamlined for stronger review, reconciliation and consistency.</div>
-      </a>
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="reveal">Built for the <em>next better run</em>.</h2>
+      <div class="contact-links reveal">
+        <a class="contact-link" href="mailto:xexocch@gmail.com"><span>email</span>xexocch@gmail.com</a>
+        <a class="contact-link" href="https://www.linkedin.com/in/xavierchong/" target="_blank" rel="noreferrer"><span>linkedin</span>/in/xavierchong</a>
+        <a class="contact-link" href="https://github.com/xavierchongch" target="_blank" rel="noreferrer"><span>github</span>@xavierchongch</a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CONTACT -->
-<section id="contact" class="contact">
-  <div class="container">
-    <h2 class="reveal">Let's <em>connect</em>.</h2>
-    <div class="contact-links reveal">
-      <a class="contact-link" href="mailto:xexocch@gmail.com"><span>email</span>xexocch@gmail.com</a>
-      <a class="contact-link" href="https://www.linkedin.com/in/xavierchong/" target="_blank"><span>linkedin</span>/in/xavierchong</a>
-      <a class="contact-link" href="https://xavierchongch.github.io/" target="_blank"><span>github</span>xavierchongch.github.io</a>
+  <footer>
+    <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; width: 100%;">
+      <div>© 2026 Xavier Chong · prepared with care</div>
+      <div>hosted on GitHub Pages · no cookies, no tracking</div>
     </div>
-  </div>
-</section>
-
-<footer>
-  <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; width: 100%;">
-    <div>© 2026 Xavier Chong Portfolio · prepared with care</div>
-    <div>hosted on github pages · no cookies, no tracking</div>
-  </div>
-</footer>
+  </footer>
 </body>
 </html>
